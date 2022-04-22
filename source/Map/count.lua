@@ -1,5 +1,5 @@
 return function(_List, isCollection)
-	return function(self, predicate)
+	return function(self, predicate): number
 		self = if isCollection(self) then self.collection else self
 
 		local count = 0

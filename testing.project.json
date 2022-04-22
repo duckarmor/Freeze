@@ -6,8 +6,9 @@
 			"$className": "ReplicatedStorage",
 			"Packages": {
 				"$className": "Folder",
-				"$path": "Packages",
-
+				"Dev": {
+					"$path": "DevPackages"
+				},
 				"Freeze": {
 					"$path": "source"
 				}
