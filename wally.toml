@@ -1,0 +1,10 @@
+[package]
+name = "duckarmor/freeze"
+description = ""
+version = "0.0.1"
+authors = ["benbrimeyer"]
+realm = "shared"
+registry = "https://github.com/upliftgames/wally-index"
+
+[dev-dependencies]
+TestEZ = "roblox/testez@0.4.1"
