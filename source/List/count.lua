@@ -1,15 +1,31 @@
+--[=[
+	Returns the number of entries that match the predicate.
+	If the predicate is not given, all entries will be considered a match.
+
+	```lua
+	List.new({ "a", "b", "c" }).count()
+	-- 3
+	```
+
+	@within List
+	@function count
+	@param predicate ((Value, Key) -> (boolean))?
+	@return List
+]=]
 return function(_List, isCollection)
-	return function(self, predicate)
+	local function count<Key, Value>(self, predicate: ((Value, Key) -> (boolean))?)
 		self = if isCollection(self) then self.collection else self
 
-		local count = 0
+		local sum = 0
 
 		for index, value in ipairs(self) do
 			if predicate == nil or predicate(value, index) then
-				count += 1
+				sum += 1
 			end
 		end
 
-		return count
+		return sum
 	end
+
+	return count
 end

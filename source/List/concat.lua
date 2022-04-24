@@ -1,3 +1,17 @@
+--[=[
+	Returns a new List of the same type concatenated to given arguments.
+
+	```lua
+	List.new({ "a", "b", "c" }).concat({ "d", "e", "f" })
+	-- List( "a", "b", "c", "d", "e", "f" )
+	```
+
+	@within List
+	@function concat
+	@param valuesOrIterables ...any
+	@return List
+]=]
+
 local None = require(script.Parent.Parent.None)
 
 return function(List, isCollection)

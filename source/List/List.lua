@@ -1,3 +1,9 @@
+--[=[
+	@class List
+
+	Handles array-like operations.
+]=]
+
 local source = script.Parent.Parent
 
 local toLuau = require(script.Parent.Parent.Collection.toLuau)
@@ -62,9 +68,23 @@ List.__tostring = function(self)
 	return toString(self, "List(", ")")
 end
 
--- constructors
+--[=[
+	Constructs a new List object with the given table.
+
+	Has a callable shorthand variant:
+
+	```lua
+	local myList1 = List.new({ 1, 2, 3 })
+	local myList2 = List({ 1, 2, 3 })
+	```
+
+	@within List
+	@param collection { any }?
+	@return List
+	@error "List: Expected table" -- Raised when given an invalid argument for collection. Make sure you only provide tables or nil.
+]=]
 function List.new(collection: { any }?)
-	assert(collection == nil or type(collection) == "table", "Map: Expected table")
+	assert(collection == nil or type(collection) == "table", "List: Expected table")
 	collection = collection or {}
 
 	local self = {}
