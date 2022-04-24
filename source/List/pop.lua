@@ -1,5 +1,5 @@
 return function(List, isCollection)
-	return function(self, numPops: number)
+	return function(self, numPops: number?)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
 		numPops = numPops or 1

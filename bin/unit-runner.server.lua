@@ -6,7 +6,7 @@ local Packages = ReplicatedStorage:FindFirstChild("Packages", true)
 local TestEZ = require(Packages.Dev.TestEZ)
 
 TestEZ.TestBootstrap:run(
-	{ Packages.Freeze },
+	{ Packages.Freeze, Packages.tests },
 	TestEZ.Reporters.TextReporterQuiet,
 	{ testNamePattern = nil }
 )

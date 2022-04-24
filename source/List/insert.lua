@@ -1,5 +1,5 @@
 return function(List, isCollection)
-	return function(self, index, value)
+	return function(self, index, ...)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
 
@@ -18,8 +18,10 @@ return function(List, isCollection)
 
 		for i = 1, len + 1 do
 			if i == index then
-				new[resultIndex] = value
-				resultIndex = resultIndex + 1
+				for j = 1, select("#", ...) do
+					new[resultIndex] = select(j, ...)
+					resultIndex = resultIndex + 1
+				end
 			end
 
 			new[resultIndex] = self[i]
