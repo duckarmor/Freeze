@@ -1,5 +1,5 @@
 return function(List, isCollection)
-	return function(self, from: number, to: number)
+	return function(self, from: number?, to: number?)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
 
