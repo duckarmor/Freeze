@@ -1,3 +1,25 @@
+--[=[
+	Returns a flattened map.
+
+	```lua
+	Map.new({
+		foo = 1,
+		foobar = {
+			bar = 2,
+			baz = {
+				etc = 3,
+			},
+		},
+	}).flatten()
+	-- Map( foo = 1, bar = 2, etc = 3 )
+	```
+
+	@within Map
+	@function flatten
+	@param depth number?
+	@return Map
+]=]
+
 return function(Map, isCollection)
 	local function flatten(self, depth)
 		local new = {}

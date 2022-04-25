@@ -1,3 +1,16 @@
+--[=[
+	Returns a list of values.
+
+	```lua
+	Map.new({ a = 1, b = 2, c = 3 }).values()
+	-- Map( 1, 2, 3 )
+	```
+
+	@within Map
+	@function values
+	@return Map
+]=]
+
 return function(Map, isCollection)
 	return function(self)
 		local wasCollection = isCollection(self)

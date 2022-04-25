@@ -1,5 +1,5 @@
 --[=[
-	Returns true if the value is found by following a path of keys of indices.
+	Returns true if the value is found by following a path of indices.
 
 	```lua
 	List.new({

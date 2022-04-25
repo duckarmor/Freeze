@@ -1,5 +1,5 @@
 --[=[
-	Returns the value if found by following a path of keys of indices, otherwise returns `notSetValue` if the given value is nil.
+	Returns the value if found by following a path of indices, otherwise returns `notSetValue` if the given value is nil.
 
 	```lua
 	List.new({

@@ -3,6 +3,8 @@
 
 	Returning a second value in the mapper function will reassign the index.
 
+	If `mapper` returns nil, the entry will be filtered.
+
 	```lua
 	List.new({ 1, 2, 3 }).map(function(value, _key)
 		return value * 10

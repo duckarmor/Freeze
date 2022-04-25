@@ -1,3 +1,16 @@
+--[=[
+	Returns a list of keys.
+
+	```lua
+	Map.new({ a = 1, b = 2, c = 3 }).keys()
+	-- Map( "a", "b", "c" )
+	```
+
+	@within Map
+	@function keys
+	@return Map
+]=]
+
 return function(Map, isCollection)
 	return function(self)
 		local wasCollection = isCollection(self)

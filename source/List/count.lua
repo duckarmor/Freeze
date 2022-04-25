@@ -10,7 +10,7 @@
 	@within List
 	@function count
 	@param predicate ((Value, Key) -> (boolean))?
-	@return List
+	@return number
 ]=]
 return function(_List, isCollection)
 	local function count<Key, Value>(self, predicate: ((Value, Key) -> (boolean))?)
