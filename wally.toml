@@ -1,6 +1,6 @@
 [package]
-name = "duckarmor/freeze"
-description = ""
+name = "benbrimeyer/freeze"
+description = "Immutable data structures for Roblox Luau ❄️"
 version = "0.0.1"
 authors = ["benbrimeyer"]
 realm = "shared"
