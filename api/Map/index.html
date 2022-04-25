@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-beta.9">
+<title data-react-helmet="true">Map | Freeze</title><meta data-react-helmet="true" property="og:title" content="Map | Freeze"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="description" content="Handles dictionary-like operations."><meta data-react-helmet="true" property="og:description" content="Handles dictionary-like operations."><meta data-react-helmet="true" property="og:url" content="https://benbrimeyer.github.io/Freeze/api/Map"><meta data-react-helmet="true" name="docusaurus_locale" content="en"><meta data-react-helmet="true" name="docusaurus_tag" content="default"><link data-react-helmet="true" rel="canonical" href="https://benbrimeyer.github.io/Freeze/api/Map"><link data-react-helmet="true" rel="alternate" href="https://benbrimeyer.github.io/Freeze/api/Map" hreflang="en"><link data-react-helmet="true" rel="alternate" href="https://benbrimeyer.github.io/Freeze/api/Map" hreflang="x-default"><link rel="stylesheet" href="/Freeze/assets/css/styles.302001c7.css">
+<link rel="preload" href="/Freeze/assets/js/runtime~main.1f7cdaa5.js" as="script">
+<link rel="preload" href="/Freeze/assets/js/main.c59b9970.js" as="script">
+</head>
+<body>
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div><a href="#" class="skipToContent_1oUP">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Freeze/"><b class="navbar__title">Freeze</b></a><a class="navbar__item navbar__link" href="/Freeze/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Freeze/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/benbrimeyer/Freeze" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a><div class="toggle_71bT toggle_3Zt9 toggleDisabled_3cF-"><div class="toggleTrack_32Fl" role="button" tabindex="-1"><div class="toggleTrackCheck_3lV7"><span class="toggleIcon_O4iE">🌜</span></div><div class="toggleTrackX_S2yS"><span class="toggleIcon_O4iE">🌞</span></div><div class="toggleTrackThumb_xI_Z"></div></div><input type="checkbox" class="toggleScreenReader_28Tw" aria-label="Switch between dark and light mode"></div><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper docPageContainer_2Kz0"><div class="docPage_1bdk"><div class="docSidebarContainer_1ykS"><div class="sidebar_15mo"><nav class="menu thin-scrollbar menu_Bmed"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Freeze/api/Freeze">​Freeze</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Freeze/api/List">​List</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Freeze/api/Map">​Map</a></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_1CGd"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_3E-R"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div><main class="docMainContainer_28N5"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_3WPG"><div class="docItemContainer_3XDu"><article><div class="member_qHIL markdown"><div class="tocCollapsible_1PrD theme-doc-toc-mobile tocMobile_3ryM"><button type="button" class="clean-btn tocCollapsibleButton_2O1e">On this page</button></div><header><h1 class="docTitle_1ddc" style="text-decoration:none"><span style="display:inline-block">Map</span></h1><div class="luaClassTags_2Zrs"></div><div>
+<p>Handles dictionary-like operations.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_31ik" id="functions">Functions<a aria-hidden="true" class="hash-link" href="#functions" title="Direct link to heading">​</a></h2><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="count"><code style="text-decoration:none">count</code><a aria-hidden="true" class="hash-link" href="#count" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/count.lua#L20"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">count</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><code class="green_3LnD">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="green_3LnD">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="green_3LnD">)</code><code class="green_3LnD"> → </code><code class="green_3LnD">(</code><code class="blue_2Afy">boolean</code><code class="green_3LnD">)</code><code class="purple__nFc">)</code><code class="blue_2Afy">?</code><code>) → </code><code class="blue_2Afy">number</code></div><div>
+<p>
+  Returns the number of entries that match the predicate.
+  If the predicate is not given, all entries will be considered a match.
+</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- 3</span>
+
+Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> _key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 1</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="deleteAll"><code style="text-decoration:none">deleteAll</code><a aria-hidden="true" class="hash-link" href="#deleteAll" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/deleteAll.lua#L17"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">deleteAll</code><code>(</code><code>keys<!-- -->: </code><code class="blue_2Afy">...</code><code class="purple__nFc">{</code><code class="blue_2Afy">Key</code><code class="purple__nFc">}</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new Map which excludes the provided keys.</p>
+<h5>Alias</h5>
+<p><code>removeAll</code></p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeAll</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( "b" = 2 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="emptyMap"><code style="text-decoration:none">emptyMap</code><a aria-hidden="true" class="hash-link" href="#emptyMap" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/emptyMap.lua#L13"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">emptyMap</code><code>(</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns an empty Map.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">emptyMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="equals"><code style="text-decoration:none">equals</code><a aria-hidden="true" class="hash-link" href="#equals" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/equals.lua#L17"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">equals</code><code>(</code><code>other<!-- -->: </code><code class="blue_2Afy">any</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns true if both collections have value equality.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> map1 <span class="token operator">=</span> List<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> map1 <span class="token operator">=</span> List<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+map1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>map1<span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="every"><code style="text-decoration:none">every</code><a aria-hidden="true" class="hash-link" href="#every" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/every.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">every</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns true if <code>predicate</code> returns true for all entries in the Iterable.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">&#x3C;</span> <span class="token number">10</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="filter"><code style="text-decoration:none">filter</code><a aria-hidden="true" class="hash-link" href="#filter" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/filter.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">filter</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new Map of only entries for which the <code>predicate</code> function returns true.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( b = 2, d = 4 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="filterNot"><code style="text-decoration:none">filterNot</code><a aria-hidden="true" class="hash-link" href="#filterNot" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/filterNot.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">filterNot</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new Map of only entries for which the <code>predicate</code> function returns false.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filterNot</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 1, c = 3 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="find"><code style="text-decoration:none">find</code><a aria-hidden="true" class="hash-link" href="#find" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/find.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">find</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy">Value</code></div><div>
+<p>Returns the first value for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 2</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="findEntry"><code style="text-decoration:none">findEntry</code><a aria-hidden="true" class="hash-link" href="#findEntry" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/findEntry.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">findEntry</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="purple__nFc">{</code><div class="inset_2cJr"><code class="blue_2Afy">Key</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Value</code></div><code class="purple__nFc">}</code></div><div>
+<p>Returns the first [key, value] entry for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "b", 2 }</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="findKey"><code style="text-decoration:none">findKey</code><a aria-hidden="true" class="hash-link" href="#findKey" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/findKey.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">findKey</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy">Key</code></div><div>
+<p>Returns the first key for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- "b"</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="flatten"><code style="text-decoration:none">flatten</code><a aria-hidden="true" class="hash-link" href="#flatten" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/flatten.lua#L22"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">flatten</code><code>(</code><code>depth<!-- -->: </code><code class="blue_2Afy">number?</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a flattened map.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	foo <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	foobar <span class="token operator">=</span> <span class="token punctuation">{</span>
+		bar <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
+		baz <span class="token operator">=</span> <span class="token punctuation">{</span>
+			etc <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flatten</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( foo = 1, bar = 2, etc = 3 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="flip"><code style="text-decoration:none">flip</code><a aria-hidden="true" class="hash-link" href="#flip" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/flip.lua#L13"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">flip</code><code>(</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new map where keys and values are flipped.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token string">"x"</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token string">"y"</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token string">"z"</span> <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( x = "a", y = "b", z = "c" )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="forEach"><code style="text-decoration:none">forEach</code><a aria-hidden="true" class="hash-link" href="#forEach" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/forEach.lua#L18"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">forEach</code><code>(</code><code>sideEffect<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy">number</code></div><div>
+<p>
+  While the Map is iterated, the <code>sideEffect</code> is executed for every entry.
+  If any call of the <code>sideEffect</code> returns <code>false</code>, the iteration will stop.
+  Returns the number of entries iterated (including the last iteration which returned false).
+</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> _key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 3</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="get"><code style="text-decoration:none">get</code><a aria-hidden="true" class="hash-link" href="#get" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/get.lua#L17"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">get</code><code>(</code><div class="inset_2cJr"><div><code>key<!-- -->: </code><code class="blue_2Afy">Key</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_2Afy">Value</code></div></div><code>) → </code><code class="blue_2Afy">Value?</code></div><div>
+<p>Returns the value at the given key, otherwise returns <code>notSetValue</code> if the given value is not found.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"default"</span><span class="token punctuation">)</span>
+<span class="token comment">-- 1</span>
+
+Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"foobar"</span><span class="token punctuation">,</span> <span class="token string">"default"</span><span class="token punctuation">)</span>
+<span class="token comment">-- "default"</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="getIn"><code style="text-decoration:none">getIn</code><a aria-hidden="true" class="hash-link" href="#getIn" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/getIn.lua#L18"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">getIn</code><code>(</code><div class="inset_2cJr"><div><code>keyPath<!-- -->: </code><code class="purple__nFc">{</code><code class="blue_2Afy">any</code><code class="purple__nFc">}</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_2Afy">Value</code></div></div><code>) → </code><code class="blue_2Afy">Value?</code></div><div>
+<p>Returns the value if found by following a path of keys, otherwise returns <code>notSetValue</code> if the given value is nil.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	a <span class="token operator">=</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	x <span class="token operator">=</span> <span class="token punctuation">{</span> y <span class="token operator">=</span> <span class="token string">"z"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"default"</span><span class="token punctuation">)</span>
+<span class="token comment">-- "c"</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="has"><code style="text-decoration:none">has</code><a aria-hidden="true" class="hash-link" href="#has" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/has.lua#L14"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">has</code><code>(</code><code>key<!-- -->: </code><code class="blue_2Afy">Key</code><code>) → </code><code class="blue_2Afy">boolean</code></div><div>
+<p>Returns true if the key exists within the Map.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="hasIn"><code style="text-decoration:none">hasIn</code><a aria-hidden="true" class="hash-link" href="#hasIn" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/hasIn.lua#L17"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">hasIn</code><code>(</code><code>keyPath<!-- -->: </code><code class="purple__nFc">{</code><code class="blue_2Afy">any</code><code class="purple__nFc">}</code><code>) → </code><code class="blue_2Afy">boolean</code></div><div>
+<p>Returns true if the value is found by following a path of keys.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	a <span class="token operator">=</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	x <span class="token operator">=</span> <span class="token punctuation">{</span> y <span class="token operator">=</span> <span class="token string">"z"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hasIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="includes"><code style="text-decoration:none">includes</code><a aria-hidden="true" class="hash-link" href="#includes" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/includes.lua#L14"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">includes</code><code>(</code><code>value<!-- -->: </code><code class="blue_2Afy">any</code><code>) → </code><code class="blue_2Afy">boolean</code></div><div>
+<p>Returns true if the value is found within the Map.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="isEmpty"><code style="text-decoration:none">isEmpty</code><a aria-hidden="true" class="hash-link" href="#isEmpty" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/isEmpty.lua#L13"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">isEmpty</code><code>(</code><code>) → </code><code class="blue_2Afy">boolean</code></div><div>
+<p>Returns true if the map is empty.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="joinAsString"><code style="text-decoration:none">joinAsString</code><a aria-hidden="true" class="hash-link" href="#joinAsString" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/joinAsString.lua#L15"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">joinAsString</code><code>(</code><code>) → </code><code class="blue_2Afy">string</code></div><div>
+<p>Joins values together as a string, inserting a separator between each.</p>
+<p>The default separator is <code>","</code>.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">joinAsString</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">)</span>
+<span class="token comment">-- "a=1, b=2, c=3"</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="keys"><code style="text-decoration:none">keys</code><a aria-hidden="true" class="hash-link" href="#keys" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/keys.lua#L13"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">keys</code><code>(</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a list of keys.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( "a", "b", "c" )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="new"><code style="text-decoration:none">new</code><a aria-hidden="true" class="hash-link" href="#new" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/Map.lua#L46"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">new</code><code>(</code><code>collection<!-- -->: </code><code class="purple__nFc">{</code><code class="blue_2Afy">any</code><code class="purple__nFc">}</code><code class="blue_2Afy">?</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Constructs a new Map object with the given table.</p>
+<p>Has a callable shorthand variant:</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> myMap1 <span class="token operator">=</span> Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> myMap2 <span class="token operator">=</span> <span class="token function">Map</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</div><h3>Errors</h3><table class="errorTable_25fH"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Map: Expected table&quot;</td><td>Raised when given an invalid argument for collection. Make sure you only provide tables or nil.</td></tr></tbody></table><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="toLuau"><code style="text-decoration:none">toLuau</code><a aria-hidden="true" class="hash-link" href="#toLuau" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/Map.lua#L71"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">toLuau</code><code>(</code><code>) → </code><code class="purple__nFc">{</code><code>Key<!-- -->: </code><code class="blue_2Afy">Value</code><code class="purple__nFc">}</code></div><div>
+<p>Returns a show Luau table representation of the List.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token function">Map</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLuau</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 1, 2, 3 }</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="toArray"><code style="text-decoration:none">toArray</code><a aria-hidden="true" class="hash-link" href="#toArray" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/Map.lua#L84"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">toArray</code><code>(</code><code>) → </code><code class="purple__nFc">{</code><code class="blue_2Afy">Value</code><code class="purple__nFc">}</code></div><div>
+<p>Returns a shallow Luau table representation of the Map, coercing it to an array.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token function">Map</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- { }</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="mapEntries"><code style="text-decoration:none">mapEntries</code><a aria-hidden="true" class="hash-link" href="#mapEntries" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/mapEntries.lua#L18"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">mapEntries</code><code>(</code><code>mapper<!-- -->: </code><code class="purple__nFc">(</code><code class="green_3LnD">{</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="green_3LnD">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="green_3LnD">}</code><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="green_3LnD">{</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="green_3LnD">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="green_3LnD">}</code><code class="blue_2Afy">?</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new Map with entries ({key, value}) passed through a <code>mapper</code> function.</p>
+<p>If <code>mapper</code> returns nil, then the entry will be filtered.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mapEntries</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>entry<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token punctuation">{</span> string<span class="token punctuation">.</span><span class="token function">upper</span><span class="token punctuation">(</span>entry<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> entry<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( A = 2, B = 4, C = 6 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="map"><code style="text-decoration:none">map</code><a aria-hidden="true" class="hash-link" href="#map" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/mapFn.lua#L20"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">map</code><code>(</code><code>mapper<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value?</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key?</code></div><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new Map with keys and values passed through a <code>mapper</code> function.</p>
+<p>Returning a second value in the mapper function will reassign the key.</p>
+<p>If <code>mapper</code> returns nil for value, the entry will be filtered.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> _key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">10</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 10, b = 20, c = 30 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="mapKeys"><code style="text-decoration:none">mapKeys</code><a aria-hidden="true" class="hash-link" href="#mapKeys" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/mapKeys.lua#L20"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">mapKeys</code><code>(</code><code>mapper<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Key</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Value</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">Key?</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new Map with keys and values passed through a <code>mapper</code> function.</p>
+<p>Returning a second value in the mapper function will reassign the index.</p>
+<p>If <code>mapper</code> returns nil, the entry will be filtered.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> string<span class="token punctuation">.</span><span class="token function">upper</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( A = 1, B = 2, C = 3 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="max"><code style="text-decoration:none">max</code><a aria-hidden="true" class="hash-link" href="#max" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/max.lua#L22"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">max</code><code>(</code><code>comparator<!-- -->: </code><code class="purple__nFc">(</code><code class="green_3LnD">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="green_3LnD">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Value</code></div><code class="green_3LnD">)</code><code class="green_3LnD"> → </code><code class="green_3LnD">(</code><code class="blue_2Afy">boolean</code><code class="green_3LnD">)</code><code class="purple__nFc">)</code><code class="blue_2Afy">?</code><code>) → </code><code class="blue_2Afy">Value</code></div><div>
+<p>
+  Returns the maximum value in this map.
+  If any values are comparatively equivalent, the first one found will be returned.
+</p>
+<p>The <code>comparator</code> is used in the same way as <code>table.sort</code>. If it is not provided, the default comparator is <code>></code>.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- 200</span>
+
+Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> alice <span class="token operator">=</span> child<span class="token punctuation">,</span> bertram <span class="token operator">=</span> teen<span class="token punctuation">,</span> charlie <span class="token operator">=</span> adult <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>personA<span class="token punctuation">,</span> personB<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> personA<span class="token punctuation">.</span>age <span class="token operator">></span> personB<span class="token punctuation">.</span>age
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- adult</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="merge"><code style="text-decoration:none">merge</code><a aria-hidden="true" class="hash-link" href="#merge" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/merge.lua#L22"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">merge</code><code>(</code><code>maps<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">...Map</a></code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a merged result of all given maps.</p>
+<p>If <code>Freeze.None</code> is a value assigned to a key, it will delete that key from the resulting map.</p>
+<h5>Alias</h5>
+<p><code>join</code></p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">{</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 10, b = 20, c = 30 )</span>
+
+Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">{</span> c <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">40</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> Freeze<span class="token punctuation">.</span>None <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 10, c = 30, d = 40 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="mergeIn"><code style="text-decoration:none">mergeIn</code><a aria-hidden="true" class="hash-link" href="#mergeIn" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/mergeIn.lua#L25"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">mergeIn</code><code>(</code><div class="inset_2cJr"><div><code>keyPath<!-- -->: </code><code class="purple__nFc">{</code><code class="blue_2Afy">any</code><code class="purple__nFc">}</code><code>,</code></div><div><code>maps<!-- -->: </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">...Map</a></code></div></div><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>
+  A combination of <code>updateIn</code> and <code>merge</code>, returning a new Map,
+  but performing a merge at the point arrived by following the key path.
+</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	persons <span class="token operator">=</span> <span class="token punctuation">{</span>
+		alice <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		bertram <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mergeIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"persons"</span><span class="token punctuation">,</span> <span class="token string">"alice"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> age <span class="token operator">=</span> <span class="token number">11</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="min"><code style="text-decoration:none">min</code><a aria-hidden="true" class="hash-link" href="#min" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/min.lua#L22"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">min</code><code>(</code><code>comparator<!-- -->: </code><code class="purple__nFc">(</code><code class="green_3LnD">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="green_3LnD">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Value</code></div><code class="green_3LnD">)</code><code class="green_3LnD"> → </code><code class="green_3LnD">(</code><code class="blue_2Afy">boolean</code><code class="green_3LnD">)</code><code class="purple__nFc">)</code><code class="blue_2Afy">?</code><code>) → </code><code class="blue_2Afy">Value</code></div><div>
+<p>
+  Returns the minium value in this map.
+  If any values are comparatively equivalent, the first one found will be returned.
+</p>
+<p>The <code>comparator</code> is used in the same way as <code>table.sort</code>. If it is not provided, the default comparator is <code>></code>.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- 10</span>
+
+Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> alice <span class="token operator">=</span> child<span class="token punctuation">,</span> bertram <span class="token operator">=</span> teen<span class="token punctuation">,</span> charlie <span class="token operator">=</span> adult <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>personA<span class="token punctuation">,</span> personB<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> personA<span class="token punctuation">.</span>age <span class="token operator">></span> personB<span class="token punctuation">.</span>age
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- child</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="of"><code style="text-decoration:none">of</code><a aria-hidden="true" class="hash-link" href="#of" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/of.lua#L14"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">of</code><code>(</code><code>values<!-- -->: </code><code class="blue_2Afy">...</code><code class="purple__nFc">{</code><code>Key<!-- -->: </code><code class="blue_2Afy">Value</code><code class="purple__nFc">}</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Constructs a new Map object with the given entries.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> myMap <span class="token operator">=</span> Map<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">10</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map ( a = 10, b = 20, c = 30 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="remove"><code style="text-decoration:none">remove</code><a aria-hidden="true" class="hash-link" href="#remove" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/remove.lua#L14"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">remove</code><code>(</code><code>key<!-- -->: </code><code class="blue_2Afy">Key</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new map which excludes this <code>key</code>.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 10, b = 20 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="removeIn"><code style="text-decoration:none">removeIn</code><a aria-hidden="true" class="hash-link" href="#removeIn" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/removeIn.lua#L14"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">removeIn</code><code>(</code><code>keyPath<!-- -->: </code><code class="purple__nFc">{</code><code class="blue_2Afy">any</code><code class="purple__nFc">}</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new map having removed the value at this <code>keyPath</code>.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> <span class="token punctuation">{</span> c <span class="token operator">=</span> <span class="token string">"d"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = {} )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="removeValue"><code style="text-decoration:none">removeValue</code><a aria-hidden="true" class="hash-link" href="#removeValue" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/removeValue.lua#L14"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">removeValue</code><code>(</code><code>value<!-- -->: </code><code class="blue_2Afy">Value</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new map having removed the first entry with the given <code>value</code>.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeValue</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( b = 20, c = 30 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="set"><code style="text-decoration:none">set</code><a aria-hidden="true" class="hash-link" href="#set" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/set.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">set</code><code>(</code><div class="inset_2cJr"><div><code>key<!-- -->: </code><code class="blue_2Afy">Key</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_2Afy">Value</code></div></div><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>
+  Returns a new map which includes <code>value</code> at <code>key</code>.
+  If <code>key</code> already exists, it will be replaced.
+</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 100, b = 20, c = 30 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="setIn"><code style="text-decoration:none">setIn</code><a aria-hidden="true" class="hash-link" href="#setIn" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/setIn.lua#L25"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">setIn</code><code>(</code><div class="inset_2cJr"><div><code>keyPath<!-- -->: </code><code class="purple__nFc">{</code><code class="blue_2Afy">any</code><code class="purple__nFc">}</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_2Afy">Value</code></div></div><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>
+  Returns a new map having set <code>value</code> at this <code>keyPath</code>.
+  If any keys in <code>keyPath</code> do not exist, a new map will be created at that key.
+</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	persons <span class="token operator">=</span> <span class="token punctuation">{</span>
+		alice <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		bertram <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"persons"</span><span class="token punctuation">,</span> <span class="token string">"alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="some"><code style="text-decoration:none">some</code><a aria-hidden="true" class="hash-link" href="#some" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/some.lua#L16"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">some</code><code>(</code><code>predicate<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">boolean</code><code class="purple__nFc">)</code><code>) → </code><code class="blue_2Afy">boolean</code></div><div>
+<p>Returns true if <code>predicate</code> returns true for any entry in the map.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="toList"><code style="text-decoration:none">toList</code><a aria-hidden="true" class="hash-link" href="#toList" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/toList.lua#L13"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">toList</code><code>(</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/List">List</a></code></div><div>
+<p>Converts this map to a List.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- List( 1, 2, 3 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="update"><code style="text-decoration:none">update</code><a aria-hidden="true" class="hash-link" href="#update" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/update.lua#L25"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">update</code><code>(</code><div class="inset_2cJr"><div><code>key<!-- -->: </code><code class="blue_2Afy">Key</code><code>,</code></div><div><code>updater<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value?</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key?</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">Value</code><code class="purple__nFc">)</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_2Afy">Value?</code></div></div><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new map with the entry at <code>key</code> updated to the result of <code>updater</code>.</p>
+<p>If the entry does not exist, <code>updater</code> will be given <code>notSetValue</code> or nil.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">100</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 10000, b = 20, c = 30 )</span>
+
+Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">"d"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">100</span>
+<span class="token keyword">end</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( a = 10000, b = 20, c = 30, d = 100 )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="updateIn"><code style="text-decoration:none">updateIn</code><a aria-hidden="true" class="hash-link" href="#updateIn" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/updateIn.lua#L30"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">updateIn</code><code>(</code><div class="inset_2cJr"><div><code>keyPath<!-- -->: </code><code class="purple__nFc">{</code><code class="blue_2Afy">any</code><code class="purple__nFc">}</code><code>,</code></div><div><code>updater<!-- -->: </code><code class="purple__nFc">(</code><div class="inset_2cJr"><code class="blue_2Afy">Value?</code><code class="purple__nFc">,</code></div><div class="inset_2cJr"><code class="blue_2Afy">Key?</code></div><code class="purple__nFc">)</code><code class="purple__nFc"> → </code><code class="purple__nFc">(</code><code class="blue_2Afy">Value</code><code class="purple__nFc">)</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_2Afy">Value?</code></div></div><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a new map with the entry at <code>keyPath</code> updated to the result of <code>updater</code>.</p>
+<p>
+  If any entry does not exist along <code>keyPath</code>, an empty map will be created in its place.
+  If the final entry does not exist, <code>updater</code> will be given <code>notSetValue</code> or nil.
+</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	persons <span class="token operator">=</span> <span class="token punctuation">{</span>
+		alice <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		bertram <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"persons"</span><span class="token punctuation">,</span> <span class="token string">"alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )</span>
+</code></pre>
+</div><div class="divider_3z1R"></div><h3 class="anchor anchorWithStickyNavbar_31ik" id="values"><code style="text-decoration:none">values</code><a aria-hidden="true" class="hash-link" href="#values" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_1UH0"><a class="sourceButton_2aE5" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Map/values.lua#L13"><div class="sourceButtonText_monK">&lt;/&gt;</div></a></div><div class="memberString_P8-X"><code>Map<!-- -->.</code><code class="green_3LnD">values</code><code>(</code><code>) → </code><code class="blue_2Afy"><a style="text-decoration:underline;color:inherit" href="/Freeze/api/Map">Map</a></code></div><div>
+<p>Returns a list of values.</p>
+<pre class="language-lua"><code class="language-lua">Map<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- Map( 1, 2, 3 )</span>
+</code></pre>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;count&quot;,
+            &quot;desc&quot;: &quot;Returns the number of entries that match the predicate.\nIf the predicate is not given, all entries will be considered a match.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).count()\n-- 3\n\nMap.new({ a = 1, b = 2, c = 3 }).count(function(value, _key)\n\treturn value % 2 == 0\nend)\n-- 1\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Key) -&gt; (boolean))?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/Map/count.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;deleteAll&quot;,
+            &quot;desc&quot;: &quot;Returns a new Map which excludes the provided keys.\n\n##### Alias\n`removeAll`\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).removeAll({ \&quot;a\&quot;, \&quot;c\&quot; })\n-- Map( \&quot;b\&quot; = 2 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;keys&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;...{ Key }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/Map/deleteAll.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;emptyMap&quot;,
+            &quot;desc&quot;: &quot;Returns an empty Map.\n\n```lua\nMap.emptyMap()\n-- Map( )\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Map/emptyMap.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;equals&quot;,
+            &quot;desc&quot;: &quot;Returns true if both collections have value equality.\n\n```lua\nlocal map1 = List.new({ a = 1, b = 2, c = 3 })\nlocal map1 = List.new({ a = 1, b = 2, c = 3 })\n\nmap1.equals(map1)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;other&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;any&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/Map/equals.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;every&quot;,
+            &quot;desc&quot;: &quot;Returns true if `predicate` returns true for all entries in the Iterable.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).every(function(value, key)\n\treturn value &lt; 10\nend)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/every.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;filter&quot;,
+            &quot;desc&quot;: &quot;Returns a new Map of only entries for which the `predicate` function returns true.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3, d = 4 }).filter(function(value, key)\n\treturn value % 2 == 0\nend)\n-- Map( b = 2, d = 4 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/filter.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;filterNot&quot;,
+            &quot;desc&quot;: &quot;Returns a new Map of only entries for which the `predicate` function returns false.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3, d = 4 }).filterNot(function(value, key)\n\treturn value % 2 == 0\nend)\n-- Map( a = 1, c = 3 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/filterNot.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;find&quot;,
+            &quot;desc&quot;: &quot;Returns the first value for which the `predicate` returns true.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).find(function(value, key)\n\treturn value % 2 == 0\nend)\n-- 2\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/find.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findEntry&quot;,
+            &quot;desc&quot;: &quot;Returns the first [key, value] entry for which the `predicate` returns true.\n\n```lua\nMap.new({ a = 1, b = 2 c = 3, d = 4 }).find(function(value, key)\n\treturn value % 2 == 0\nend)\n-- { \&quot;b\&quot;, 2 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Key, Value }&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/findEntry.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findKey&quot;,
+            &quot;desc&quot;: &quot;Returns the first key for which the `predicate` returns true.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).find(function(value, key)\n\treturn value % 2 == 0\nend)\n-- \&quot;b\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/findKey.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;flatten&quot;,
+            &quot;desc&quot;: &quot;Returns a flattened map.\n\n```lua\nMap.new({\n\tfoo = 1,\n\tfoobar = {\n\t\tbar = 2,\n\t\tbaz = {\n\t\t\tetc = 3,\n\t\t},\n\t},\n}).flatten()\n-- Map( foo = 1, bar = 2, etc = 3 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;depth&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 22,
+                &quot;path&quot;: &quot;source/Map/flatten.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;flip&quot;,
+            &quot;desc&quot;: &quot;Returns a new map where keys and values are flipped.\n\n```lua\nMap.new({ a = \&quot;x\&quot;, b = \&quot;y\&quot;, c = \&quot;z\&quot; ).flip()\n-- Map( x = \&quot;a\&quot;, y = \&quot;b\&quot;, z = \&quot;c\&quot; )\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Map/flip.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;forEach&quot;,
+            &quot;desc&quot;: &quot;While the Map is iterated, the `sideEffect` is executed for every entry.\nIf any call of the `sideEffect` returns `false`, the iteration will stop.\nReturns the number of entries iterated (including the last iteration which returned false).\n\n```lua\nMap.new({ a = 10, b = 20, c = -10, d = 30 }).forEach(function(value, _key)\n\treturn value &gt; 0\nend)\n-- 3\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;sideEffect&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 18,
+                &quot;path&quot;: &quot;source/Map/forEach.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;get&quot;,
+            &quot;desc&quot;: &quot;Returns the value at the given key, otherwise returns `notSetValue` if the given value is not found.\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).get(\&quot;a\&quot;, \&quot;default\&quot;)\n-- 1\n\nMap.new({ a = 1, b = 2, c = 3 }).get(\&quot;foobar\&quot;, \&quot;default\&quot;)\n-- \&quot;default\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/Map/get.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getIn&quot;,
+            &quot;desc&quot;: &quot;Returns the value if found by following a path of keys, otherwise returns `notSetValue` if the given value is nil.\n\n```lua\nMap.new({\n\ta = { b = \&quot;c\&quot; },\n\tx = { y = \&quot;z\&quot; },\n}).getIn({ \&quot;a\&quot;, \&quot;b\&quot; }, \&quot;default\&quot;)\n-- \&quot;c\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 18,
+                &quot;path&quot;: &quot;source/Map/getIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;has&quot;,
+            &quot;desc&quot;: &quot;Returns true if the key exists within the Map.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).has(\&quot;b\&quot;)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Map/has.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;hasIn&quot;,
+            &quot;desc&quot;: &quot;Returns true if the value is found by following a path of keys.\n\n```lua\nMap.new({\n\ta = { b = \&quot;c\&quot; },\n\tx = { y = \&quot;z\&quot; },\n}).hasIn({ \&quot;a\&quot;, \&quot;b\&quot; })\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/Map/hasIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;includes&quot;,
+            &quot;desc&quot;: &quot;Returns true if the value is found within the Map.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).includes(2)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;any&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Map/includes.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isEmpty&quot;,
+            &quot;desc&quot;: &quot;Returns true if the map is empty.\n\n```lua\nMap.new({}).isEmpty()\n-- true\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Map/isEmpty.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;joinAsString&quot;,
+            &quot;desc&quot;: &quot;Joins values together as a string, inserting a separator between each.\n\nThe default separator is `\&quot;,\&quot;`.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).joinAsString(\&quot;, \&quot;)\n-- \&quot;a=1, b=2, c=3\&quot;\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Map/joinAsString.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;keys&quot;,
+            &quot;desc&quot;: &quot;Returns a list of keys.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).keys()\n-- Map( \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; )\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Map/keys.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;new&quot;,
+            &quot;desc&quot;: &quot;Constructs a new Map object with the given table.\n\nHas a callable shorthand variant:\n\n```lua\nlocal myMap1 = Map.new({ a = 1, b = 2, c = 3 })\nlocal myMap2 = Map({ a = 1, b = 2, c = 3 })\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;collection&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Map: Expected table\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Raised when given an invalid argument for collection. Make sure you only provide tables or nil.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 46,
+                &quot;path&quot;: &quot;source/Map/Map.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;toLuau&quot;,
+            &quot;desc&quot;: &quot;Returns a show Luau table representation of the List.\n\n```lua\nMap({ a = 1, b = 2, c = 3 }).toLuau()\n-- { 1, 2, 3 }\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Key: Value }&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 71,
+                &quot;path&quot;: &quot;source/Map/Map.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;toArray&quot;,
+            &quot;desc&quot;: &quot;Returns a shallow Luau table representation of the Map, coercing it to an array.\n\n```lua\nMap({ a = 1, b = 2, c= 3 }).toArray()\n-- { }\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 84,
+                &quot;path&quot;: &quot;source/Map/Map.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mapEntries&quot;,
+            &quot;desc&quot;: &quot;Returns a new Map with entries ({key, value}) passed through a `mapper` function.\n\nIf `mapper` returns nil, then the entry will be filtered.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).mapEntries(function(entry)\n\treturn { string.upper(entry[1]), entry[2] * 2 }\nend)\n-- Map( A = 2, B = 4, C = 6 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;mapper&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;({ Value, Key }) -&gt; ({ Value, Key }?)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 18,
+                &quot;path&quot;: &quot;source/Map/mapEntries.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;map&quot;,
+            &quot;desc&quot;: &quot;Returns a new Map with keys and values passed through a `mapper` function.\n\nReturning a second value in the mapper function will reassign the key.\n\nIf `mapper` returns nil for value, the entry will be filtered.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).map(function(value, _key)\n\treturn value * 10\nend)\n-- Map( a = 10, b = 20, c = 30 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;mapper&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (Value?, Key?)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/Map/mapFn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mapKeys&quot;,
+            &quot;desc&quot;: &quot;Returns a new Map with keys and values passed through a `mapper` function.\n\nReturning a second value in the mapper function will reassign the index.\n\nIf `mapper` returns nil, the entry will be filtered.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).map(function(key)\n\treturn string.upper(key)\nend)\n-- Map( A = 1, B = 2, C = 3 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;mapper&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Key, Value) -&gt; (Key?)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/Map/mapKeys.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;max&quot;,
+            &quot;desc&quot;: &quot;Returns the maximum value in this map.\nIf any values are comparatively equivalent, the first one found will be returned.\n\nThe `comparator` is used in the same way as `table.sort`. If it is not provided, the default comparator is `&gt;`.\n\n```lua\nMap.new({ a = 10, b = 200, c = 30 }).max()\n-- 200\n\nMap.new({ alice = child, bertram = teen, charlie = adult }).max(function(personA, personB)\n\treturn personA.age &gt; personB.age\nend)\n-- adult\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;comparator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Value) -&gt; (boolean))?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 22,
+                &quot;path&quot;: &quot;source/Map/max.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;merge&quot;,
+            &quot;desc&quot;: &quot;Returns a merged result of all given maps.\n\nIf `Freeze.None` is a value assigned to a key, it will delete that key from the resulting map.\n\n##### Alias\n`join`\n\n```lua\nMap.new({ a = 10, b = 20 }).merge({ c = 30 })\n-- Map( a = 10, b = 20, c = 30 )\n\nMap.new({ a = 10, b = 20 }).merge({ c = 30, d = 40 }, { b = Freeze.None })\n-- Map( a = 10, c = 30, d = 40 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;maps&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;...Map&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 22,
+                &quot;path&quot;: &quot;source/Map/merge.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mergeIn&quot;,
+            &quot;desc&quot;: &quot;A combination of `updateIn` and `merge`, returning a new Map,\nbut performing a merge at the point arrived by following the key path.\n\n```lua\nMap.new({\n\tpersons = {\n\t\talice = {\n\t\t\tage = 10,\n\t\t},\n\t\tbertram = {\n\t\t\tage = 16,\n\t\t},\n\t},\n}).mergeIn({ \&quot;persons\&quot;, \&quot;alice\&quot; }, { age = 11 })\n-- Map( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;maps&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;...Map&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 25,
+                &quot;path&quot;: &quot;source/Map/mergeIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;min&quot;,
+            &quot;desc&quot;: &quot;Returns the minium value in this map.\nIf any values are comparatively equivalent, the first one found will be returned.\n\nThe `comparator` is used in the same way as `table.sort`. If it is not provided, the default comparator is `&gt;`.\n\n```lua\nMap.new({ a = 10, b = 200, c = 30 }).min()\n-- 10\n\nMap.new({ alice = child, bertram = teen, charlie = adult }).min(function(personA, personB)\n\treturn personA.age &gt; personB.age\nend)\n-- child\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;comparator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Value) -&gt; (boolean))?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 22,
+                &quot;path&quot;: &quot;source/Map/min.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;of&quot;,
+            &quot;desc&quot;: &quot;Constructs a new Map object with the given entries.\n\n```lua\nlocal myMap = Map.of({ \&quot;a\&quot;, 10 }, { \&quot;b\&quot;, 20 }, { \&quot;c\&quot;, 30 })\n-- Map ( a = 10, b = 20, c = 30 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;values&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;...{ Key: Value}&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Map/of.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;remove&quot;,
+            &quot;desc&quot;: &quot;Returns a new map which excludes this `key`.\n\n```lua\nMap.new({ a = 10, b = 20, c = 30 }).remove(\&quot;c\&quot;)\n-- Map( a = 10, b = 20 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Map/remove.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeIn&quot;,
+            &quot;desc&quot;: &quot;Returns a new map having removed the value at this `keyPath`.\n\n```lua\nMap.new({ a = { b = { c = \&quot;d\&quot; } } }).removeIn({ \&quot;a\&quot;, \&quot;b\&quot; })\n-- Map( a = {} )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Map/removeIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeValue&quot;,
+            &quot;desc&quot;: &quot;Returns a new map having removed the first entry with the given `value`.\n\n```lua\nMap.new({ a = 10, b = 20, c = 30 }).removeValue(10)\n-- Map( b = 20, c = 30 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Map/removeValue.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;set&quot;,
+            &quot;desc&quot;: &quot;Returns a new map which includes `value` at `key`.\nIf `key` already exists, it will be replaced.\n\n```lua\nMap.new({ a = 10, b = 20, c = 30 }).set(\&quot;a\&quot;, 100)\n-- Map( a = 100, b = 20, c = 30 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/set.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;setIn&quot;,
+            &quot;desc&quot;: &quot;Returns a new map having set `value` at this `keyPath`.\nIf any keys in `keyPath` do not exist, a new map will be created at that key.\n\n```lua\nMap.new({\n\tpersons = {\n\t\talice = {\n\t\t\tage = 10,\n\t\t},\n\t\tbertram = {\n\t\t\tage = 16,\n\t\t},\n\t},\n}).setIn({ \&quot;persons\&quot;, \&quot;alice\&quot;, \&quot;age\&quot; }, 11)\n-- Map( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 25,
+                &quot;path&quot;: &quot;source/Map/setIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;some&quot;,
+            &quot;desc&quot;: &quot;Returns true if `predicate` returns true for any entry in the map.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).some(function(value, key)\n\treturn value % 2 == 0\nend)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Map/some.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;toList&quot;,
+            &quot;desc&quot;: &quot;Converts this map to a List.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).toList()\n-- List( 1, 2, 3 )\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;List&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Map/toList.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;update&quot;,
+            &quot;desc&quot;: &quot;Returns a new map with the entry at `key` updated to the result of `updater`.\n\nIf the entry does not exist, `updater` will be given `notSetValue` or nil.\n\n```lua\nMap.new({ a = 10, b = 20, c = 30 }).update(\&quot;a\&quot;, function(value)\n\treturn value * 100\nend)\n-- Map( a = 10000, b = 20, c = 30 )\n\nMap.new({ a = 10, b = 20, c = 30 }).update(\&quot;d\&quot;, function(value)\n\treturn value * 100\nend, 1)\n-- Map( a = 10000, b = 20, c = 30, d = 100 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;updater&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value?, Key?) -&gt; (Value)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 25,
+                &quot;path&quot;: &quot;source/Map/update.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;updateIn&quot;,
+            &quot;desc&quot;: &quot;Returns a new map with the entry at `keyPath` updated to the result of `updater`.\n\nIf any entry does not exist along `keyPath`, an empty map will be created in its place.\nIf the final entry does not exist, `updater` will be given `notSetValue` or nil.\n\n```lua\nMap.new({\n\tpersons = {\n\t\talice = {\n\t\t\tage = 10,\n\t\t},\n\t\tbertram = {\n\t\t\tage = 16,\n\t\t},\n\t},\n}).updateIn({ \&quot;persons\&quot;, \&quot;alice\&quot;, \&quot;age\&quot; }, function(value)\n\treturn value + 1\nend)\n-- Map( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;updater&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value?, Key?) -&gt; (Value)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 30,
+                &quot;path&quot;: &quot;source/Map/updateIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;values&quot;,
+            &quot;desc&quot;: &quot;Returns a list of values.\n\n```lua\nMap.new({ a = 1, b = 2, c = 3 }).values()\n-- Map( 1, 2, 3 )\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Map&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Map/values.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;Map&quot;,
+    &quot;desc&quot;: &quot;Handles dictionary-like operations.&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 6,
+        &quot;path&quot;: &quot;source/Map/Map.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_35-E thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#count" class="table-of-contents__link toc-highlight">.count</a></li><li><a href="#deleteAll" class="table-of-contents__link toc-highlight">.deleteAll</a></li><li><a href="#emptyMap" class="table-of-contents__link toc-highlight">.emptyMap</a></li><li><a href="#equals" class="table-of-contents__link toc-highlight">.equals</a></li><li><a href="#every" class="table-of-contents__link toc-highlight">.every</a></li><li><a href="#filter" class="table-of-contents__link toc-highlight">.filter</a></li><li><a href="#filterNot" class="table-of-contents__link toc-highlight">.filterNot</a></li><li><a href="#find" class="table-of-contents__link toc-highlight">.find</a></li><li><a href="#findEntry" class="table-of-contents__link toc-highlight">.findEntry</a></li><li><a href="#findKey" class="table-of-contents__link toc-highlight">.findKey</a></li><li><a href="#flatten" class="table-of-contents__link toc-highlight">.flatten</a></li><li><a href="#flip" class="table-of-contents__link toc-highlight">.flip</a></li><li><a href="#forEach" class="table-of-contents__link toc-highlight">.forEach</a></li><li><a href="#get" class="table-of-contents__link toc-highlight">.get</a></li><li><a href="#getIn" class="table-of-contents__link toc-highlight">.getIn</a></li><li><a href="#has" class="table-of-contents__link toc-highlight">.has</a></li><li><a href="#hasIn" class="table-of-contents__link toc-highlight">.hasIn</a></li><li><a href="#includes" class="table-of-contents__link toc-highlight">.includes</a></li><li><a href="#isEmpty" class="table-of-contents__link toc-highlight">.isEmpty</a></li><li><a href="#joinAsString" class="table-of-contents__link toc-highlight">.joinAsString</a></li><li><a href="#keys" class="table-of-contents__link toc-highlight">.keys</a></li><li><a href="#map" class="table-of-contents__link toc-highlight">.map</a></li><li><a href="#mapEntries" class="table-of-contents__link toc-highlight">.mapEntries</a></li><li><a href="#mapKeys" class="table-of-contents__link toc-highlight">.mapKeys</a></li><li><a href="#max" class="table-of-contents__link toc-highlight">.max</a></li><li><a href="#merge" class="table-of-contents__link toc-highlight">.merge</a></li><li><a href="#mergeIn" class="table-of-contents__link toc-highlight">.mergeIn</a></li><li><a href="#min" class="table-of-contents__link toc-highlight">.min</a></li><li><a href="#new" class="table-of-contents__link toc-highlight">.new</a></li><li><a href="#of" class="table-of-contents__link toc-highlight">.of</a></li><li><a href="#remove" class="table-of-contents__link toc-highlight">.remove</a></li><li><a href="#removeIn" class="table-of-contents__link toc-highlight">.removeIn</a></li><li><a href="#removeValue" class="table-of-contents__link toc-highlight">.removeValue</a></li><li><a href="#set" class="table-of-contents__link toc-highlight">.set</a></li><li><a href="#setIn" class="table-of-contents__link toc-highlight">.setIn</a></li><li><a href="#some" class="table-of-contents__link toc-highlight">.some</a></li><li><a href="#toArray" class="table-of-contents__link toc-highlight">.toArray</a></li><li><a href="#toList" class="table-of-contents__link toc-highlight">.toList</a></li><li><a href="#toLuau" class="table-of-contents__link toc-highlight">.toLuau</a></li><li><a href="#update" class="table-of-contents__link toc-highlight">.update</a></li><li><a href="#updateIn" class="table-of-contents__link toc-highlight">.updateIn</a></li><li><a href="#values" class="table-of-contents__link toc-highlight">.values</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2022 benbrimeyer. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/Freeze/assets/js/runtime~main.1f7cdaa5.js"></script>
+<script src="/Freeze/assets/js/main.c59b9970.js"></script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[191],{7868:function(e){e.exports=JSON.parse('{"sourceUrl":"https://github.com/benbrimeyer/Freeze/blob/master","baseUrl":"/Freeze/","classOrder":[],"apiCategories":[]}')}}]);
