@@ -1,6 +1,8 @@
 --[=[
 	Returns a new list with the provided `values` appended at the end of the list.
 
+	##### Alias
+	`append`
 
 	```lua
 	List.new({ 10, 20, 30 }).push(40, 50, 60)

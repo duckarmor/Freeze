@@ -3,6 +3,9 @@
 
 	If `Freeze.None` is a value assigned to a key, it will delete that key from the resulting list.
 
+	##### Alias
+	`join`
+
 	```lua
 	List.new({ 10, nil, 30 }).merge({ nil, 20, nil })
 	-- List( 10, 20, 30 )

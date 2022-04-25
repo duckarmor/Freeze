@@ -95,7 +95,33 @@ function List.new(collection: { any }?)
 end
 
 List.of = of(List, isCollection)
+
+--[=[
+	Returns a show Luau table representation of the List.
+
+	```lua
+	List({ 1, 2, 3 }).toLuau()
+	-- { 1, 2, 3 }
+	```
+
+	@within List
+	@function toLuau
+	@return { Key: Value }
+]=]
 List.toLuau = toLuau
+
+--[=[
+	Returns a shallow Luau table representation of the List, coercing it to an array.
+
+	```lua
+	List({ 1, 2, 3 }).toArray()
+	-- { 1, 2, 3 }
+	```
+
+	@within List
+	@function toArray
+	@return { Value }
+]=]
 List.toArray = toArray
 
 -- getters

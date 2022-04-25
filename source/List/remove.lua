@@ -4,6 +4,9 @@
 	`index` may be a negative number, which indexes back from the end of the list.
 	`list.remove(-1)` removes the last item in the list.
 
+	##### Alias
+	`removeIndex`
+
 	```lua
 	List.new({ "a", "b", "c", "d" }).remove(3)
 	-- List( "a", "b", "d" )
