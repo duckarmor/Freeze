@@ -3,3 +3,4 @@ DevPackages
 roblox.toml
 *.rbxl
 *.rbxl.lock
+build
