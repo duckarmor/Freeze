@@ -13,5 +13,5 @@ An immutable data structure library for Roblox Luau.
 
 ```toml
 [dependencies]
-Freeze = "benbrimeyer/freeze@0.0.1"
+Freeze = "duckarmor/freeze@0.0.1"
 ```
