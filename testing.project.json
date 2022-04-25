@@ -11,6 +11,12 @@
 				},
 				"Freeze": {
 					"$path": "source"
+				},
+				"Llama": {
+					"$path": "source"
+				},
+				"tests": {
+					"$path": "tests"
 				}
 			}
 		},

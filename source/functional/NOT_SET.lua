@@ -1,7 +1,3 @@
-local None = newproxy(true)
-
-getmetatable(None).__tostring = function()
-	return "Freeze.NOT_SET"
-end
+local None = require(script.Parent.Parent.None)
 
 return None

@@ -1,8 +1,25 @@
+--[=[
+	Returns a new Map which excludes the provided keys.
+
+	##### Alias
+	`removeAll`
+
+	```lua
+	Map.new({ a = 1, b = 2, c = 3 }).removeAll({ "a", "c" })
+	-- Map( "b" = 2 )
+	```
+
+	@within Map
+	@function deleteAll
+	@param keys ...{ Key }
+	@return Map
+]=]
+
 local remove = require(script.Parent:FindFirstChild("remove"))
 
 return function(Map, isCollection)
 	local removeFn = remove(Map, isCollection)
-	return function(self, keys)
+	return function<Key, Value>(self, keys: { Key })
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
 

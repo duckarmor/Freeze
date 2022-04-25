@@ -1,3 +1,4 @@
+-- TODO: Refactor as iterator
 return function(Map, isCollection)
 	return function(self)
 		local wasCollection = isCollection(self)

@@ -1,7 +1,11 @@
-return function(collection, mapper)
+return function<Key, Value>(collection, mapper: (Value, Key) -> (Value?, Key?))
 	local newCollection = table.clone(collection)
 	for key, value in pairs(collection) do
-		newCollection[key] = mapper(value, key)
+		local newValue, newKey = mapper(value, key)
+		newKey = newKey or key
+
+		newCollection[key] = nil
+		newCollection[newKey] = newValue
 	end
 	return newCollection
 end

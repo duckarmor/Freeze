@@ -45,3 +45,29 @@ type = "any"
 [[fail.args]]
 required = true
 type = "string"
+
+[[SKIP.args]]
+required = false
+type = "any"
+
+[[FIXME.args]]
+required = false
+type = "any"
+
+[[itSKIP.args]]
+required = true
+type = "string"
+
+
+[[itSKIP.args]]
+required = true
+type = "function"
+
+
+[[itFIXME.args]]
+required = true
+type = "string"
+
+[[itFIXME.args]]
+required = true
+type = "function"

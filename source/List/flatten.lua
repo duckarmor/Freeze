@@ -1,5 +1,30 @@
+--[=[
+	Returns a flattened list in the same index-order as each Value would appear.
+
+	```lua
+	List.new({
+		"foo",
+		{
+			"bar",
+			"baz",
+		},
+		{
+			"bar",
+			"baz",
+		},
+		"quz",
+	}).flatten()
+	-- List( "foo", "bar", "baz", "bar", "baz", "quz" )
+	```
+
+	@within List
+	@function flatten
+	@param depth number?
+	@return List
+]=]
+
 return function(List, isCollection)
-	local function flatten(self, depth)
+	local function flatten(self, depth: number?)
 		local new = {}
 		local index = 1
 

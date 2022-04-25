@@ -1,3 +1,16 @@
+--[=[
+	Returns a new map where keys and values are flipped.
+
+	```lua
+	Map.new({ a = "x", b = "y", c = "z" ).flip()
+	-- Map( x = "a", y = "b", z = "c" )
+	```
+
+	@within Map
+	@function flip
+	@return Map
+]=]
+
 return function(Map, isCollection)
 	return function(self)
 		local wasCollection = isCollection(self)

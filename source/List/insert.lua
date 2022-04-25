@@ -1,5 +1,20 @@
+--[=[
+	Inserts values given starting from the given index, pushing existing values towards the end.
+
+	```lua
+	List.new({ "a", "b", "c" }).insert(2, "x", "y", "z")
+	-- List( "a", "x", "y", "z", "b", "c" )
+	```
+
+	@within List
+	@function insert
+	@param index number
+	@param values ...Value
+	@return List
+]=]
+
 return function(List, isCollection)
-	return function(self, index, value)
+	return function<Key, Value>(self, index: number, ...: Value)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
 
@@ -11,15 +26,15 @@ return function(List, isCollection)
 
 		index = math.clamp(index, 1, len + 1)
 
-		assert(index > 0 and index <= len + 1, string.format("index %d out of bounds of list of length %d", index, len))
-
 		local new = {}
 		local resultIndex = 1
 
 		for i = 1, len + 1 do
 			if i == index then
-				new[resultIndex] = value
-				resultIndex = resultIndex + 1
+				for j = 1, select("#", ...) do
+					new[resultIndex] = select(j, ...)
+					resultIndex = resultIndex + 1
+				end
 			end
 
 			new[resultIndex] = self[i]

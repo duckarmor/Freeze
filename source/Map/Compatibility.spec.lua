@@ -33,6 +33,8 @@ return function()
 			expect(map.merge({ c = None, d = "D" }).toLuau()).toEqual(expected)
 
 			expect(Map.merge(dictionary, { c = None, d = "D" })).toEqual(expected)
+
+			expect(Map.join(dictionary, { c = None, d = "D" })).toEqual(expected)
 		end)
 
 		it("map", function()
@@ -46,8 +48,8 @@ return function()
 		end)
 
 		it("mapKeys", function()
-			local dictionary = { a = "A", b = "B", c = "C" }
-			local expected = { A = "A", B = "B", C = "C" }
+			local dictionary = { a = 1, b = 2, c = 3 }
+			local expected = { A = 1, B = 2, C = 3 }
 
 			local map = Map.new(dictionary)
 			expect(map.mapKeys(string.upper).toLuau()).toEqual(expected)
@@ -67,6 +69,14 @@ return function()
 			expect(map.mapEntries(mapper).toLuau()).toEqual(expected)
 
 			expect(Map.mapEntries(dictionary, mapper)).toEqual(expected)
+
+			expect(Map.mapEntries(dictionary, function(entry)
+				if entry[1] == "a" then
+					return nil
+				else
+					return entry
+				end
+			end)).toEqual({ b = 2 })
 		end)
 
 		it("get", function()
@@ -224,13 +234,13 @@ return function()
 			expect(map.equals(other2)).toBe(false)
 		end)
 
-		it("join", function()
+		it("joinAsString", function()
 			local dictionary = { a = 10, b = 100 }
 
-			expect(Map.join(dictionary, "|")).toEqual("a=10|b=100")
+			expect(Map.joinAsString(dictionary, "|")).toEqual("a=10|b=100")
 
 			local map = Map(dictionary)
-			expect(map.join("|")).toEqual("a=10|b=100")
+			expect(map.joinAsString("|")).toEqual("a=10|b=100")
 		end)
 
 		it("includes", function()

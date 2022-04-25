@@ -1,5 +1,5 @@
 return function(_Collection, isCollection)
-	return function(self, predicate)
+	return function<Key, Value>(self, predicate: (Value, Key) -> (boolean))
 		self = if isCollection(self) then self.collection else self
 
 		for i, v in pairs(self) do

@@ -1,5 +1,22 @@
+--[=[
+	Returns a new list with the provided `values` appended at the end of the list.
+
+	##### Alias
+	`append`
+
+	```lua
+	List.new({ 10, 20, 30 }).push(40, 50, 60)
+	-- List( 10, 20, 30, 40, 50, 60 )
+	```
+
+	@within List
+	@function push
+	@param values ...Value
+	@return List
+]=]
+
 return function(List, isCollection)
-	return function(self, ...)
+	return function<Key, Value>(self, ...: Value)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
 

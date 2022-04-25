@@ -1,3 +1,9 @@
+--[=[
+	@class Map
+
+	Handles dictionary-like operations.
+]=]
+
 local isCollection = require(script.Parent.Parent.predicates.isCollection)
 local IS_COLLECTION_SYMBOL = require(script.Parent.Parent.predicates.CollectionSymbol)
 local toString = require(script.Parent.Parent.Collection.toString)
@@ -22,8 +28,22 @@ Map.__tostring = function(self)
 	return toString(self, "Map(", ")")
 end
 
--- constructors
-function Map.new(collection: { any }?)
+--[=[
+	Constructs a new Map object with the given table.
+
+	Has a callable shorthand variant:
+
+	```lua
+	local myMap1 = Map.new({ a = 1, b = 2, c = 3 })
+	local myMap2 = Map({ a = 1, b = 2, c = 3 })
+	```
+
+	@within Map
+	@param collection { any }?
+	@return Map
+	@error "Map: Expected table" -- Raised when given an invalid argument for collection. Make sure you only provide tables or nil.
+]=]
+function Map.new(collection: { [any]: any }?)
 	assert(collection == nil or type(collection) == "table", "Map: Expected table")
 	collection = collection or {}
 
@@ -36,7 +56,31 @@ end
 
 Map.of = require(script.Parent.of)(Map, isCollection)
 Map.emptyMap = require(script.Parent.emptyMap)(Map, isCollection)
+--[=[
+	Returns a show Luau table representation of the List.
+
+	```lua
+	Map({ a = 1, b = 2, c = 3 }).toLuau()
+	-- { 1, 2, 3 }
+	```
+
+	@within Map
+	@function toLuau
+	@return { Key: Value }
+]=]
 Map.toLuau = require(script.Parent.Parent.Collection.toLuau)
+--[=[
+	Returns a shallow Luau table representation of the Map, coercing it to an array.
+
+	```lua
+	Map({ a = 1, b = 2, c= 3 }).toArray()
+	-- { }
+	```
+
+	@within Map
+	@function toArray
+	@return { Value }
+]=]
 Map.toArray = require(script.Parent.Parent.Collection.toArray)
 
 -- persistent changes
@@ -47,6 +91,7 @@ Map.removeValue = require(script.Parent.removeValue)(Map, isCollection)
 
 Map.merge = require(script.Parent.merge)(Map, isCollection)
 Map.concat = Map.merge
+Map.join = Map.merge
 
 Map.map = require(script.Parent.mapFn)(Map, isCollection)
 Map.mapKeys = require(script.Parent.mapKeys)(Map, isCollection)
@@ -66,10 +111,11 @@ Map.keys = require(script.Parent.keys)(Map, isCollection)
 
 Map.toList = require(script.Parent.toList)(Map, isCollection)
 
-Map.join = require(script.Parent.join)(Map, isCollection)
+Map.joinAsString = require(script.Parent.joinAsString)(Map, isCollection)
 
 Map.deleteAll = require(script.Parent.deleteAll)(Map, isCollection)
 Map.removeAll = Map.deleteAll
+Map.removeKeys = Map.deleteAll
 
 Map.mergeIn = require(script.Parent.mergeIn)(Map, isCollection)
 Map.equals = require(script.Parent.equals)(Map, isCollection)

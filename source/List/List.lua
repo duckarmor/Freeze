@@ -1,3 +1,9 @@
+--[=[
+	@class List
+
+	Handles array-like operations.
+]=]
+
 local source = script.Parent.Parent
 
 local toLuau = require(script.Parent.Parent.Collection.toLuau)
@@ -62,9 +68,23 @@ List.__tostring = function(self)
 	return toString(self, "List(", ")")
 end
 
--- constructors
+--[=[
+	Constructs a new List object with the given table.
+
+	Has a callable shorthand variant:
+
+	```lua
+	local myList1 = List.new({ 1, 2, 3 })
+	local myList2 = List({ 1, 2, 3 })
+	```
+
+	@within List
+	@param collection { any }?
+	@return List
+	@error "List: Expected table" -- Raised when given an invalid argument for collection. Make sure you only provide tables or nil.
+]=]
 function List.new(collection: { any }?)
-	assert(collection == nil or type(collection) == "table", "Map: Expected table")
+	assert(collection == nil or type(collection) == "table", "List: Expected table")
 	collection = collection or {}
 
 	local self = {}
@@ -75,7 +95,33 @@ function List.new(collection: { any }?)
 end
 
 List.of = of(List, isCollection)
+
+--[=[
+	Returns a show Luau table representation of the List.
+
+	```lua
+	List({ 1, 2, 3 }).toLuau()
+	-- { 1, 2, 3 }
+	```
+
+	@within List
+	@function toLuau
+	@return { Key: Value }
+]=]
 List.toLuau = toLuau
+
+--[=[
+	Returns a shallow Luau table representation of the List, coercing it to an array.
+
+	```lua
+	List({ 1, 2, 3 }).toArray()
+	-- { 1, 2, 3 }
+	```
+
+	@within List
+	@function toArray
+	@return { Value }
+]=]
 List.toArray = toArray
 
 -- getters
@@ -110,7 +156,7 @@ List.filterNot = filterNot(List, isCollection)
 -- reduce
 List.reduce = reduce(List, isCollection)
 List.reduceRight = reduceRight(List, isCollection)
-List.join = require(script.Parent.join)(List, isCollection)
+List.joinAsString = require(script.Parent.joinAsString)(List, isCollection)
 
 -- getters in
 List.getIn = getIn(List, isCollection)
@@ -136,6 +182,7 @@ List.concat = concat(List, isCollection)
 List.count = count(List, isCollection)
 
 List.merge = require(script.Parent.merge)(List, isCollection)
+List.join = List.merge
 List.mergeIn = require(script.Parent.mergeIn)(List, isCollection)
 List.equals = require(script.Parent.equals)(List, isCollection)
 
