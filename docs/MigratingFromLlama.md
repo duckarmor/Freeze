@@ -174,3 +174,6 @@ end)
 
 ### .zipAll
 - Not implemented.
+
+## Set
+- Not implemented.
