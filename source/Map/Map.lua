@@ -23,7 +23,7 @@ Map.__tostring = function(self)
 end
 
 -- constructors
-function Map.new(collection: { any }?)
+function Map.new(collection: { [any]: any }?)
 	assert(collection == nil or type(collection) == "table", "Map: Expected table")
 	collection = collection or {}
 

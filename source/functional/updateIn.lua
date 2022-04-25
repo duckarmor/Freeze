@@ -50,7 +50,7 @@ local function updateInDeeply(inImmutable, existing, keyPath, i, updater, notSet
 		else set(if wasNotSet then (if inImmutable then emptyMap() else {}) else existing, key, nextUpdated)
 end
 
-return function(collection, keyPath, updater, notSetValue)
+return function<Key, Value>(collection, keyPath: { Key }, updater: (Value) -> (Value), notSetValue: Value)
 	local updatedValue = updateInDeeply(isImmutable(collection), collection, keyPath, 1, updater, notSetValue)
 
 	return if updatedValue == NOT_SET then notSetValue else updatedValue
