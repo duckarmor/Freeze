@@ -1,4 +1,3 @@
-# Freeze
 <div align="center">
 An immutable data structure library for Roblox Luau.
 
