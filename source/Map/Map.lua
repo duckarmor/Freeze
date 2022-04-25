@@ -47,6 +47,7 @@ Map.removeValue = require(script.Parent.removeValue)(Map, isCollection)
 
 Map.merge = require(script.Parent.merge)(Map, isCollection)
 Map.concat = Map.merge
+Map.join = Map.merge
 
 Map.map = require(script.Parent.mapFn)(Map, isCollection)
 Map.mapKeys = require(script.Parent.mapKeys)(Map, isCollection)
@@ -66,7 +67,7 @@ Map.keys = require(script.Parent.keys)(Map, isCollection)
 
 Map.toList = require(script.Parent.toList)(Map, isCollection)
 
-Map.join = require(script.Parent.join)(Map, isCollection)
+Map.joinAsString = require(script.Parent.joinAsString)(Map, isCollection)
 
 Map.deleteAll = require(script.Parent.deleteAll)(Map, isCollection)
 Map.removeAll = Map.deleteAll

@@ -130,7 +130,7 @@ List.filterNot = filterNot(List, isCollection)
 -- reduce
 List.reduce = reduce(List, isCollection)
 List.reduceRight = reduceRight(List, isCollection)
-List.join = require(script.Parent.join)(List, isCollection)
+List.joinAsString = require(script.Parent.joinAsString)(List, isCollection)
 
 -- getters in
 List.getIn = getIn(List, isCollection)
@@ -156,6 +156,7 @@ List.concat = concat(List, isCollection)
 List.count = count(List, isCollection)
 
 List.merge = require(script.Parent.merge)(List, isCollection)
+List.join = List.merge
 List.mergeIn = require(script.Parent.mergeIn)(List, isCollection)
 List.equals = require(script.Parent.equals)(List, isCollection)
 

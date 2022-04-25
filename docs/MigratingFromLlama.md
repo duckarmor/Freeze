@@ -20,6 +20,7 @@ The following is a list of breaking deviations between Freeze and Llama:
 
 ### .isEmpty
 - Not implemented.
+- Use `Freeze.Dictionary.isEmpty` or `Freeze.List.isEmpty` instead.
 
 ## .Dictionary
 

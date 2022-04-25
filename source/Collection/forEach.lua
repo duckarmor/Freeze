@@ -1,11 +1,11 @@
 return function(_Collection, isCollection)
-	return function(self, sideEffect)
+	return function<Key, Value>(self, sideEffect: (Value, Key) -> (boolean)): number
 		self = if isCollection(self) then self.collection else self
 
 		local timesCalled = 0
 		for k, v in pairs(self) do
 			timesCalled += 1
-			if not sideEffect(v, k) then
+			if sideEffect(v, k) == false then
 				continue
 			end
 		end

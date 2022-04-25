@@ -353,6 +353,9 @@ return function()
 
 			local list = List.new(array)
 			expect(list.merge({ nil, "b", "C" }).toLuau()).toEqual(expected)
+
+			local list2 = List.new({ "a", "b", "c" }).merge({ "x" }, { nil, "y", Freeze.None })
+			expect(list2.toLuau()).toEqual({ "x", "y" })
 		end)
 
 		it("mergeIn", function()

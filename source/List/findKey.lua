@@ -14,7 +14,7 @@
 	@within List
 	@function findKey
 	@param predicate (Value, Key) -> (boolean)
-	@return List
+	@return Key
 ]=]
 
 return require(script.Parent.Parent.Collection.findKey)
