@@ -168,6 +168,10 @@ return function()
 			expect(List.reduce(array, function(state, value)
 				return state .. value
 			end)).toEqual("abc")
+
+			expect(List.new({ 10, 20, 30 }).reduce(function(reduction, value)
+				return reduction + value
+			end)).toEqual(60)
 		end)
 
 		it("reduceRight", function()
@@ -235,6 +239,13 @@ return function()
 			expect(list.removeIn({ 1, "aKey" }).toLuau()).toEqual(expected)
 
 			expect(List.removeIn(array, { 1, "aKey" })).toEqual(expected)
+
+			expect(List.new({ "a", "b", "c", { "d", "e" } }).removeIn({ 4, 1 }).toLuau()).toEqual({
+				"a",
+				"b",
+				"c",
+				{ nil, "e" },
+			})
 		end)
 
 		it("updateIn", function()
@@ -256,6 +267,14 @@ return function()
 				"good",
 				"best",
 			})
+
+			expect(List.new({ "a", "b", "c", { "d", "e" } }).updateIn({ 4, 1 }, function(value)
+				return string.rep(value, 5)
+			end).toLuau()).toEqual({ "a", "b", "c", { "ddddd", "e" } })
+
+			expect(List.new({ "a", "b", "c", { "d", "e" } }).updateIn({ 4, 3, 1 }, function(value)
+				return string.rep(value, 5)
+			end, "g").toLuau()).toEqual({ "a", "b", "c", { "d", "e", { "ggggg" } } })
 		end)
 
 		it("slice", function()

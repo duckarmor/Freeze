@@ -1,3 +1,21 @@
+--[=[
+	Returns a new list with all lists given "zipped" together.
+	The length of the new list is the length of the shorted provided list.
+
+	```lua
+	List.new({ "a", "b", "c" }).zip({ "x", "y", "z" })
+	-- List( { "a", "x" }, { "b", "y" }, { "c", "z" } )
+
+	List.new({ alice, bertram, charlie }).zip({ alexander, betty, candice, dennis })
+	-- List( { alice, alexander }, { bertram, betty }, { charlie, candice } )
+	```
+
+	@within List
+	@function zip
+	@param lists ...Iterable
+	@return List
+]=]
+
 return function(List, isCollection)
 	return function(...)
 		local firstList = select(1, ...)

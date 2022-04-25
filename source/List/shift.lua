@@ -1,3 +1,16 @@
+--[=[
+	Returns a new list excluding the first index in this list, shifting all other values to a lower index.
+
+	```lua
+	List.new({ "a", "b", "c", "d" }).shift()
+	-- List( "b", "c", "d" )
+	```
+
+	@within List
+	@function shift
+	@return List
+]=]
+
 return function(List, isCollection)
 	return function(self, numPlaces)
 		local wasCollection = isCollection(self)
