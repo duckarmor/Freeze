@@ -10,6 +10,12 @@ type Freeze = {
 	None: None.type,
 }
 
+--[=[
+	@class Freeze
+
+	An immutable data structure library for Roblox Luau.
+]=]
+
 local Freeze: Freeze = {
 	List = List,
 	Map = Map,
