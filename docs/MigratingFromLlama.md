@@ -20,7 +20,7 @@ The following is a list of breaking deviations between Freeze and Llama:
 
 ### .isEmpty
 - Not implemented.
-- Use `Freeze.Dictionary.isEmpty` or `Freeze.List.isEmpty` instead.
+- Use `Freeze.Map.isEmpty` or `Freeze.List.isEmpty` instead.
 
 ## .Dictionary
 
@@ -31,33 +31,36 @@ The following is a list of breaking deviations between Freeze and Llama:
 - Not implemented. Reconsider if you really need this.
 
 ### .equals
-- `Freeze.Dictionary.equals` will perform value-equality instead of reference-equality
-- `Freeze.Dictionary.equals` only accepts two objects to compare between instead of varags arguments
-- `Freeze.Dictionary.equals` will treat nil and void as values, where `Freeze.Dictionary.equals` would ignore these arguments
+- `Freeze.Map.equals` will perform value-equality instead of reference-equality
+- `Freeze.Map.equals` only accepts two objects to compare between instead of varags arguments
+- `Freeze.Map.equals` will treat nil and void as values, where `Freeze.Map.equals` would ignore these arguments
 
 ### .equalsDeep
 - Not implemented.
 
 ### .fromLists
 - Not implemented.
+- Consider `Freeze.Map.of` instead.
 
 ### .mergeDeep
 - Not implemented.
 
 ### .removeKeys
 - Not implemented.
+- Consider `Freeze.Map.filter` instead.
 
 ### .removeValues
 - Not implemented.
+- Consider `Freeze.Map.filter` instead.
 
 ### .update
-- `Freeze.Dictionary.update` requires an updater function while Llama's was optional.
-- `Freeze.Dictionary.update`'s updater signature is `(Value) -> (Value)` instead of Llama's `(Value, Key) -> (Value)`.
-- `Freeze.Dictionary.update` final argument is `notSetValue` instead of a `callback` function.
+- `Freeze.Map.update` requires an updater function while Llama's was optional.
+- `Freeze.Map.update`'s updater signature is `(Value) -> (Value)` instead of Llama's `(Value, Key) -> (Value)`.
+- `Freeze.Map.update` final argument is `notSetValue` instead of a `callback` function.
 
 ```lua
 -- Freeze
-Freeze.Dictionary.update(dictionary, key, function(value)
+Freeze.Map.update(dictionary, key, function(value)
 	return string.upper(value)
 end, "default value")
 
@@ -122,7 +125,6 @@ Llama.List.findLast(list, "foo")
 - Not implemented.
 - Equivalent to `Freeze.List.find`.
 
-
 ### .findWhereLast
 - Not implemented.
 - Equivalent to `Freeze.List.findLast`.
@@ -132,9 +134,11 @@ Llama.List.findLast(list, "foo")
 
 ### .removeIndices
 - Not implemented.
+- Consider `Freeze.List.filter` instead.
 
 ### .removeValues
 - Not implemented.
+- Consider `Freeze.List.filter` instead.
 
 ### .set
 - Allows index to be out of bounds. Will not throw.
