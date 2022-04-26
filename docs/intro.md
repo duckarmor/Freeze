@@ -20,7 +20,7 @@ You may also use it functionally:
 
 ```lua
 local map1 = { a = 1, b = 2, c = 3 }
-local map2 = Freeze.Map.set("b", 50)
+local map2 = Freeze.Map.set(map1, "b", 50)
 
 print(map1.b, "vs", map2.b) -- 2 vs 50
 ```
