@@ -4,8 +4,8 @@ sidebar_position: 4
 
 # Migrating From Llama
 
-Freeze is, unfortunately, not a true drag-and-drop replacement for projects that currently use [Llama](https://github.com/freddylist/llama).
-You'll need to be aware of the following breaking changes.
+Unfortunately Freeze is not a true drag-and-drop replacement for projects that currently use [Llama](https://github.com/freddylist/llama).
+You'll need to be aware of breaking changes.
 
 Feel free to file an issue if you'd like to start a discussion on any items from this list.
 
@@ -132,6 +132,9 @@ Llama.List.findLast(list, "foo")
 ### .insert
 - Allows index to be out of bounds. Will not throw.
 
+### .join
+- Is no longer an alias for `List.concat`. Replace `Llama.List.join` with `Freeze.List.concat`.
+- Is an alias of `Freeze.List.merge` instead.
 ### .removeIndices
 - Not implemented.
 - Consider `Freeze.List.filter` instead.
