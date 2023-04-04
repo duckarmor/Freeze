@@ -17,7 +17,7 @@ return function()
 	end)
 
 	it("map, change type", function()
-		local result = map(list, function(value)
+		local result = map(list, function(_value)
 			return 1
 		end)
 
