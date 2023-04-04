@@ -43,7 +43,7 @@ local function flatten<Value>(list: { Values<Value> }, depth: number?): { Values
 		end
 	end
 
-	return new
+	return table.freeze(new)
 end
 
 return flatten

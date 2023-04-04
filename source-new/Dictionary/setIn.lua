@@ -25,5 +25,5 @@ local setIn = require(script.Parent.Parent.utils.setIn)
 ]=]
 
 return function(dictionary, keyPath, value)
-	return setIn(dictionary, keyPath, value)
+	return table.freeze(setIn(dictionary, keyPath, value))
 end

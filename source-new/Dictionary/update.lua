@@ -26,5 +26,5 @@ local update = require(script.Parent.Parent.utils.update)
 ]=]
 
 return function<Key, Value>(dictionary: { [Key]: Value }, key: Key, updater, notSetValue: Value?)
-	return update(dictionary, key, updater, notSetValue)
+	return table.freeze(update(dictionary, key, updater, notSetValue))
 end

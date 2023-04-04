@@ -44,5 +44,5 @@ local function flatten(dictionary: { [any]: any }, depth: number?)
 end
 
 return function(dictionary: { [any]: any }, depth: number?)
-	return flatten(dictionary, depth)
+	return table.freeze(flatten(dictionary, depth))
 end

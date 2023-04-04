@@ -24,7 +24,7 @@ local function filter<Value>(list: { Value }, predicate: (Value, number) -> bool
 		end
 	end
 
-	return new
+	return table.freeze(new)
 end
 
 return filter

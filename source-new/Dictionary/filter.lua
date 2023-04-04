@@ -24,5 +24,5 @@ return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Ke
 		end
 	end
 
-	return new
+	return table.freeze(new)
 end

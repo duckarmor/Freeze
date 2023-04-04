@@ -19,5 +19,5 @@ return function<Key, Value>(dictionary: { [Key]: Value })
 		table.insert(new, key)
 	end
 
-	return new
+	return table.freeze(new)
 end

@@ -39,5 +39,5 @@ return function<Value>(list: { Value }, index: number, ...: Value)
 		resultIndex = resultIndex + 1
 	end
 
-	return new
+	return table.freeze(new)
 end

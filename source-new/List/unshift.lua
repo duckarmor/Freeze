@@ -23,5 +23,5 @@ return function<Value>(list: { Value }, ...: Value)
 		table.insert(new, 1, v)
 	end
 
-	return new
+	return table.freeze(new)
 end

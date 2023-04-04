@@ -22,11 +22,11 @@ return function<Value>(list: { Value }, amount: number?)
 
 	local len = #list
 
-	local new = {}
+	local new = table.create(len)
 
 	for i = 1, len - useAmount do
 		new[i] = list[i]
 	end
 
-	return new
+	return table.freeze(new)
 end

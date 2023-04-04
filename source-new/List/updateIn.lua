@@ -35,5 +35,5 @@ return function<Value>(
 	updater: (Value?, number?) -> Value,
 	notSetValue: Value?
 ): { Value }
-	return updateIn(list, keyPath, updater, notSetValue)
+	return table.freeze(updateIn(list, keyPath, updater, notSetValue))
 end

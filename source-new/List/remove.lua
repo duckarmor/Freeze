@@ -17,7 +17,6 @@
 	@function remove
 	@param index number
 	@return { Value }
-    @error "index out of bounds of list of length" -- Raised when given an invalid argument for index that is out of bounds.
 ]=]
 
 return function<Value>(list: { Value }, index: number)
@@ -27,9 +26,12 @@ return function<Value>(list: { Value }, index: number)
 		index += len + 1
 	end
 
-	assert(index > 0 and index <= len, string.format("index %d out of bounds of list of length %d", index, len))
+	if index > 0 and index <= len then
+		-- out of bounds
+		return list
+	end
 
-	local new = {}
+	local new = table.clone(list)
 	local newIndex = 1
 
 	for i, v in list do
@@ -39,5 +41,5 @@ return function<Value>(list: { Value }, index: number)
 		end
 	end
 
-	return new
+	return table.freeze(new)
 end

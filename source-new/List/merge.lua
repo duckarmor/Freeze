@@ -24,5 +24,5 @@ local merge = require(script.Parent.Parent.utils.merge)
 ]=]
 
 return function(...: { any }): { any }
-	return merge(...)
+	return table.freeze(merge(...))
 end

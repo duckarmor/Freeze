@@ -22,5 +22,5 @@ return function<Value>(list: { Value }, index: number, value: Value)
 
 	local newList = table.clone(list)
 	newList[index] = value
-	return newList
+	return table.freeze(newList)
 end

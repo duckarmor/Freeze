@@ -22,5 +22,5 @@ return function<Value>(list: { Value })
 		new[i] = list[back - i]
 	end
 
-	return new
+	return table.freeze(new)
 end

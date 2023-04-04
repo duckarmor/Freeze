@@ -30,5 +30,5 @@ local slice = require(script.Parent.Parent.utils.slice)
 ]=]
 
 return function<Value>(list: { Value }, from: number?, to: number?)
-	return slice(list, from, to)
+	return table.freeze(slice(list, from, to))
 end

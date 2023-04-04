@@ -16,5 +16,5 @@ local removeIn = require(script.Parent.Parent.utils.removeIn)
 ]=]
 
 return function(dictionary, keyPath)
-	return removeIn(dictionary, keyPath)
+	return table.freeze(removeIn(dictionary, keyPath))
 end

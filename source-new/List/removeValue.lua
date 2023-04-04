@@ -25,5 +25,5 @@ return function<Value>(list: { Value }, value: Value)
 		end
 	end
 
-	return if didRemove then new else list
+	return if didRemove then table.freeze(new) else list
 end

@@ -26,5 +26,5 @@ local mergeIn = require(script.Parent.Parent.utils.mergeIn)
 ]=]
 
 return function(dictionary, keyPath, ...)
-	return mergeIn(dictionary, keyPath, ...)
+	return table.freeze(mergeIn(dictionary, keyPath, ...))
 end

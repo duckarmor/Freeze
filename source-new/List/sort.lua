@@ -19,5 +19,5 @@ return function<Value>(list: { Value }, comparator: ((Value, Value) -> boolean)?
 	local new = table.clone(list)
 	table.sort(new, comparator)
 
-	return new
+	return table.freeze(new)
 end

@@ -22,5 +22,5 @@ local map = require(script.Parent.Parent.utils.map)
 ]=]
 
 return function<Value, NewValue>(list: { Value }, mapper)
-	return map(list, mapper)
+	return table.freeze(map(list, mapper))
 end

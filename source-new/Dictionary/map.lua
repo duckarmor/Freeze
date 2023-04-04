@@ -21,5 +21,5 @@ local map = require(script.Parent.Parent.utils.map)
 ]=]
 
 return function<Key, Value>(dictionary: { [Key]: Value }, mapper)
-	return map(dictionary, mapper)
+	return table.freeze(map(dictionary, mapper))
 end

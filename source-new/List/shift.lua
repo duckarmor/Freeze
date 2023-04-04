@@ -26,5 +26,5 @@ return function<Value>(list: { Value }, amount: number?)
 		new[i - numPlaces] = list[i]
 	end
 
-	return new
+	return table.freeze(new)
 end

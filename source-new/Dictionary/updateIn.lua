@@ -32,5 +32,5 @@ local updateIn = require(script.Parent.Parent.utils.updateIn)
 ]=]
 
 return function<Key, Value>(dictionary: { [Key]: Value }, keyPath, updater, notSetValue)
-	return updateIn(dictionary, keyPath, updater, notSetValue)
+	return table.freeze(updateIn(dictionary, keyPath, updater, notSetValue))
 end

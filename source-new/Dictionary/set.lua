@@ -21,5 +21,5 @@ return function<Key, Value>(dictionary: { [Key]: Value }, key: Key, value: Value
 		return dictionary
 	end
 
-	return set(dictionary, key, value)
+	return table.freeze(set(dictionary, key, value))
 end

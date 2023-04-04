@@ -18,9 +18,9 @@ local set = require(script.Parent.Parent.utils.set)
 ]=]
 
 return function<Key, Value>(dictionary: { [Key]: Value }, ...: Key)
-	local new = dictionary
+	local new = table.clone(dictionary)
 	for _, key in { ... } do
 		new = set(new, key, nil)
 	end
-	return new
+	return table.freeze(new)
 end

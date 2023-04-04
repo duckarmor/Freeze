@@ -39,5 +39,5 @@ return function<Value>(...: { Value }): { Value }
 		end
 	end
 
-	return new
+	return table.freeze(new)
 end

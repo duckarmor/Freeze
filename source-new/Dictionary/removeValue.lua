@@ -25,5 +25,5 @@ return function<Key, Value>(dictionary: { [Key]: Value }, value: Value)
 		end
 	end
 
-	return if mutated then new else dictionary
+	return if mutated then table.freeze(new) else dictionary
 end
