@@ -20,5 +20,19 @@
             },
             "problemMatcher": []
         },
+        {
+            "label": "dev docs site",
+            "type": "shell",
+            "runOptions": {
+                "instanceLimit": 1,
+            },
+            "windows": {
+                "command": "npx moonwave dev --code source-new --fresh",
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": []
+        },
     ]
 }

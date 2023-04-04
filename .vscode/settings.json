@@ -4,6 +4,10 @@
         {
             "label": "Build and Serve",
             "task": "build and serve",
+        },
+        {
+            "label": "Dev Docs Site",
+            "task": "dev docs site",
         }
     ],
 }
