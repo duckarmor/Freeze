@@ -4,23 +4,23 @@
 	If the entry does not exist, `updater` will be given `notSetValue` or nil.
 
 	```lua
-	Map.new({ a = 10, b = 20, c = 30 }).update("a", function(value)
+	Dictionary.new({ a = 10, b = 20, c = 30 }).update("a", function(value)
 		return value * 100
 	end)
-	-- Map( a = 10000, b = 20, c = 30 )
+	-- Dictionary( a = 10000, b = 20, c = 30 )
 
-	Map.new({ a = 10, b = 20, c = 30 }).update("d", function(value)
+	Dictionary.new({ a = 10, b = 20, c = 30 }).update("d", function(value)
 		return value * 100
 	end, 1)
-	-- Map( a = 10000, b = 20, c = 30, d = 100 )
+	-- Dictionary( a = 10000, b = 20, c = 30, d = 100 )
 	```
 
-	@within Map
+	@within Dictionary
 	@function update
 	@param key Key
 	@param updater (Value?, Key?) -> (Value)
 	@param notSetValue Value?
-	@return Map
+	@return Dictionary
 ]=]
 
 return require(script.Parent.Parent.Collection.update)

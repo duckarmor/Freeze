@@ -5,7 +5,7 @@
 	If the final entry does not exist, `updater` will be given `notSetValue` or nil.
 
 	```lua
-	Map.new({
+	Dictionary.new({
 		persons = {
 			alice = {
 				age = 10,
@@ -17,15 +17,15 @@
 	}).updateIn({ "persons", "alice", "age" }, function(value)
 		return value + 1
 	end)
-	-- Map( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )
+	-- Dictionary( persons = { alice = { age = 11 }, bertram = { age = 16 }, } )
 	```
 
-	@within Map
+	@within Dictionary
 	@function updateIn
 	@param keyPath { any }
 	@param updater (Value?, Key?) -> (Value)
 	@param notSetValue Value?
-	@return Map
+	@return Dictionary
 ]=]
 
 return require(script.Parent.Parent.Collection.updateIn)

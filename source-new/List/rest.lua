@@ -11,9 +11,9 @@ local slice = require(script.Parent.slice)
 	```
 
 	@within List
-	@return { Value }
+	@function rest
 ]=]
 
-return function<Value>(list: { Value })
+return function<Value>(list: { Value }): { Value }
 	return slice(list, 2)
 end

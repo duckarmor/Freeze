@@ -1,7 +1,7 @@
 --!strict
 --[=[
 	Inserts values given starting from the given index, pushing existing values towards the end.
-    The inserted value will be clamped to the beginning or end of the list if the given index is out of bounds.
+	The inserted value will be clamped to the beginning or end of the list if the given index is out of bounds.
 
 	```lua
 	List.insert({ "a", "b", "c" }, 2, "X", "Y", "Z")

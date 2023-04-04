@@ -16,13 +16,10 @@
 	```
 
 	@within List
-	@param list { Value }
-	@param index number
-	@param notSetValue Value
-	@return Value?
+	@function get
 ]=]
 
-return function<Value>(list: { Value }, index: number, notSetValue: Value?)
+return function<Value>(list: { Value }, index: number, notSetValue: Value?): Value?
 	if type(index) == "number" and index < 0 then
 		index = #list + (index + 1)
 	end

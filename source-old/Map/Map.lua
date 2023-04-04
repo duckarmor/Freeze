@@ -1,5 +1,5 @@
 --[=[
-	@class Map
+	@class Dictionary
 
 	Handles dictionary-like operations.
 ]=]
@@ -10,142 +10,142 @@ local toString = require(script.Parent.Parent.Collection.toString)
 
 local bindSelf = require(script.Parent.Parent.bindSelf)
 
-local Map = {}
-Map.__index = function(self, key)
-	if Map[key] and type(Map[key]) == "function" then
+local Dictionary = {}
+Dictionary.__index = function(self, key)
+	if Dictionary[key] and type(Dictionary[key]) == "function" then
 		if key == "new" then
-			return Map[key]
+			return Dictionary[key]
 		else
-			return bindSelf(self, Map[key])
+			return bindSelf(self, Dictionary[key])
 		end
 	end
 
-	error(string.format("%q is not a member of Map.", key), 2)
+	error(string.format("%q is not a member of Dictionary.", key), 2)
 	return nil
 end
 
-Map.__tostring = function(self)
-	return toString(self, "Map(", ")")
+Dictionary.__tostring = function(self)
+	return toString(self, "Dictionary(", ")")
 end
 
 --[=[
-	Constructs a new Map object with the given table.
+	Constructs a new Dictionary object with the given table.
 
 	Has a callable shorthand variant:
 
 	```lua
-	local myMap1 = Map.new({ a = 1, b = 2, c = 3 })
-	local myMap2 = Map({ a = 1, b = 2, c = 3 })
+	local myMap1 = Dictionary.new({ a = 1, b = 2, c = 3 })
+	local myMap2 = Dictionary({ a = 1, b = 2, c = 3 })
 	```
 
-	@within Map
+	@within Dictionary
 	@param collection { any }?
-	@return Map
-	@error "Map: Expected table" -- Raised when given an invalid argument for collection. Make sure you only provide tables or nil.
+	@return Dictionary
+	@error "Dictionary: Expected table" -- Raised when given an invalid argument for collection. Make sure you only provide tables or nil.
 ]=]
-function Map.new(collection: { [any]: any }?)
-	assert(collection == nil or type(collection) == "table", "Map: Expected table")
+function Dictionary.new(collection: { [any]: any }?)
+	assert(collection == nil or type(collection) == "table", "Dictionary: Expected table")
 	collection = collection or {}
 
 	local self = {}
 	self[IS_COLLECTION_SYMBOL] = true
 	self.collection = table.clone(collection)
 
-	return setmetatable(self, Map)
+	return setmetatable(self, Dictionary)
 end
 
-Map.of = require(script.Parent.of)(Map, isCollection)
-Map.emptyMap = require(script.Parent.emptyMap)(Map, isCollection)
+Dictionary.of = require(script.Parent.of)(Dictionary, isCollection)
+Dictionary.emptyMap = require(script.Parent.emptyMap)(Dictionary, isCollection)
 --[=[
 	Returns a show Luau table representation of the List.
 
 	```lua
-	Map({ a = 1, b = 2, c = 3 }).toLuau()
+	Dictionary({ a = 1, b = 2, c = 3 }).toLuau()
 	-- { 1, 2, 3 }
 	```
 
-	@within Map
+	@within Dictionary
 	@function toLuau
 	@return { Key: Value }
 ]=]
-Map.toLuau = require(script.Parent.Parent.Collection.toLuau)
+Dictionary.toLuau = require(script.Parent.Parent.Collection.toLuau)
 --[=[
-	Returns a shallow Luau table representation of the Map, coercing it to an array.
+	Returns a shallow Luau table representation of the Dictionary, coercing it to an array.
 
 	```lua
-	Map({ a = 1, b = 2, c= 3 }).toArray()
+	Dictionary({ a = 1, b = 2, c= 3 }).toArray()
 	-- { }
 	```
 
-	@within Map
+	@within Dictionary
 	@function toArray
 	@return { Value }
 ]=]
-Map.toArray = require(script.Parent.Parent.Collection.toArray)
+Dictionary.toArray = require(script.Parent.Parent.Collection.toArray)
 
 -- persistent changes
-Map.set = require(script.Parent.set)(Map, isCollection)
-Map.remove = require(script.Parent:FindFirstChild("remove"))(Map, isCollection)
-Map.removeKey = Map.remove
-Map.removeValue = require(script.Parent.removeValue)(Map, isCollection)
+Dictionary.set = require(script.Parent.set)(Dictionary, isCollection)
+Dictionary.remove = require(script.Parent:FindFirstChild("remove"))(Dictionary, isCollection)
+Dictionary.removeKey = Dictionary.remove
+Dictionary.removeValue = require(script.Parent.removeValue)(Dictionary, isCollection)
 
-Map.merge = require(script.Parent.merge)(Map, isCollection)
-Map.concat = Map.merge
-Map.join = Map.merge
+Dictionary.merge = require(script.Parent.merge)(Dictionary, isCollection)
+Dictionary.concat = Dictionary.merge
+Dictionary.join = Dictionary.merge
 
-Map.map = require(script.Parent.mapFn)(Map, isCollection)
-Map.mapKeys = require(script.Parent.mapKeys)(Map, isCollection)
+Dictionary.map = require(script.Parent.mapFn)(Dictionary, isCollection)
+Dictionary.mapKeys = require(script.Parent.mapKeys)(Dictionary, isCollection)
 
-Map.get = require(script.Parent.get)(Map, isCollection)
+Dictionary.get = require(script.Parent.get)(Dictionary, isCollection)
 
-Map.count = require(script.Parent.count)(Map, isCollection)
+Dictionary.count = require(script.Parent.count)(Dictionary, isCollection)
 
-Map.has = require(script.Parent.has)(Map, isCollection)
+Dictionary.has = require(script.Parent.has)(Dictionary, isCollection)
 
-Map.filter = require(script.Parent.filter)(Map, isCollection)
-Map.filterNot = require(script.Parent.filterNot)(Map, isCollection)
+Dictionary.filter = require(script.Parent.filter)(Dictionary, isCollection)
+Dictionary.filterNot = require(script.Parent.filterNot)(Dictionary, isCollection)
 
-Map.flip = require(script.Parent.flip)(Map, isCollection)
+Dictionary.flip = require(script.Parent.flip)(Dictionary, isCollection)
 
-Map.keys = require(script.Parent.keys)(Map, isCollection)
+Dictionary.keys = require(script.Parent.keys)(Dictionary, isCollection)
 
-Map.toList = require(script.Parent.toList)(Map, isCollection)
+Dictionary.toList = require(script.Parent.toList)(Dictionary, isCollection)
 
-Map.joinAsString = require(script.Parent.joinAsString)(Map, isCollection)
+Dictionary.joinAsString = require(script.Parent.joinAsString)(Dictionary, isCollection)
 
-Map.deleteAll = require(script.Parent.deleteAll)(Map, isCollection)
-Map.removeAll = Map.deleteAll
-Map.removeKeys = Map.deleteAll
+Dictionary.deleteAll = require(script.Parent.deleteAll)(Dictionary, isCollection)
+Dictionary.removeAll = Dictionary.deleteAll
+Dictionary.removeKeys = Dictionary.deleteAll
 
-Map.mergeIn = require(script.Parent.mergeIn)(Map, isCollection)
-Map.equals = require(script.Parent.equals)(Map, isCollection)
-Map.forEach = require(script.Parent.forEach)(Map, isCollection)
-Map.includes = require(script.Parent.includes)(Map, isCollection)
-Map.isEmpty = require(script.Parent.isEmpty)(Map, isCollection)
-Map.every = require(script.Parent.every)(Map, isCollection)
-Map.some = require(script.Parent.some)(Map, isCollection)
+Dictionary.mergeIn = require(script.Parent.mergeIn)(Dictionary, isCollection)
+Dictionary.equals = require(script.Parent.equals)(Dictionary, isCollection)
+Dictionary.forEach = require(script.Parent.forEach)(Dictionary, isCollection)
+Dictionary.includes = require(script.Parent.includes)(Dictionary, isCollection)
+Dictionary.isEmpty = require(script.Parent.isEmpty)(Dictionary, isCollection)
+Dictionary.every = require(script.Parent.every)(Dictionary, isCollection)
+Dictionary.some = require(script.Parent.some)(Dictionary, isCollection)
 
-Map.find = require(script.Parent.find)(Map, isCollection)
-Map.findEntry = require(script.Parent.findEntry)(Map, isCollection)
-Map.findKey = require(script.Parent.findKey)(Map, isCollection)
+Dictionary.find = require(script.Parent.find)(Dictionary, isCollection)
+Dictionary.findEntry = require(script.Parent.findEntry)(Dictionary, isCollection)
+Dictionary.findKey = require(script.Parent.findKey)(Dictionary, isCollection)
 
-Map.max = require(script.Parent.max)(Map, isCollection)
-Map.min = require(script.Parent.min)(Map, isCollection)
+Dictionary.max = require(script.Parent.max)(Dictionary, isCollection)
+Dictionary.min = require(script.Parent.min)(Dictionary, isCollection)
 
-Map.update = require(script.Parent.update)(Map, isCollection)
-Map.setIn = require(script.Parent.setIn)(Map, isCollection)
-Map.updateIn = require(script.Parent.updateIn)(Map, isCollection)
-Map.removeIn = require(script.Parent.removeIn)(Map, isCollection)
-Map.getIn = require(script.Parent.getIn)(Map, isCollection)
-Map.hasIn = require(script.Parent.hasIn)(Map, isCollection)
-Map.values = require(script.Parent.values)(Map, isCollection)
-Map.entries = require(script.Parent.entries)(Map, isCollection)
-Map.mapEntries = require(script.Parent.mapEntries)(Map, isCollection)
-Map.flatten = require(script.Parent.flatten)(Map, isCollection)
+Dictionary.update = require(script.Parent.update)(Dictionary, isCollection)
+Dictionary.setIn = require(script.Parent.setIn)(Dictionary, isCollection)
+Dictionary.updateIn = require(script.Parent.updateIn)(Dictionary, isCollection)
+Dictionary.removeIn = require(script.Parent.removeIn)(Dictionary, isCollection)
+Dictionary.getIn = require(script.Parent.getIn)(Dictionary, isCollection)
+Dictionary.hasIn = require(script.Parent.hasIn)(Dictionary, isCollection)
+Dictionary.values = require(script.Parent.values)(Dictionary, isCollection)
+Dictionary.entries = require(script.Parent.entries)(Dictionary, isCollection)
+Dictionary.mapEntries = require(script.Parent.mapEntries)(Dictionary, isCollection)
+Dictionary.flatten = require(script.Parent.flatten)(Dictionary, isCollection)
 
 local mt = {}
 mt.__call = function(_self, ...)
-	return Map.new(...)
+	return Dictionary.new(...)
 end
 
-return setmetatable(Map, mt)
+return setmetatable(Dictionary, mt)

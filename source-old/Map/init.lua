@@ -1,13 +1,13 @@
 export type type = any
 
 --[=[
-	@prop Map Map
+	@prop Dictionary Dictionary
 	@within Freeze
 
 	##### Alias
 	`Dictionary`
 
-	[`Maps`](../api/Map) are unordered tables with key-value pairs.
+	[`Maps`](../api/Dictionary) are unordered tables with key-value pairs.
 ]=]
 
-return require(script.Map)
+return require(script.Dictionary)

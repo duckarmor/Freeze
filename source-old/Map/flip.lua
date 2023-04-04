@@ -2,16 +2,16 @@
 	Returns a new map where keys and values are flipped.
 
 	```lua
-	Map.new({ a = "x", b = "y", c = "z" ).flip()
-	-- Map( x = "a", y = "b", z = "c" )
+	Dictionary.new({ a = "x", b = "y", c = "z" ).flip()
+	-- Dictionary( x = "a", y = "b", z = "c" )
 	```
 
-	@within Map
+	@within Dictionary
 	@function flip
-	@return Map
+	@return Dictionary
 ]=]
 
-return function(Map, isCollection)
+return function(Dictionary, isCollection)
 	return function(self)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
@@ -22,6 +22,6 @@ return function(Map, isCollection)
 			new[value] = key
 		end
 
-		return if wasCollection then Map(new) else new
+		return if wasCollection then Dictionary(new) else new
 	end
 end

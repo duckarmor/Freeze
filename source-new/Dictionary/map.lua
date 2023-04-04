@@ -17,7 +17,7 @@ local map = require(script.Parent.Parent.utils.map)
 	@within Dictionary
 	@function map
 	@param mapper (Value, Key) -> (Value?, Key?)
-	@return Map
+	@return Dictionary
 ]=]
 
 return function<Key, Value>(dictionary: { [Key]: Value }, mapper)

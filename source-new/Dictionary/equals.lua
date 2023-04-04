@@ -2,22 +2,26 @@
 local equals = require(script.Parent.Parent.utils.equals)
 
 --[=[
-	Returns true if both collections have value equality.
+	Returns true if both dictionaries have _value_ equality.
+	
+	:::info
+	
+	If you only require reference equal, use the `==` operator.
+
+	:::
 
 	```lua
-	local map1 = List.new({ a = 1, b = 2, c = 3 })
-	local map2 = List.new({ a = 1, b = 2, c = 3 })
+	local dictionary1 = { a = 1, b = 2, c = 3 }
+	local dictionary2 = { a = 1, b = 2, c = 3 }
 
-	Dictionary.equals(map1, map2)
+	Dictionary.equals(dictionary1, dictionary2)
 	-- true
 	```
 
-	@within Map
+	@within Dictionary
 	@function equals
-	@param other any
-	@return Map
 ]=]
 
-return function<Key, Value>(dictionaryA: { [Key]: Value }, dictionaryB: any)
+return function<Key, Value>(dictionaryA: { [Key]: Value }, dictionaryB: any): boolean
 	return equals(dictionaryA, dictionaryB)
 end

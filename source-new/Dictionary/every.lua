@@ -12,8 +12,6 @@ local every = require(script.Parent.Parent.utils.every)
 
 	@within Dictionary
 	@function every
-	@param predicate (Value, Key) -> (boolean)
-	@return { [Key]: Value }
 ]=]
 
 return function<Key, Value>(list: { [Key]: Value }, predicate: (Value, Key) -> boolean): boolean

@@ -14,10 +14,8 @@ local forEach = require(script.Parent.Parent.utils.forEach)
 
 	@within Dictionary
 	@function forEach
-	@param sideEffect (Value, Key) -> (boolean)
-	@return number
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, sideEffect: (Value, Key) -> boolean)
+return function<Key, Value>(dictionary: { [Key]: Value }, sideEffect: (Value, Key) -> boolean): number
 	return forEach(dictionary, sideEffect)
 end

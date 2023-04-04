@@ -16,7 +16,7 @@ local min = require(script.Parent.Parent.utils.min)
 	-- (child, "alice")
 	```
 
-	@within Map
+	@within Dictionary
 	@function min
 	@param comparator ((Value, Value) -> (boolean))?
 	@return (Value?, Key?)

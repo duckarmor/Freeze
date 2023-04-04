@@ -1,24 +1,24 @@
 --[=[
-	Returns a new Map which excludes the provided keys.
+	Returns a new Dictionary which excludes the provided keys.
 
 	##### Alias
 	`removeAll`
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).removeAll({ "a", "c" })
-	-- Map( "b" = 2 )
+	Dictionary.new({ a = 1, b = 2, c = 3 }).removeAll({ "a", "c" })
+	-- Dictionary( "b" = 2 )
 	```
 
-	@within Map
+	@within Dictionary
 	@function deleteAll
 	@param keys ...{ Key }
-	@return Map
+	@return Dictionary
 ]=]
 
 local remove = require(script.Parent:FindFirstChild("remove"))
 
-return function(Map, isCollection)
-	local removeFn = remove(Map, isCollection)
+return function(Dictionary, isCollection)
+	local removeFn = remove(Dictionary, isCollection)
 	return function<Key, Value>(self, keys: { Key })
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
@@ -28,6 +28,6 @@ return function(Map, isCollection)
 			final = removeFn(final, key)
 		end
 
-		return if wasCollection then Map(final) else final
+		return if wasCollection then Dictionary(final) else final
 	end
 end

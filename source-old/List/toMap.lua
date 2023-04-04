@@ -1,21 +1,21 @@
 --[=[
-	Converts this list to a Map.
+	Converts this list to a Dictionary.
 
 	```lua
 	List.new({ "a", "b", "c", "d" }).toMap()
-	-- Map( 1 = "a", 2 = "b", 3 = "c", 4 = "d" )
+	-- Dictionary( 1 = "a", 2 = "b", 3 = "c", 4 = "d" )
 	```
 
 	@within List
 	@function toMap
-	@return Map
+	@return Dictionary
 ]=]
 
 return function(_List, isCollection)
 	return function(self)
-		local Map = require(script.Parent.Parent.Map)
+		local Dictionary = require(script.Parent.Parent.Dictionary)
 		self = if isCollection(self) then self.collection else self
 
-		return Map.new(self)
+		return Dictionary.new(self)
 	end
 end

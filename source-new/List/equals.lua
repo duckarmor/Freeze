@@ -13,11 +13,9 @@ local equals = require(script.Parent.Parent.utils.equals)
 	```
 
 	@within List
-    @param listA { Value }
-	@param listB any
-	@return boolean
+	@function equals
 ]=]
 
-return function<Value>(listA: { Value }, listB: any)
+return function<Value>(listA: { Value }, listB: any): boolean
 	return equals(listA, listB)
 end

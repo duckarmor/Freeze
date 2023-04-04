@@ -1,18 +1,18 @@
 --[=[
-	Returns an empty Map.
+	Returns an empty Dictionary.
 
 	```lua
-	Map.emptyMap()
-	-- Map( )
+	Dictionary.emptyMap()
+	-- Dictionary( )
 	```
 
-	@within Map
+	@within Dictionary
 	@function emptyMap
-	@return Map
+	@return Dictionary
 ]=]
 
-return function(Map, _isCollection)
+return function(Dictionary, _isCollection)
 	return function()
-		return Map.new({})
+		return Dictionary.new({})
 	end
 end

@@ -9,10 +9,9 @@ local slice = require(script.Parent.slice)
 	```
 
 	@within List
-	@param amount number
-	@return { Value }
+	@function takeLast
 ]=]
 
-return function<Value>(list: { Value }, amount: number)
+return function<Value>(list: { Value }, amount: number): { Value }
 	return slice(list, -math.max(1, amount))
 end

@@ -2,16 +2,16 @@
 	Returns a list of keys.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).keys()
-	-- Map( "a", "b", "c" )
+	Dictionary.new({ a = 1, b = 2, c = 3 }).keys()
+	-- Dictionary( "a", "b", "c" )
 	```
 
-	@within Map
+	@within Dictionary
 	@function keys
-	@return Map
+	@return Dictionary
 ]=]
 
-return function(Map, isCollection)
+return function(Dictionary, isCollection)
 	return function(self)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
@@ -22,6 +22,6 @@ return function(Map, isCollection)
 			table.insert(new, key)
 		end
 
-		return if wasCollection then Map(new) else new
+		return if wasCollection then Dictionary(new) else new
 	end
 end

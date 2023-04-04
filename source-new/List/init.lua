@@ -1,4 +1,12 @@
 --!strict
+
+--[=[
+	@class List
+	Handles list-like operations.
+
+	[`Lists`](../api/List) are ordered tables with numeric indices.
+]=]
+
 return {
 	butLast = require(script.butLast),
 	concat = require(script.concat),

@@ -1,19 +1,19 @@
 --[=[
-	Returns a new Map of only entries for which the `predicate` function returns true.
+	Returns a new Dictionary of only entries for which the `predicate` function returns true.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3, d = 4 }).filter(function(value, key)
+	Dictionary.new({ a = 1, b = 2, c = 3, d = 4 }).filter(function(value, key)
 		return value % 2 == 0
 	end)
-	-- Map( b = 2, d = 4 )
+	-- Dictionary( b = 2, d = 4 )
 	```
 
-	@within Map
+	@within Dictionary
 	@function filter
 	@param predicate (Value, Key) -> (boolean)
-	@return Map
+	@return Dictionary
 ]=]
-return function(Map, isCollection)
+return function(Dictionary, isCollection)
 	return function(self, predicate)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
@@ -26,6 +26,6 @@ return function(Map, isCollection)
 			end
 		end
 
-		return if wasCollection then Map(new) else new
+		return if wasCollection then Dictionary(new) else new
 	end
 end

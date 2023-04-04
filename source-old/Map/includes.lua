@@ -1,12 +1,12 @@
 --[=[
-	Returns true if the value is found within the Map.
+	Returns true if the value is found within the Dictionary.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).includes(2)
+	Dictionary.new({ a = 1, b = 2, c = 3 }).includes(2)
 	-- true
 	```
 
-	@within Map
+	@within Dictionary
 	@function includes
 	@param value any
 	@return boolean

@@ -3,22 +3,22 @@
 	If the predicate is not given, all entries will be considered a match.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).count()
+	Dictionary.new({ a = 1, b = 2, c = 3 }).count()
 	-- 3
 
-	Map.new({ a = 1, b = 2, c = 3 }).count(function(value, _key)
+	Dictionary.new({ a = 1, b = 2, c = 3 }).count(function(value, _key)
 		return value % 2 == 0
 	end)
 	-- 1
 	```
 
-	@within Map
+	@within Dictionary
 	@function count
 	@param predicate ((Value, Key) -> (boolean))?
 	@return number
 ]=]
 return function(_List, isCollection)
-	return function<Key, Value>(self, predicate: ((Value, Key) -> (boolean))?): number
+	return function<Key, Value>(self, predicate: ((Value, Key) -> boolean)?): number
 		self = if isCollection(self) then self.collection else self
 
 		local count = 0

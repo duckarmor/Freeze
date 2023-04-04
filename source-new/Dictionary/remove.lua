@@ -7,7 +7,7 @@ local set = require(script.Parent.Parent.utils.set)
 	Dictionary.remove({ a = 10, b = 20, c = 30 }).remove("c")
 	-- { a = 10, b = 20 }
 
-    Dictionary.remove({ a = 10, b = 20, c = 30 }).remove("b", "c")
+	Dictionary.remove({ a = 10, b = 20, c = 30 }).remove("b", "c")
 	-- { a = 10 }
 	```
 

@@ -1,22 +1,22 @@
 --[=[
-	Returns a new Map with entries ({key, value}) passed through a `mapper` function.
+	Returns a new Dictionary with entries ({key, value}) passed through a `mapper` function.
 
 	If `mapper` returns nil, then the entry will be filtered.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).mapEntries(function(entry)
+	Dictionary.new({ a = 1, b = 2, c = 3 }).mapEntries(function(entry)
 		return { string.upper(entry[1]), entry[2] * 2 }
 	end)
-	-- Map( A = 2, B = 4, C = 6 )
+	-- Dictionary( A = 2, B = 4, C = 6 )
 	```
 
-	@within Map
+	@within Dictionary
 	@function mapEntries
 	@param mapper ({ Value, Key }) -> ({ Value, Key }?)
-	@return Map
+	@return Dictionary
 ]=]
 
-return function(Map, isCollection)
+return function(Dictionary, isCollection)
 	return function(self, mapper)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
@@ -33,6 +33,6 @@ return function(Map, isCollection)
 			end
 		end
 
-		return if wasCollection then Map(newCollection) else newCollection
+		return if wasCollection then Dictionary(newCollection) else newCollection
 	end
 end

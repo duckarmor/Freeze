@@ -4,18 +4,15 @@
 	If `index` already exists, it will be replaced.
 
 	```lua
-    List.set({"a", "b", "c"}, 1, "A")
+	List.set({"a", "b", "c"}, 1, "A")
 	-- { "A", "b", "c" }
 	```
 
 	@within List
-    @param list { Value }
-	@param index number
-	@param value Value
-	@return { Value }
+	@function set
 ]=]
 
-return function<Value>(list: { Value }, index: number, value: Value)
+return function<Value>(list: { Value }, index: number, value: Value): { Value }
 	if list[index] == value then
 		return list
 	end

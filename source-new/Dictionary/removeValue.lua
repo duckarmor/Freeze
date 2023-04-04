@@ -7,7 +7,7 @@
 	-- { b = 20, c = 30 }
 	```
 
-	@within Map
+	@within Dictionary
 	@function removeValue
 	@param value Value
 	@return { [Key]: Value }

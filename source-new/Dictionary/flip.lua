@@ -7,12 +7,11 @@
 	-- { x = "a", y = "b", z = "c" }
 	```
 
-	@within Map
+	@within Dictionary
 	@function flip
-	@return { [Value]: Key }
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value })
+return function<Key, Value>(dictionary: { [Key]: Value }): { [Value]: Key }
 	local new = {}
 
 	for key, value in dictionary do

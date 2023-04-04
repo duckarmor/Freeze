@@ -2,7 +2,7 @@
 local findPair = require(script.Parent.Parent.utils.findPair)
 
 --[=[
-	Returns the first [key, value] entry for which the `predicate` returns true.
+	Returns the first (key, value) pair for which the `predicate` returns true.
 
 	```lua
 	Dictionary.findPair({ a = 1, b = 2 c = 3, d = 4 }, function(value, key)
@@ -13,10 +13,8 @@ local findPair = require(script.Parent.Parent.utils.findPair)
 
 	@within Dictionary
 	@function findPair
-	@param predicate (Value, Key) -> (boolean)
-	@return ( Key, Value )
 ]=]
 
-return function<Key, Value>(list: { [Key]: Value }, predicate)
+return function<Key, Value>(list: { [Key]: Value }, predicate: ((Value, Key) -> boolean)): (Key?, Value?)
 	return findPair(list, predicate)
 end

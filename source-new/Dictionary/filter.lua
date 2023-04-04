@@ -1,6 +1,6 @@
 --!strict
 --[=[
-	Returns a new Map of only entries for which the `predicate` function returns true.
+	Returns a dictionary of only entries for which the `predicate` function returns true.
 
 	```lua
 	Dictionary.filter({ a = 1, b = 2, c = 3, d = 4 }, function(value, key)
@@ -9,13 +9,11 @@
 	-- { b = 2, d = 4 }
 	```
 
-	@within Map
+	@within Dictionary
 	@function filter
-	@param predicate (Value, Key) -> (boolean)
-	@return Map
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean))
+return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean)): { [Key]: Value }
 	local new = {}
 
 	for k, v in dictionary do

@@ -13,11 +13,9 @@ local findPair = require(script.Parent.Parent.utils.findPair)
 
 	@within Dictionary
 	@function findKey
-	@param predicate (Value, Key) -> (boolean)
-	@return Key
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean, notSetValue: Key?)
+return function<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean, notSetValue: Key?): Key?
 	local key, _ = findPair(dictionary, predicate)
 	return if key == nil then notSetValue else key
 end

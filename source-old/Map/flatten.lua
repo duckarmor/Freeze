@@ -2,7 +2,7 @@
 	Returns a flattened map.
 
 	```lua
-	Map.new({
+	Dictionary.new({
 		foo = 1,
 		foobar = {
 			bar = 2,
@@ -11,16 +11,16 @@
 			},
 		},
 	}).flatten()
-	-- Map( foo = 1, bar = 2, etc = 3 )
+	-- Dictionary( foo = 1, bar = 2, etc = 3 )
 	```
 
-	@within Map
+	@within Dictionary
 	@function flatten
 	@param depth number?
-	@return Map
+	@return Dictionary
 ]=]
 
-return function(Map, isCollection)
+return function(Dictionary, isCollection)
 	local function flatten(self, depth)
 		local new = {}
 
@@ -50,6 +50,6 @@ return function(Map, isCollection)
 
 		local new = flatten(self, depth)
 
-		return if wasCollection then Map(new) else new
+		return if wasCollection then Dictionary(new) else new
 	end
 end

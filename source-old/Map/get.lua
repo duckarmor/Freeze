@@ -1,14 +1,14 @@
 --[=[
 	Returns the value at the given key, otherwise returns `notSetValue` if the given value is not found.
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).get("a", "default")
+	Dictionary.new({ a = 1, b = 2, c = 3 }).get("a", "default")
 	-- 1
 
-	Map.new({ a = 1, b = 2, c = 3 }).get("foobar", "default")
+	Dictionary.new({ a = 1, b = 2, c = 3 }).get("foobar", "default")
 	-- "default"
 	```
 
-	@within Map
+	@within Dictionary
 	@function get
 	@param key Key
 	@param notSetValue Value

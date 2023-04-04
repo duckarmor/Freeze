@@ -1,35 +1,35 @@
 --!nocheck
-local Map = require(script.Parent.Map)
+local Dictionary = require(script.Parent.Dictionary)
 local is = require(script.Parent.Parent.is)
 
 return function()
-	describe("Map", function()
+	describe("Dictionary", function()
 		it("converts from object", function()
-			local m = Map({ a = "A", b = "B", c = "C" })
+			local m = Dictionary({ a = "A", b = "B", c = "C" })
 			expect(m.get("a")).toBe("A")
 			expect(m.get("b")).toBe("B")
 			expect(m.get("c")).toBe("C")
 		end)
 
 		it("tostring", function()
-			local m = Map({ a = "A" })
-			expect(tostring(m)).toBe([[Map( a=A )]])
+			local m = Dictionary({ a = "A" })
+			expect(tostring(m)).toBe([[Dictionary( a=A )]])
 		end)
 
 		it("does not accept a scalar", function()
 			expect(function()
-				Map(3)
+				Dictionary(3)
 			end).to.throw("Expected table")
 		end)
 
 		it("does not accept strings ", function()
 			expect(function()
-				Map("abc")
+				Dictionary("abc")
 			end).to.throw("Expected table")
 		end)
 
 		it("accepts flattened pairs via of()", function()
-			local m = Map.of("1", "a", "2", "b", "3", "c")
+			local m = Dictionary.of("1", "a", "2", "b", "3", "c")
 			expect(m.get("1")).toBe("a")
 			expect(m.get("2")).toBe("b")
 			expect(m.get("3")).toBe("c")
@@ -37,17 +37,17 @@ return function()
 
 		it("does not accept mismatched flattened pairs via of()", function()
 			expect(function()
-				Map.of(1, 2, 3)
+				Dictionary.of(1, 2, 3)
 			end).to.throw("Missing value for key: 3")
 		end)
 
 		it("converts back to Luau", function()
-			local m = Map({ a = "A", b = "B", c = "C" })
+			local m = Dictionary({ a = "A", b = "B", c = "C" })
 			expect(m.toLuau()).toEqual({ a = "A", b = "B", c = "C" })
 		end)
 
 		it("iterates values", function()
-			local m = Map({ [1] = "A", [2] = "B", [3] = "C" })
+			local m = Dictionary({ [1] = "A", [2] = "B", [3] = "C" })
 
 			local spy = {}
 			local iterator = function(...)
@@ -63,8 +63,8 @@ return function()
 		end)
 
 		it("merges two maps", function()
-			local m1 = Map({ a = "A", b = "B", c = "C" })
-			local m2 = Map({ wow = "OO", d = "DD", b = "BB" })
+			local m1 = Dictionary({ a = "A", b = "B", c = "C" })
+			local m2 = Dictionary({ wow = "OO", d = "DD", b = "BB" })
 			expect(m2.toLuau()).toEqual({ wow = "OO", d = "DD", b = "BB" })
 
 			local m3 = m1.merge(m2)
@@ -78,8 +78,8 @@ return function()
 		end)
 
 		it("concatenates two maps (alias for merge)", function()
-			local m1 = Map({ a = "A", b = "B", c = "C" })
-			local m2 = Map({ wow = "OO", d = "DD", b = "BB" })
+			local m1 = Dictionary({ a = "A", b = "B", c = "C" })
+			local m2 = Dictionary({ wow = "OO", d = "DD", b = "BB" })
 			expect(m2.toLuau()).toEqual({ wow = "OO", d = "DD", b = "BB" })
 
 			local m3 = m1.concat(m2)
@@ -93,7 +93,7 @@ return function()
 		end)
 
 		it("accepts nil as a key", function()
-			local m1 = Map()
+			local m1 = Dictionary()
 			local m2 = m1.set(nil, "nil")
 			expect(m2.get(nil)).toBe(nil)
 
@@ -102,7 +102,7 @@ return function()
 		end)
 
 		it("is persistent to sets", function()
-			local m1 = Map()
+			local m1 = Dictionary()
 			local m2 = m1.set("a", "Aardvark")
 			local m3 = m2.set("b", "Baboon")
 			local m4 = m3.set("c", "Canary")
@@ -118,7 +118,7 @@ return function()
 		end)
 
 		it("is persistent to deletes", function()
-			local m1 = Map()
+			local m1 = Dictionary()
 			local m2 = m1.set("a", "Aardvark")
 			local m3 = m2.set("b", "Baboon")
 			local m4 = m3.set("c", "Canary")
@@ -139,7 +139,7 @@ return function()
 
 		it("can use weird keys", function()
 			local symbol = {}
-			local m = Map().set(math.huge, 2).set(symbol, "A").set(-math.huge, 3)
+			local m = Dictionary().set(math.huge, 2).set(symbol, "A").set(-math.huge, 3)
 
 			expect(m.get(symbol)).toBe("A")
 			expect(m.get(math.huge)).toBe(2)
@@ -147,7 +147,7 @@ return function()
 		end)
 
 		it("maps values", function()
-			local m = Map({ a = "a", b = "b", c = "c" })
+			local m = Dictionary({ a = "a", b = "b", c = "c" })
 			local r = m.map(function(value)
 				return string.upper(value)
 			end)
@@ -155,7 +155,7 @@ return function()
 		end)
 
 		it("maps keys", function()
-			local m = Map({ a = "a", b = "b", c = "c" })
+			local m = Dictionary({ a = "a", b = "b", c = "c" })
 			local r = m.mapKeys(function(key)
 				return string.upper(key)
 			end)
@@ -163,7 +163,7 @@ return function()
 		end)
 
 		it("filters values", function()
-			local m = Map({ a = 1, b = 2, c = 3, d = 4, e = 5, f = 6 })
+			local m = Dictionary({ a = 1, b = 2, c = 3, d = 4, e = 5, f = 6 })
 			local r = m.filter(function(value)
 				return value % 2 == 1
 			end)
@@ -171,7 +171,7 @@ return function()
 		end)
 
 		it("filterNots values", function()
-			local m = Map({ a = 1, b = 2, c = 3, d = 4, e = 5, f = 6 })
+			local m = Dictionary({ a = 1, b = 2, c = 3, d = 4, e = 5, f = 6 })
 			local r = m.filterNot(function(value)
 				return value % 2 == 1
 			end)
@@ -179,7 +179,7 @@ return function()
 		end)
 
 		it("flips keys and values", function()
-			local v = Map({ a = 1, b = 2, c = 3, d = 4, e = 5, f = 6 })
+			local v = Dictionary({ a = 1, b = 2, c = 3, d = 4, e = 5, f = 6 })
 			expect(v.flip().toLuau()).toEqual({
 				[1] = "a",
 				[2] = "b",
@@ -191,11 +191,11 @@ return function()
 		end)
 
 		it("can convert to a list", function()
-			local m = Map({ a = 1, b = 2, c = 3 })
+			local m = Dictionary({ a = 1, b = 2, c = 3 })
 			local v = m.toList()
 
-			-- Note: Map has undefined ordering, this List may not be the same
-			-- order as the order you set into the Map.
+			-- Note: Dictionary has undefined ordering, this List may not be the same
+			-- order as the order you set into the Dictionary.
 
 			expect(v.count()).toBe(3)
 			expect(v.get(1)).toBe(1)
@@ -206,13 +206,13 @@ return function()
 		end)
 
 		it("expresses value equality with unordered sequences", function()
-			local m1 = Map({ A = 1, B = 2, C = 3 })
-			local m2 = Map({ C = 3, B = 2, A = 1 })
+			local m1 = Dictionary({ A = 1, B = 2, C = 3 })
+			local m2 = Dictionary({ C = 3, B = 2, A = 1 })
 			expect(is(m1, m2)).toBe(true)
 		end)
 
 		it("deletes all the provided keys", function()
-			local m1 = Map({ A = 1, B = 2, C = 3 })
+			local m1 = Dictionary({ A = 1, B = 2, C = 3 })
 			local m2 = m1.deleteAll({ "A", "B" })
 
 			expect(m2.get("A")).toBe(nil)

@@ -2,13 +2,13 @@
 	Returns the first key for which the `predicate` returns true.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).find(function(value, key)
+	Dictionary.new({ a = 1, b = 2, c = 3 }).find(function(value, key)
 		return value % 2 == 0
 	end)
 	-- "b"
 	```
 
-	@within Map
+	@within Dictionary
 	@function findKey
 	@param predicate (Value, Key) -> (boolean)
 	@return Key

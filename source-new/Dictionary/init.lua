@@ -1,4 +1,12 @@
 --!strict
+
+--[=[
+	@class Dictionary
+	Handles dictionary-like operations.
+
+	[`Dictionaries`](../api/Dictionary) are unordered tables with key-value pairs.
+]=]
+
 return {
 	count = require(script.count),
 	equals = require(script.equals),

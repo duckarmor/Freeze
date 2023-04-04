@@ -9,7 +9,7 @@
 
 	List.zip({ alice, bertram, charlie }, { alexander, betty, candice, dennis })
 	-- { { alice, alexander }, { bertram, betty }, { charlie, candice } }
-    -- Note: dennis is omitted and not paired.
+	-- Note: dennis is omitted and not paired.
 	```
 
 	@within List

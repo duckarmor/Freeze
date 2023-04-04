@@ -9,9 +9,9 @@ local count = require(script.Parent.Parent.utils.count)
 	List.count({ "a", "b", "c" })
 	-- 3
 
-    List.count({ "a", "b", "c" }, function(value)
-        return value == "b"
-    end)
+	List.count({ "a", "b", "c" }, function(value)
+		return value == "b"
+	end)
 	-- 1
 	```
 

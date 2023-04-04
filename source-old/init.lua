@@ -1,12 +1,12 @@
 --!strict
 local List = require(script.List)
-local Map = require(script.Map)
+local Dictionary = require(script.Dictionary)
 local None = require(script.None)
 
 type Freeze = {
 	List: List.type,
-	Map: Map.type,
-	Dictionary: Map.type,
+	Dictionary: Dictionary.type,
+	Dictionary: Dictionary.type,
 	None: None.type,
 }
 
@@ -18,8 +18,8 @@ type Freeze = {
 
 local Freeze: Freeze = {
 	List = List,
-	Map = Map,
-	Dictionary = Map,
+	Dictionary = Dictionary,
+	Dictionary = Dictionary,
 	None = None,
 }
 

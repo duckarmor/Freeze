@@ -2,11 +2,11 @@
 	Returns true if the map is empty.
 
 	```lua
-	Map.new({}).isEmpty()
+	Dictionary.new({}).isEmpty()
 	-- true
 	```
 
-	@within Map
+	@within Dictionary
 	@function isEmpty
 	@return boolean
 ]=]

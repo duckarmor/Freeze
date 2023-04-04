@@ -8,7 +8,7 @@ local get = require(script.Parent.get)
 	List.last({ "a", "b", "c" })
 	-- "c"
 
-    List.last({ }, "default")
+	List.last({ }, "default")
 	-- "default"
 	```
 

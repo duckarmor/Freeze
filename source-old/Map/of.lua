@@ -1,17 +1,17 @@
 --[=[
-	Constructs a new Map object with the given entries.
+	Constructs a new Dictionary object with the given entries.
 
 	```lua
-	local myMap = Map.of({ "a", 10 }, { "b", 20 }, { "c", 30 })
-	-- Map ( a = 10, b = 20, c = 30 )
+	local myMap = Dictionary.of({ "a", 10 }, { "b", 20 }, { "c", 30 })
+	-- Dictionary ( a = 10, b = 20, c = 30 )
 	```
 
-	@within Map
+	@within Dictionary
 	@function of
 	@param values ...{ Key: Value}
-	@return Map
+	@return Dictionary
 ]=]
-return function(Map, _isCollection)
+return function(Dictionary, _isCollection)
 	return function<Key, Value>(...: { Key: Value })
 		local keyValues = { ... }
 		local new = {}
@@ -26,6 +26,6 @@ return function(Map, _isCollection)
 			new[key] = value
 		end
 
-		return Map.new(new)
+		return Dictionary.new(new)
 	end
 end

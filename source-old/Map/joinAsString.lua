@@ -4,11 +4,11 @@
 	The default separator is `","`.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).joinAsString(", ")
+	Dictionary.new({ a = 1, b = 2, c = 3 }).joinAsString(", ")
 	-- "a=1, b=2, c=3"
 	```
 
-	@within Map
+	@within Dictionary
 	@function joinAsString
 	@return string
 ]=]

@@ -10,13 +10,11 @@ local findPair = require(script.Parent.Parent.utils.findPair)
 	-- 2
 	```
 
-	@within Map
+	@within Dictionary
 	@function find
-	@param predicate (Value, Key) -> (boolean)
-	@return Value
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean, notSetValue: Value?)
+return function<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean, notSetValue: Value?): Value?
 	local _, value = findPair(dictionary, predicate)
 	return if value == nil then notSetValue else value
 end

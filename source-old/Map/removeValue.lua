@@ -2,17 +2,17 @@
 	Returns a new map having removed the first entry with the given `value`.
 
 	```lua
-	Map.new({ a = 10, b = 20, c = 30 }).removeValue(10)
-	-- Map( b = 20, c = 30 )
+	Dictionary.new({ a = 10, b = 20, c = 30 }).removeValue(10)
+	-- Dictionary( b = 20, c = 30 )
 	```
 
-	@within Map
+	@within Dictionary
 	@function removeValue
 	@param value Value
-	@return Map
+	@return Dictionary
 ]=]
 
-return function(Map, isCollection)
+return function(Dictionary, isCollection)
 	return function<Key, Value>(self, value: Value)
 		local wasCollection = isCollection(self)
 		self = if wasCollection then self.collection else self
@@ -25,6 +25,6 @@ return function(Map, isCollection)
 			end
 		end
 
-		return if wasCollection then Map(new) else new
+		return if wasCollection then Dictionary(new) else new
 	end
 end

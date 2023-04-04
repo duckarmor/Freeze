@@ -14,18 +14,14 @@ local updateIn = require(utils.updateIn)
 	end)
 	-- { "a", "b", { "ccccc", "e" } }
 
-    List.updateIn({ "a", "b", { "c", "d" } }, { 4, 3, 1 }, function(value)
+	List.updateIn({ "a", "b", { "c", "d" } }, { 4, 3, 1 }, function(value)
 		return string.rep(value, 5)
 	end, "e")
-    -- { "a", "b", { "c", "d", { "eeeee" } } }
+	-- { "a", "b", { "c", "d", { "eeeee" } } }
 	```
 
 	@within List
-    @param list { Value }
-	@param keyPath { number }
-	@param updater (Value?, number?) -> (Value)
-	@param notSetValue Value?
-	@return { Value }
+	@function updateIn
 	@ignore
 ]=]
 

@@ -2,7 +2,7 @@
 local removeIn = require(script.Parent.Parent.utils.removeIn)
 --[=[
 	Returns a new map having removed the value at this `keyPath`.
-    Will create a new path if it does not exist.
+	Will create a new path if it does not exist.
 
 	```lua
 	Dictionary.removeIn({ a = { b = { "c" } } }, { "a", "b" })
@@ -12,7 +12,7 @@ local removeIn = require(script.Parent.Parent.utils.removeIn)
 	@within Dictionary
 	@function removeIn
 	@param keyPath { any }
-	@return Map
+	@return Dictionary
 ]=]
 
 return function(dictionary, keyPath)

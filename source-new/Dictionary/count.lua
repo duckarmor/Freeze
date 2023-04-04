@@ -17,10 +17,8 @@ local count = require(script.Parent.Parent.utils.count)
 
 	@within Dictionary
 	@function count
-	@param predicate ((Value, Key) -> (boolean))?
-	@return number
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean)?)
+return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean)?): number
 	return count(dictionary, predicate)
 end

@@ -9,10 +9,10 @@
 	-- true
 	```
 
-	@within Map
+	@within Dictionary
 	@function equals
 	@param other any
-	@return Map
+	@return Dictionary
 ]=]
 
 return require(script.Parent.Parent.Collection.equals)

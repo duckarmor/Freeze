@@ -8,7 +8,7 @@ An immutable data structure library for Roblox Luau.
 
 ## Demo
 ```lua
-local map1 = Map({ a = 1, b = 2, c = 3 })
+local map1 = Dictionary({ a = 1, b = 2, c = 3 })
 local map2 = map1.set("b", 50)
 print(map1.get("b"), "vs", map2.get("b")) -- 2 vs 50
 ```

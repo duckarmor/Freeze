@@ -1,12 +1,12 @@
 --[=[
-	Returns true if the key exists within the Map.
+	Returns true if the key exists within the Dictionary.
 
 	```lua
-	Map.new({ a = 1, b = 2, c = 3 }).has("b")
+	Dictionary.new({ a = 1, b = 2, c = 3 }).has("b")
 	-- true
 	```
 
-	@within Map
+	@within Dictionary
 	@function has
 	@param key Key
 	@return boolean

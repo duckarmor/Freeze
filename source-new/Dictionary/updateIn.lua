@@ -16,14 +16,14 @@ local updateIn = require(script.Parent.Parent.utils.updateIn)
 		},
 	}
 
-    Dictionary.updateIn({ "persons", "alice", "age" }, function(value: number)
-        assert(value, "will exist")
-        return value + 1
-    end)
+	Dictionary.updateIn({ "persons", "alice", "age" }, function(value: number)
+		assert(value, "will exist")
+		return value + 1
+	end)
 	-- { persons = { alice = { age = 11 } } }
 	```
 
-	@within Map
+	@within Dictionary
 	@function updateIn
 	@param keyPath { any }
 	@param updater (Value?, Key?) -> (Value)

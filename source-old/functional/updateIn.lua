@@ -14,8 +14,8 @@ end
 
 local function updateInDeeply(inImmutable, existing, keyPath, i, updater, notSetValue)
 	--! Hack to prevent recursive require...
-	local Map = require(script.Parent.Parent.Map)
-	local emptyMap = Map.emptyMap
+	local Dictionary = require(script.Parent.Parent.Dictionary)
+	local emptyMap = Dictionary.emptyMap
 
 	local wasNotSet = existing == NOT_SET
 	if i == #keyPath + 1 then
@@ -50,7 +50,7 @@ local function updateInDeeply(inImmutable, existing, keyPath, i, updater, notSet
 		else set(if wasNotSet then (if inImmutable then emptyMap() else {}) else existing, key, nextUpdated)
 end
 
-return function<Key, Value>(collection, keyPath: { Key }, updater: (Value) -> (Value), notSetValue: Value)
+return function<Key, Value>(collection, keyPath: { Key }, updater: (Value) -> Value, notSetValue: Value)
 	local updatedValue = updateInDeeply(isImmutable(collection), collection, keyPath, 1, updater, notSetValue)
 
 	return if updatedValue == NOT_SET then notSetValue else updatedValue

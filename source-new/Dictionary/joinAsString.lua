@@ -11,10 +11,9 @@
 
 	@within Dictionary
 	@function joinAsString
-	@return string
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, separator: string?)
+return function<Key, Value>(dictionary: { [Key]: Value }, separator: string?): string
 	local fields = {}
 	for k, v in dictionary do
 		table.insert(fields, string.format("%s=%s", tostring(k), tostring(v)))

@@ -1,6 +1,6 @@
 --!nocheck
 local Freeze = require(script.Parent.Parent)
-local Map = Freeze.Map
+local Dictionary = Freeze.Dictionary
 local None = Freeze.None
 
 return function()
@@ -9,52 +9,52 @@ return function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { a = "A", b = "test", c = "C" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.set("b", "test").toLuau()).toEqual(expected)
 
-			expect(Map.set(dictionary, "b", "test")).toEqual(expected)
+			expect(Dictionary.set(dictionary, "b", "test")).toEqual(expected)
 		end)
 
 		it("remove", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { a = "A", c = "C" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.remove("b").toLuau()).toEqual(expected)
 
-			expect(Map.remove(dictionary, "b")).toEqual(expected)
+			expect(Dictionary.remove(dictionary, "b")).toEqual(expected)
 		end)
 
 		it("merge", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { a = "A", b = "B", d = "D" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.merge({ c = None, d = "D" }).toLuau()).toEqual(expected)
 
-			expect(Map.merge(dictionary, { c = None, d = "D" })).toEqual(expected)
+			expect(Dictionary.merge(dictionary, { c = None, d = "D" })).toEqual(expected)
 
-			expect(Map.join(dictionary, { c = None, d = "D" })).toEqual(expected)
+			expect(Dictionary.join(dictionary, { c = None, d = "D" })).toEqual(expected)
 		end)
 
 		it("map", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { a = "a", b = "b", c = "c" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.map(string.lower).toLuau()).toEqual(expected)
 
-			expect(Map.map(dictionary, string.lower)).toEqual(expected)
+			expect(Dictionary.map(dictionary, string.lower)).toEqual(expected)
 		end)
 
 		it("mapKeys", function()
 			local dictionary = { a = 1, b = 2, c = 3 }
 			local expected = { A = 1, B = 2, C = 3 }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.mapKeys(string.upper).toLuau()).toEqual(expected)
 
-			expect(Map.mapKeys(dictionary, string.upper)).toEqual(expected)
+			expect(Dictionary.mapKeys(dictionary, string.upper)).toEqual(expected)
 		end)
 
 		it("mapEntries", function()
@@ -65,12 +65,12 @@ return function()
 				return { string.upper(entry[1]), entry[2] * 2 }
 			end
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.mapEntries(mapper).toLuau()).toEqual(expected)
 
-			expect(Map.mapEntries(dictionary, mapper)).toEqual(expected)
+			expect(Dictionary.mapEntries(dictionary, mapper)).toEqual(expected)
 
-			expect(Map.mapEntries(dictionary, function(entry)
+			expect(Dictionary.mapEntries(dictionary, function(entry)
 				if entry[1] == "a" then
 					return nil
 				else
@@ -82,39 +82,39 @@ return function()
 		it("get", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.get("d", "etc")).toEqual("etc")
 
-			expect(Map.get(dictionary, "d", "etc")).toEqual("etc")
+			expect(Dictionary.get(dictionary, "d", "etc")).toEqual("etc")
 		end)
 
 		it("count", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.count()).toEqual(3)
 
-			expect(Map.count(dictionary)).toEqual(3)
+			expect(Dictionary.count(dictionary)).toEqual(3)
 		end)
 
 		it("has", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.has("b")).toEqual(true)
 
-			expect(Map.has(dictionary, "b")).toEqual(true)
+			expect(Dictionary.has(dictionary, "b")).toEqual(true)
 		end)
 
 		it("filter", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.filter(function(value)
 				return value == "B"
 			end).toLuau()).toEqual({ b = "B" })
 
-			expect(Map.filter(dictionary, function(value)
+			expect(Dictionary.filter(dictionary, function(value)
 				return value == "B"
 			end)).toEqual({ b = "B" })
 		end)
@@ -122,12 +122,12 @@ return function()
 		it("filterNot", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.filterNot(function(value)
 				return value == "B"
 			end).toLuau()).toEqual({ a = "A", c = "C" })
 
-			expect(Map.filterNot(dictionary, function(value)
+			expect(Dictionary.filterNot(dictionary, function(value)
 				return value == "B"
 			end)).toEqual({ a = "A", c = "C" })
 		end)
@@ -136,50 +136,50 @@ return function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { A = "a", B = "b", C = "c" }
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.flip().toLuau()).toEqual(expected)
 
-			expect(Map.flip(dictionary)).toEqual(expected)
+			expect(Dictionary.flip(dictionary)).toEqual(expected)
 		end)
 
 		it("keys", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { "a", "c", "b" } -- brittle
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.keys().toLuau()).toEqual(expected)
 
-			expect(Map.keys(dictionary)).toEqual(expected)
+			expect(Dictionary.keys(dictionary)).toEqual(expected)
 		end)
 
 		it("values", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { "A", "C", "B" } -- brittle
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.values().toLuau()).toEqual(expected)
 
-			expect(Map.values(dictionary)).toEqual(expected)
+			expect(Dictionary.values(dictionary)).toEqual(expected)
 		end)
 
 		it("entries", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { { "a", "A" }, { "c", "C" }, { "b", "B" } } -- brittle
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.entries().toLuau()).toEqual(expected)
 
-			expect(Map.entries(dictionary)).toEqual(expected)
+			expect(Dictionary.entries(dictionary)).toEqual(expected)
 		end)
 
 		it("toList", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { "A", "C", "B" } -- brittle
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.toList().toLuau()).toEqual(expected)
 
-			expect(Map.toList(dictionary).toLuau()).toEqual(expected)
+			expect(Dictionary.toList(dictionary).toLuau()).toEqual(expected)
 		end)
 
 		it("mergeIn", function()
@@ -215,9 +215,9 @@ return function()
 					},
 				},
 			}
-			expect(Map.mergeIn(avengers, { "heroes", "ironMan" }, mergingAvengers)).toEqual(expected)
+			expect(Dictionary.mergeIn(avengers, { "heroes", "ironMan" }, mergingAvengers)).toEqual(expected)
 
-			local map = Map.new(avengers)
+			local map = Dictionary.new(avengers)
 			expect(map.mergeIn({ "heroes", "ironMan" }, mergingAvengers).toLuau()).toEqual(expected)
 		end)
 
@@ -226,10 +226,10 @@ return function()
 			local other = { a = { "A" }, b = { "B" }, c = { "C" } }
 			local other2 = { a = {}, b = {}, c = {} }
 
-			expect(Map.equals(dictionary, other)).toBe(true)
-			expect(Map.equals(dictionary, other2)).toBe(false)
+			expect(Dictionary.equals(dictionary, other)).toBe(true)
+			expect(Dictionary.equals(dictionary, other2)).toBe(false)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.equals(other)).toBe(true)
 			expect(map.equals(other2)).toBe(false)
 		end)
@@ -237,27 +237,27 @@ return function()
 		it("joinAsString", function()
 			local dictionary = { a = 10, b = 100 }
 
-			expect(Map.joinAsString(dictionary, "|")).toEqual("a=10|b=100")
+			expect(Dictionary.joinAsString(dictionary, "|")).toEqual("a=10|b=100")
 
-			local map = Map(dictionary)
+			local map = Dictionary(dictionary)
 			expect(map.joinAsString("|")).toEqual("a=10|b=100")
 		end)
 
 		it("includes", function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 
-			expect(Map.includes(dictionary, "A")).toEqual(true)
+			expect(Dictionary.includes(dictionary, "A")).toEqual(true)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.includes("A")).toEqual(true)
 		end)
 
 		it("isEmpty", function()
 			local dictionary = {}
 
-			expect(Map.isEmpty(dictionary)).toEqual(true)
+			expect(Dictionary.isEmpty(dictionary)).toEqual(true)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.isEmpty()).toEqual(true)
 		end)
 
@@ -267,9 +267,9 @@ return function()
 				return type(v) == "string"
 			end
 
-			expect(Map.every(dictionary, isString)).toEqual(true)
+			expect(Dictionary.every(dictionary, isString)).toEqual(true)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.every(isString)).toEqual(true)
 		end)
 
@@ -279,9 +279,9 @@ return function()
 				return v == "B"
 			end
 
-			expect(Map.some(dictionary, isB)).toEqual(true)
+			expect(Dictionary.some(dictionary, isB)).toEqual(true)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.some(isB)).toEqual(true)
 		end)
 
@@ -291,9 +291,9 @@ return function()
 				return v == k
 			end
 
-			expect(Map.find(dictionary, findKeyValueMatch)).toEqual("b")
+			expect(Dictionary.find(dictionary, findKeyValueMatch)).toEqual("b")
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.find(findKeyValueMatch)).toEqual("b")
 		end)
 
@@ -303,9 +303,9 @@ return function()
 				return type(v) == "number"
 			end
 
-			expect(Map.findKey(dictionary, findNumber)).toEqual("b")
+			expect(Dictionary.findKey(dictionary, findNumber)).toEqual("b")
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.findKey(findNumber)).toEqual("b")
 		end)
 
@@ -315,27 +315,27 @@ return function()
 				return v == k
 			end
 
-			expect(Map.findEntry(dictionary, findKeyValueMatch)).toEqual({ "b", "b" })
+			expect(Dictionary.findEntry(dictionary, findKeyValueMatch)).toEqual({ "b", "b" })
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.findEntry(findKeyValueMatch)).toEqual({ "b", "b" })
 		end)
 
 		it("max", function()
 			local dictionary = { a = 10, b = -100, c = 100, d = -50 }
 
-			expect(Map.max(dictionary)).toEqual(100)
+			expect(Dictionary.max(dictionary)).toEqual(100)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.max()).toEqual(100)
 		end)
 
 		it("min", function()
 			local dictionary = { a = 10, b = -100, c = 100, d = -50 }
 
-			expect(Map.min(dictionary)).toEqual(-100)
+			expect(Dictionary.min(dictionary)).toEqual(-100)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.min()).toEqual(-100)
 		end)
 
@@ -343,9 +343,9 @@ return function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { a = "A", b = "b", c = "C" }
 
-			expect(Map.update(dictionary, "b", string.lower)).toEqual(expected)
+			expect(Dictionary.update(dictionary, "b", string.lower)).toEqual(expected)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.update("b", string.lower).toLuau()).toEqual(expected)
 		end)
 
@@ -353,9 +353,9 @@ return function()
 			local dictionary = { a = { b = { c = "d" } } }
 			local expected = { a = { b = { c = "etc" } } }
 
-			expect(Map.setIn(dictionary, { "a", "b", "c" }, "etc")).toEqual(expected)
+			expect(Dictionary.setIn(dictionary, { "a", "b", "c" }, "etc")).toEqual(expected)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.setIn({ "a", "b", "c" }, "etc").toLuau()).toEqual(expected)
 		end)
 
@@ -363,9 +363,9 @@ return function()
 			local dictionary = { a = { b = { c = "d" } } }
 			local expected = { a = { b = { c = "D" } } }
 
-			expect(Map.updateIn(dictionary, { "a", "b", "c" }, string.upper)).toEqual(expected)
+			expect(Dictionary.updateIn(dictionary, { "a", "b", "c" }, string.upper)).toEqual(expected)
 
-			local map = Map.new(dictionary)
+			local map = Dictionary.new(dictionary)
 			expect(map.updateIn({ "a", "b", "c" }, string.upper).toLuau()).toEqual(expected)
 		end)
 
@@ -373,9 +373,9 @@ return function()
 			local dictionary = { a = { b = { c = "d" } } }
 			local expected = { a = {} }
 
-			expect(Map.removeIn(dictionary, { "a", "b" })).toEqual(expected)
+			expect(Dictionary.removeIn(dictionary, { "a", "b" })).toEqual(expected)
 
-			local map = Map(dictionary)
+			local map = Dictionary(dictionary)
 			expect(map.removeIn({ "a", "b" }).toLuau()).toEqual(expected)
 		end)
 
@@ -383,9 +383,9 @@ return function()
 			local dictionary = { a = { b = { c = "d" } } }
 			local expected = "d"
 
-			expect(Map.getIn(dictionary, { "a", "b", "c" })).toEqual(expected)
+			expect(Dictionary.getIn(dictionary, { "a", "b", "c" })).toEqual(expected)
 
-			local map = Map(dictionary)
+			local map = Dictionary(dictionary)
 			expect(map.getIn({ "a", "b", "c" })).toEqual(expected)
 		end)
 
@@ -393,9 +393,9 @@ return function()
 			local dictionary = { a = { b = { c = "d" } } }
 			local expected = true
 
-			expect(Map.hasIn(dictionary, { "a", "b", "c" })).toEqual(expected)
+			expect(Dictionary.hasIn(dictionary, { "a", "b", "c" })).toEqual(expected)
 
-			local map = Map(dictionary)
+			local map = Dictionary(dictionary)
 			expect(map.hasIn({ "a", "b", "c" })).toEqual(expected)
 		end)
 
@@ -415,9 +415,9 @@ return function()
 				etc = 3,
 			}
 
-			expect(Map.flatten(dictionary)).toEqual(expected)
+			expect(Dictionary.flatten(dictionary)).toEqual(expected)
 
-			local map = Map(dictionary)
+			local map = Dictionary(dictionary)
 			expect(map.flatten().toLuau()).toEqual(expected)
 		end)
 
@@ -425,9 +425,9 @@ return function()
 			local dictionary = { a = "A", b = "B", c = "C" }
 			local expected = { a = "A", c = "C" }
 
-			expect(Map.removeKey(dictionary, "b")).toEqual(expected)
+			expect(Dictionary.removeKey(dictionary, "b")).toEqual(expected)
 
-			local map = Map(dictionary)
+			local map = Dictionary(dictionary)
 			expect(map.removeKey("b").toLuau()).toEqual(expected)
 		end)
 
@@ -435,9 +435,9 @@ return function()
 			local dictionary = { a = "A", b = "B", c = "C", otherB = "B" }
 			local expected = { a = "A", c = "C" }
 
-			expect(Map.removeValue(dictionary, "B")).toEqual(expected)
+			expect(Dictionary.removeValue(dictionary, "B")).toEqual(expected)
 
-			local map = Map(dictionary)
+			local map = Dictionary(dictionary)
 			expect(map.removeValue("B").toLuau()).toEqual(expected)
 		end)
 	end)

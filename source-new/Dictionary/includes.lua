@@ -10,8 +10,6 @@ local includes = require(script.Parent.Parent.utils.includes)
 
 	@within Dictionary
 	@function includes
-	@param value Value
-	@return boolean
 ]=]
 
 return function<Key, Value>(dictionary: { [Key]: Value }, value: Value): boolean

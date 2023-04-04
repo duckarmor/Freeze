@@ -5,7 +5,7 @@ local setIn = require(script.Parent.Parent.utils.setIn)
 	If any keys in `keyPath` do not exist, a new dictionary will be created at that key.
 
 	```lua
-    local dictionary = {
+	local dictionary = {
 		persons = {
 			alice = {
 				age = 10,

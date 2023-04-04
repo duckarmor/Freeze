@@ -13,11 +13,9 @@ local filter = require(script.Parent.filter)
 
 	@within Dictionary
 	@function filterNot
-	@param predicate (Value, Key) -> (boolean)
-	@return { [Key]: Value }
 ]=]
 
-local function filterNot<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean)
+local function filterNot<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean): { [Key]: Value }
 	return filter(dictionary, function(value, key)
 		return not predicate(value, key)
 	end)

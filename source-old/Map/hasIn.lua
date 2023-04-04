@@ -2,14 +2,14 @@
 	Returns true if the value is found by following a path of keys.
 
 	```lua
-	Map.new({
+	Dictionary.new({
 		a = { b = "c" },
 		x = { y = "z" },
 	}).hasIn({ "a", "b" })
 	-- true
 	```
 
-	@within Map
+	@within Dictionary
 	@function hasIn
 	@param keyPath { any }
 	@return boolean

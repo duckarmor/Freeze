@@ -11,12 +11,9 @@
 
 	@within Dictionary
 	@function get
-	@param key Key
-	@param notSetValue Value?
-	@return Value?
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, key: Key, notSetValue: Value?)
+return function<Key, Value>(dictionary: { [Key]: Value }, key: Key, notSetValue: Value?): Value?
 	local value = dictionary[key]
 	return if value then value else notSetValue
 end

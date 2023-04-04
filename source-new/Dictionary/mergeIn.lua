@@ -6,7 +6,7 @@ local mergeIn = require(script.Parent.Parent.utils.mergeIn)
 	but performing a merge at the point arrived by following the key path.
 
 	```lua
-    local dictionary = {
+	local dictionary = {
 		persons = {
 			alice = {
 				age = 10,

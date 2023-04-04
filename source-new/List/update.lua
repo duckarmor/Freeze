@@ -19,13 +19,9 @@ local updateIn = require(script.Parent.updateIn)
 	```
 
 	@within List
-    @param list { Value }
-	@param index number
-	@param updater (Value?, number?) -> (Value)
-	@param notSetValue Value?
-	@return { Value }
+	@function update
 ]=]
 
-return function<Value>(list: { Value }, index: number, updater: (Value?) -> Value, notSetValue: Value?)
+return function<Value>(list: { Value }, index: number, updater: (Value?) -> Value, notSetValue: Value?): { Value }
 	return updateIn(list, { index }, updater, notSetValue)
 end
