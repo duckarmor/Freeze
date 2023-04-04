@@ -1,6 +1,6 @@
 --!strict
 --[=[
-	Returns a new map having removed the all entries with the given `value`.
+	Returns a new map having removed the all pairs with the given `value`.
 
 	```lua
 	Dictionary.removeValue({ a = 10, b = 20, c = 30 }, 10)
