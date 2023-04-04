@@ -18,9 +18,8 @@ return function()
 		expect(result).toEqual({ 20, 30 })
 	end)
 
-	it("remove out of bounds", function()
-		expect(function()
-			remove(list, 4)
-		end).to.throw("index 4 out of bounds")
+	it("remove out of bounds, same id", function()
+		local result = remove(list, 4)
+		expect(result).toBe(list)
 	end)
 end

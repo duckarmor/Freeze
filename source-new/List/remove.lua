@@ -26,12 +26,12 @@ return function<Value>(list: { Value }, index: number)
 		index += len + 1
 	end
 
-	if index > 0 and index <= len then
+	if index <= 0 or index > len then
 		-- out of bounds
 		return list
 	end
 
-	local new = table.clone(list)
+	local new = table.create(len - 1)
 	local newIndex = 1
 
 	for i, v in list do
