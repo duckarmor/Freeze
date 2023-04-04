@@ -1,0 +1,11 @@
+# This file lists tools managed by Aftman, a cross-platform toolchain manager.
+# For more information, see https://github.com/LPGhatguy/aftman
+
+# To add a new tool, add an entry to this table.
+[tools]
+rojo = "rojo-rbx/rojo@7.2.1"
+selene = "Kampfkarren/selene@0.23.1"
+stylua = "JohnnyMorganz/stylua@0.16.0"
+wally = "UpliftGames/wally@0.3.1"
+moonwave-extractor = "UpliftGames/moonwave@0.3.4"
+lune = "filiptibell/lune@0.6.5"

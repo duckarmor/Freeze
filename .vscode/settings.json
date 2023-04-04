@@ -1,0 +1,9 @@
+{
+    "luau-lsp.sourcemap.rojoProjectFile": "dev.project.json",
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "Build and Serve",
+            "task": "build and serve",
+        }
+    ],
+}

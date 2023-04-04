@@ -1,3 +1,4 @@
+--!strict
 local function equalObjects(...)
 	local firstObject = select(1, ...)
 

@@ -1,0 +1,30 @@
+{
+    "name": "freeze",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "$className": "ReplicatedStorage",
+            "Packages": {
+                "$className": "Folder",
+                "Dev": {
+                    "$path": "Packages"
+                },
+                "Freeze": {
+                    "$path": "source-new"
+                },
+                "Llama": {
+                    "$path": "source-new"
+                }
+            }
+        },
+        "TestService": {
+            "$className": "TestService",
+            "__WatcherDirectories": {
+                "$path": "bin/test-watcher.lua"
+            },
+            "unit-runner": {
+                "$path": "bin/unit-runner.server.lua"
+            }
+        }
+    }
+}
