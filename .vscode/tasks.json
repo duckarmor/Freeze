@@ -34,5 +34,19 @@
             },
             "problemMatcher": []
         },
+        {
+            "label": "publish docs site",
+            "type": "shell",
+            "runOptions": {
+                "instanceLimit": 1,
+            },
+            "windows": {
+                "command": "npx moonwave build --publish --code source",
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": []
+        },
     ]
 }

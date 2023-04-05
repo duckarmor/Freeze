@@ -8,6 +8,10 @@
         {
             "label": "Dev Docs Site",
             "task": "dev docs site",
+        },
+        {
+            "label": "Publish Docs Site",
+            "task": "publish docs site",
         }
     ],
 }

@@ -30,7 +30,7 @@ Luau would seem to think not.
 
 That is because the `==` operator compares two values by __reference equality__. `list1` and `list2` are represented by two different addresses in memory.
 
-Try it out! Use `print` on `list1` and `list2` and you'll see they print two different --credit card numbers-- memory addresses.
+Try it out! Use `print` on `list1` and `list2` and you'll see they print two different ~~credit card numbers~~ memory addresses.
 
 ```lua
 print(tostring(list1))
