@@ -10,10 +10,11 @@
 	```
 
 	@within Dictionary
-	@function get
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, key: Key, notSetValue: Value?): Value?
+local function get<Key, Value>(dictionary: { [Key]: Value }, key: Key, notSetValue: Value?): Value?
 	local value = dictionary[key]
 	return if value then value else notSetValue
 end
+
+return get

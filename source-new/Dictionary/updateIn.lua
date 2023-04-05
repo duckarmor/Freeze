@@ -1,10 +1,11 @@
 --!strict
-local updateIn = require(script.Parent.Parent.utils.updateIn)
+local updateInImpl = require(script.Parent.Parent.utils.updateIn)
 
 --[=[
-	Returns a dictionary with the entry at `keyPath` updated to the result of `updater`.
+	Returns a Dictionary with the entry at `keyPath` updated to the result of `updater`.
 
-	If any entry does not exist along `keyPath`, an empty map will be created in its place.
+	If any entry does not exist along `keyPath`, an empty Dictionary will be created in its place.
+
 	If the final entry does not exist, `updater` will be given `notSetValue` or nil.
 
 	```lua
@@ -24,13 +25,15 @@ local updateIn = require(script.Parent.Parent.utils.updateIn)
 	```
 
 	@within Dictionary
-	@function updateIn
-	@param keyPath { any }
-	@param updater (Value?, Key?) -> (Value)
-	@param notSetValue Value?
-	@return { [any]: any }
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, keyPath, updater, notSetValue)
-	return table.freeze(updateIn(dictionary, keyPath, updater, notSetValue))
+local function updateIn<Key, Value>(
+	dictionary: { [any]: any },
+	keyPath: { any },
+	updater: (any) -> any,
+	notSetValue: any?
+): { [any]: any }
+	return table.freeze(updateInImpl(dictionary, keyPath, updater, notSetValue))
 end
+
+return updateIn

@@ -1,11 +1,11 @@
 --!strict
-local equals = require(script.Parent.Parent.utils.equals)
+local equalsImpl = require(script.Parent.Parent.utils.equals)
 
 --[=[
-	Returns true if both dictionaries have _value_ equality.
-	
+	Returns true if both Dictionaries have _value_ equality.
+
 	:::info
-	
+
 	If you only require reference equal, use the `==` operator.
 
 	:::
@@ -19,9 +19,9 @@ local equals = require(script.Parent.Parent.utils.equals)
 	```
 
 	@within Dictionary
-	@function equals
 ]=]
-
-return function<Key, Value>(dictionaryA: { [Key]: Value }, dictionaryB: any): boolean
-	return equals(dictionaryA, dictionaryB)
+local function equals<Key, Value>(dictionaryA: { [Key]: Value }, dictionaryB: any): boolean
+	return equalsImpl(dictionaryA, dictionaryB)
 end
+
+return equals

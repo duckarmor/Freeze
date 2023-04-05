@@ -1,7 +1,7 @@
 --!strict
 local set = require(script.Parent.Parent.utils.set)
 --[=[
-	Returns a new dictionary which excludes the given `key`s.
+	Returns a Dictionary which excludes the given `keys`.
 
 	```lua
 	Dictionary.remove({ a = 10, b = 20, c = 30 }).remove("c")
@@ -12,15 +12,14 @@ local set = require(script.Parent.Parent.utils.set)
 	```
 
 	@within Dictionary
-	@function remove
-	@param key Key
-	@return { [Key]: Value }
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, ...: Key)
+local function remove<Key, Value>(dictionary: { [Key]: Value }, ...: Key): { [Key]: Value }
 	local new = table.clone(dictionary)
 	for _, key in { ... } do
 		new = set(new, key, nil)
 	end
 	return table.freeze(new)
 end
+
+return remove

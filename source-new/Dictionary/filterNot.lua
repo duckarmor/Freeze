@@ -2,7 +2,7 @@
 local filter = require(script.Parent.filter)
 
 --[=[
-	Returns a new Dictionary of only entries for which the `predicate` function returns false.
+	Returns a Dictionary of only entries for which the `predicate` function returns false.
 
 	```lua
 	Dictionary.filterNot({ a = 1, b = 2, c = 3, d = 4 }, function(value, key)
@@ -12,7 +12,6 @@ local filter = require(script.Parent.filter)
 	```
 
 	@within Dictionary
-	@function filterNot
 ]=]
 
 local function filterNot<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean): { [Key]: Value }

@@ -1,4 +1,25 @@
 --!nonstrict
+
+local function flattenImpl(dictionary: { [any]: any }, depth: number?)
+	local new = {}
+
+	for key, value in dictionary do
+		if type(value) == "table" and (not depth or depth > 0) then
+			local subDictionary = flattenImpl(value, depth and depth - 1)
+
+			for newKey, newValue in pairs(new) do
+				subDictionary[newKey] = newValue
+			end
+
+			new = subDictionary
+		else
+			new[key] = value
+		end
+	end
+
+	return new
+end
+
 --[=[
 	Returns a flattened dictionary by combining keys of the lowest depth.
 
@@ -18,29 +39,10 @@
 	```
 
 	@within Dictionary
-	@function flatten
 ]=]
 
-local function flatten(dictionary: { [any]: any }, depth: number?)
-	local new = {}
-
-	for key, value in dictionary do
-		if type(value) == "table" and (not depth or depth > 0) then
-			local subDictionary = flatten(value, depth and depth - 1)
-
-			for newKey, newValue in pairs(new) do
-				subDictionary[newKey] = newValue
-			end
-
-			new = subDictionary
-		else
-			new[key] = value
-		end
-	end
-
-	return new
+local function flatten(dictionary: { [any]: any }, depth: number?): { [any]: any }
+	return table.freeze(flattenImpl(dictionary, depth))
 end
 
-return function(dictionary: { [any]: any }, depth: number?): { [any]: any }
-	return table.freeze(flatten(dictionary, depth))
-end
+return flatten

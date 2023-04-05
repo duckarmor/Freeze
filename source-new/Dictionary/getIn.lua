@@ -1,5 +1,5 @@
 --!strict
-local getIn = require(script.Parent.Parent.utils.getIn)
+local getInImpl = require(script.Parent.Parent.utils.getIn)
 --[=[
 	Returns the value if found by following a path of keys, otherwise returns `notSetValue` if the given value is nil.
 
@@ -10,9 +10,10 @@ local getIn = require(script.Parent.Parent.utils.getIn)
 	```
 
 	@within Dictionary
-	@function getIn
 ]=]
 
-return function<Value>(dictionary, keyPath: { any }, notSetValue: Value?): Value?
-	return getIn(dictionary, keyPath, notSetValue)
+local function getIn<Value>(dictionary: { [any]: any }, keyPath: { any }, notSetValue: Value?): Value?
+	return getInImpl(dictionary, keyPath, notSetValue)
 end
+
+return getIn

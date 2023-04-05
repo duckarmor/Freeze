@@ -1,5 +1,5 @@
 --!strict
-local some = require(script.Parent.Parent.utils.some)
+local someImpl = require(script.Parent.Parent.utils.some)
 --[=[
 	Returns true if `predicate` returns true for any entry in the dictionary.
 
@@ -11,11 +11,10 @@ local some = require(script.Parent.Parent.utils.some)
 	```
 
 	@within Dictionary
-	@function some
-	@param predicate (Value, Key) -> (boolean)
-	@return boolean
 ]=]
 
-return function(dictionary, predicate)
-	return some(dictionary, predicate)
+local function some<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean): boolean
+	return someImpl(dictionary, predicate)
 end
+
+return some

@@ -1,5 +1,5 @@
 --!strict
-local findPair = require(script.Parent.Parent.utils.findPair)
+local findPairImpl = require(script.Parent.Parent.utils.findPair)
 --[=[
 	Returns the first value for which the `predicate` returns true.
 
@@ -11,10 +11,11 @@ local findPair = require(script.Parent.Parent.utils.findPair)
 	```
 
 	@within Dictionary
-	@function find
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean, notSetValue: Value?): Value?
-	local _, value = findPair(dictionary, predicate)
+local function find<Key, Value>(dictionary: { [Key]: Value }, predicate: (Value, Key) -> boolean, notSetValue: Value?): Value?
+	local _, value = findPairImpl(dictionary, predicate)
 	return if value == nil then notSetValue else value
 end
+
+return find

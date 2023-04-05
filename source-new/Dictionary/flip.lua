@@ -8,10 +8,9 @@
 	```
 
 	@within Dictionary
-	@function flip
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }): { [Value]: Key }
+local function flip<Key, Value>(dictionary: { [Key]: Value }): { [Value]: Key }
 	local new = {}
 
 	for key, value in dictionary do
@@ -20,3 +19,5 @@ return function<Key, Value>(dictionary: { [Key]: Value }): { [Value]: Key }
 
 	return table.freeze(new)
 end
+
+return flip

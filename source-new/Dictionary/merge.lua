@@ -1,12 +1,9 @@
 --!strict
-local merge = require(script.Parent.Parent.utils.merge)
+local mergeImpl = require(script.Parent.Parent.utils.merge)
 --[=[
 	Returns a merged result of all given dictionaries.
 
 	If `Freeze.None` is a value assigned to a key, it will delete that key from the resulting dictionary.
-
-	##### Alias
-	`join`
 
 	```lua
 	Dictionary.merge({ a = 10, b = 20 }, { c = 30 })
@@ -17,11 +14,10 @@ local merge = require(script.Parent.Parent.utils.merge)
 	```
 
 	@within Dictionary
-	@function merge
-	@param dictionaries ...Dictionary
-	@return Dictionary
 ]=]
 
-return function<Key, Value>(...: { [Key]: Value })
-	return table.freeze(merge(...))
+local function merge<Key, Value>(...: { [Key]: Value }): { [any]: any }
+	return table.freeze(mergeImpl(...))
 end
+
+return merge

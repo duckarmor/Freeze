@@ -11,9 +11,10 @@ local None = require(script.Parent.Parent.None)
 	```
 
 	@within Dictionary
-	@function hasIn
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, keyPath: { any }): boolean
+local function hasIn<Key, Value>(dictionary: { [Key]: Value }, keyPath: { any }): boolean
 	return getIn(dictionary, keyPath, None) ~= None
 end
+
+return hasIn

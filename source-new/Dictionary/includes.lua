@@ -1,5 +1,5 @@
 --!strict
-local includes = require(script.Parent.Parent.utils.includes)
+local includesImpl = require(script.Parent.Parent.utils.includes)
 --[=[
 	Returns true if the value is found within the Dictionary.
 
@@ -9,9 +9,10 @@ local includes = require(script.Parent.Parent.utils.includes)
 	```
 
 	@within Dictionary
-	@function includes
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, value: Value): boolean
-	return includes(dictionary, value)
+local function includes<Key, Value>(dictionary: { [Key]: Value }, value: Value): boolean
+	return includesImpl(dictionary, value)
 end
+
+return includes

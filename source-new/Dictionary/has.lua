@@ -8,9 +8,10 @@
 	```
 
 	@within Dictionary
-	@function has
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, key: Key): boolean
+local function has<Key, Value>(dictionary: { [Key]: Value }, key: Key): boolean
 	return dictionary[key] ~= nil
 end
+
+return has

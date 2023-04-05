@@ -1,5 +1,5 @@
 --!strict
-local setIn = require(script.Parent.Parent.utils.setIn)
+local setInImpl = require(script.Parent.Parent.utils.setIn)
 --[=[
 	Returns a dictionary having set `value` at this `keyPath`.
 	If any keys in `keyPath` do not exist, a new dictionary will be created at that key.
@@ -18,12 +18,10 @@ local setIn = require(script.Parent.Parent.utils.setIn)
 	```
 
 	@within Dictionary
-	@function setIn
-	@param keyPath { any }
-	@param value any
-	@return { [any]: any }
 ]=]
 
-return function(dictionary, keyPath, value)
-	return table.freeze(setIn(dictionary, keyPath, value))
+local function setIn(dictionary: { [any]: any }, keyPath: { any }, value: any): { [any]: any }
+	return table.freeze(setInImpl(dictionary, keyPath, value))
 end
+
+return setIn

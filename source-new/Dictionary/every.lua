@@ -1,7 +1,7 @@
 --!strict
-local every = require(script.Parent.Parent.utils.every)
+local everyImpl = require(script.Parent.Parent.utils.every)
 --[=[
-	Returns true if `predicate` returns true for all entries in the Iterable.
+	Returns true if `predicate` returns true for all entries in the Dictionary.
 
 	```lua
 	Dictionary.every({ a = 1, b = 2, c = 3 }, function(value, key)
@@ -11,9 +11,10 @@ local every = require(script.Parent.Parent.utils.every)
 	```
 
 	@within Dictionary
-	@function every
 ]=]
 
-return function<Key, Value>(list: { [Key]: Value }, predicate: (Value, Key) -> boolean): boolean
-	return every(list, predicate)
+local function every<Key, Value>(list: { [Key]: Value }, predicate: (Value, Key) -> boolean): boolean
+	return everyImpl(list, predicate)
 end
+
+return every

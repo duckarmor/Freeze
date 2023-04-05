@@ -1,9 +1,9 @@
 --!strict
-local count = require(script.Parent.Parent.utils.count)
+local countImpl = require(script.Parent.Parent.utils.count)
 
 --[=[
-	Returns the number of entries that match the predicate.
-	If the predicate is not given, all entries will be considered a match.
+	Returns the number of pairs that match the `predicate`.
+	If the `predicate` is not given, all pairs will be considered a match.
 
 	```lua
 	Dictionary.count({ a = 1, b = 2, c = 3 }).count()
@@ -16,9 +16,9 @@ local count = require(script.Parent.Parent.utils.count)
 	```
 
 	@within Dictionary
-	@function count
 ]=]
-
-return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean)?): number
-	return count(dictionary, predicate)
+local function count<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean)?): number
+	return countImpl(dictionary, predicate)
 end
+
+return count

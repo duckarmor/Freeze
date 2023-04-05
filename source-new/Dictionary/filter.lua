@@ -1,6 +1,6 @@
 --!strict
 --[=[
-	Returns a dictionary of only entries for which the `predicate` function returns true.
+	Returns a Dictionary of only entries for which the `predicate` function returns true.
 
 	```lua
 	Dictionary.filter({ a = 1, b = 2, c = 3, d = 4 }, function(value, key)
@@ -10,10 +10,9 @@
 	```
 
 	@within Dictionary
-	@function filter
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean)): { [Key]: Value }
+local function filter<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Key) -> boolean)): { [Key]: Value }
 	local new = {}
 
 	for k, v in dictionary do
@@ -24,3 +23,5 @@ return function<Key, Value>(dictionary: { [Key]: Value }, predicate: ((Value, Ke
 
 	return table.freeze(new)
 end
+
+return filter

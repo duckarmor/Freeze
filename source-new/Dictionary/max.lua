@@ -1,5 +1,5 @@
 --!strict
-local max = require(script.Parent.Parent.utils.max)
+local maxImpl = require(script.Parent.Parent.utils.max)
 
 --[=[
 	Returns the maximum value and key in this dictionary.
@@ -9,20 +9,19 @@ local max = require(script.Parent.Parent.utils.max)
 
 	```lua
 	Dictionary.max({ a = 10, b = 200, c = 30 })
-	-- 200, "c"
+	-- ( 200, "c" )
 
 	Dictionary.max({ alice = child, bertram = teen, charlie = adult }, function(personA, personB)
 		return personA.age > personB.age
 	end)
-	-- adult, "charlie"
+	-- ( adult, "charlie" )
 	```
 
 	@within Dictionary
-	@function max
-	@param comparator ((Value, Value) -> (boolean))?
-	@return (Value?, Key?)
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, comparator: ((Value, Value) -> boolean)?): (Value, Key?)
-	return max(dictionary, comparator)
+local function max<Key, Value>(dictionary: { [Key]: Value }, comparator: ((Value, Value) -> boolean)?): (Value, Key?)
+	return maxImpl(dictionary, comparator)
 end
+
+return max

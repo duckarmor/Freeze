@@ -8,11 +8,9 @@
 	```
 
 	@within Dictionary
-	@function values
-	@return { Value }
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value })
+local function values<Key, Value>(dictionary: { [Key]: Value }): { Value }
 	local new = {}
 
 	for _, value in dictionary do
@@ -21,3 +19,5 @@ return function<Key, Value>(dictionary: { [Key]: Value })
 
 	return table.freeze(new)
 end
+
+return values

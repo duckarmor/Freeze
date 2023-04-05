@@ -1,7 +1,7 @@
 --!strict
 local every = require(script.Parent.Parent.utils.every)
 --[=[
-	Returns true if `predicate` returns true for all entries in the Iterable.
+	Returns true if `predicate` returns true for all entries in the list.
 
 	```lua
 	List.every({ "a", "b", "c" }, function(value, key)

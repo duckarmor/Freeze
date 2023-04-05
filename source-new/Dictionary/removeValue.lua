@@ -8,12 +8,9 @@
 	```
 
 	@within Dictionary
-	@function removeValue
-	@param value Value
-	@return { [Key]: Value }
 ]=]
 
-return function<Key, Value>(dictionary: { [Key]: Value }, value: Value)
+local function removeValue<Key, Value>(dictionary: { [Key]: Value }, value: Value): { [Key]: Value }
 	local new = {}
 
 	local mutated = false
@@ -27,3 +24,5 @@ return function<Key, Value>(dictionary: { [Key]: Value }, value: Value)
 
 	return if mutated then table.freeze(new) else dictionary
 end
+
+return removeValue
