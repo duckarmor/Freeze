@@ -1,9 +1,6 @@
 --!strict
 --[=[
-	Returns a new list with the provided `values` appended at the end of the list.
-
-	##### Alias
-	`append`
+	Returns a List with the provided `values` appended at the end of the List.
 
 	```lua
 	List.push({ 10, 20, 30 }, 40, 50, 60)
@@ -11,12 +8,9 @@
 	```
 
 	@within List
-	@function push
-	@param values ...Value
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, ...: Value)
+local function push<Value>(list: { Value }, ...: Value): { Value }
 	if #{ ... } == 0 then
 		return list
 	end
@@ -28,3 +22,5 @@ return function<Value>(list: { Value }, ...: Value)
 
 	return table.freeze(newCollection)
 end
+
+return push

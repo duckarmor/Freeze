@@ -12,12 +12,9 @@ local filter = require(script.Parent.filter)
 	```
 
 	@within List
-	@function filterNot
-	@param predicate (Value, number) -> (boolean)
-	@return { Value }
 ]=]
 
-local function filterNot<Value>(list: { Value }, predicate: (Value, number) -> boolean)
+local function filterNot<Value>(list: { Value }, predicate: (Value, number) -> boolean): { Value }
 	return filter(list, function(value, index)
 		return not predicate(value, index)
 	end)

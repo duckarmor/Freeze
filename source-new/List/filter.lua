@@ -10,12 +10,9 @@
 	```
 
 	@within List
-	@function filter
-	@param predicate (Value, number) -> (boolean)
-	@return { Value }
 ]=]
 
-local function filter<Value>(list: { Value }, predicate: (Value, number) -> boolean)
+local function filter<Value>(list: { Value }, predicate: (Value, number) -> boolean): { Value }
 	local new = table.create(#list)
 
 	for i, v in list do

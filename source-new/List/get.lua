@@ -16,10 +16,9 @@
 	```
 
 	@within List
-	@function get
 ]=]
 
-return function<Value>(list: { Value }, index: number, notSetValue: Value?): Value?
+local function get<Value>(list: { Value }, index: number, notSetValue: Value?): Value?
 	if type(index) == "number" and index < 0 then
 		index = #list + (index + 1)
 	end
@@ -27,3 +26,5 @@ return function<Value>(list: { Value }, index: number, notSetValue: Value?): Val
 	local value = list[index]
 	return if value then value else notSetValue
 end
+
+return get

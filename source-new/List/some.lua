@@ -1,7 +1,7 @@
 --!strict
-local some = require(script.Parent.Parent.utils.some)
+local someImpl = require(script.Parent.Parent.utils.some)
 --[=[
-	Returns true if `predicate` returns true for any entry in the list.
+	Returns true if `predicate` returns true for any entry in the List.
 
 	```lua
 	List.some({ 1, 2, 3 }, function(value, index)
@@ -11,11 +11,10 @@ local some = require(script.Parent.Parent.utils.some)
 	```
 
 	@within List
-	@function some
-	@param predicate (Value, number) -> (boolean)
-	@return boolean
 ]=]
 
-return function<Value>(list: { Value }, predicate)
-	return some(list, predicate)
+local function some<Value>(list: { Value }, predicate: (Value, number) -> boolean): boolean
+	return someImpl(list, predicate)
 end
+
+return some

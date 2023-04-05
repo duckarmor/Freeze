@@ -1,7 +1,7 @@
 --!strict
-local min = require(script.Parent.Parent.utils.min)
+local minImpl = require(script.Parent.Parent.utils.min)
 --[=[
-	Returns the minimum value in this list.
+	Returns the minimum value in this List.
 	If any values are comparatively equivalent, the first one found will be returned.
 
 	The `comparator` is used in the same way as `table.sort`. If it is not provided, the default comparator is `>`.
@@ -17,11 +17,10 @@ local min = require(script.Parent.Parent.utils.min)
 	```
 
 	@within List
-	@function min
-	@param comparator ((Value, Value) -> (boolean))?
-	@return (Value, number?)
 ]=]
 
-return function<Value>(list: { Value }, comparator: ((Value, Value) -> boolean)?): (Value, number?)
-	return min(list, comparator)
+local function min<Value>(list: { Value }, comparator: ((Value, Value) -> boolean)?): (Value, number?)
+	return minImpl(list, comparator)
 end
+
+return min

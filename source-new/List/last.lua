@@ -2,7 +2,9 @@
 local get = require(script.Parent.get)
 
 --[=[
-	Returns the last value in the list.
+	Returns the last value in the List.
+
+	Returns `notSetValue` if the List is empty.
 
 	```lua
 	List.last({ "a", "b", "c" })
@@ -13,11 +15,10 @@ local get = require(script.Parent.get)
 	```
 
 	@within List
-	@function last
-	@param notSetValue Value?
-	@return Value?
 ]=]
 
-return function<Value>(list: { Value }, notSetValue: Value)
+local function last<Value>(list: { Value }, notSetValue: Value): Value?
 	return get(list, -1, notSetValue)
 end
+
+return last

@@ -1,9 +1,8 @@
 --!strict
-
 local None = require(script.Parent.Parent.None)
 
 --[=[
-	Returns a new List of the same type concatenated to given arguments.
+	Returns a List of the same type concatenated to given arguments.
 
 	```lua
 	List.concat({ "a", "b", "c" }, { "d", "e", "f" })
@@ -11,12 +10,9 @@ local None = require(script.Parent.Parent.None)
 	```
 
 	@within List
-	@function concat
-	@param valuesOrIterables ...{ Value }
-	@return { Value }
 ]=]
 
-return function<Value>(...: { Value }): { Value }
+local function concat<Value>(...: { Value }): { Value }
 	local new = {}
 	local index = 1
 
@@ -41,3 +37,5 @@ return function<Value>(...: { Value }): { Value }
 
 	return table.freeze(new)
 end
+
+return concat

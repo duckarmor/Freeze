@@ -10,11 +10,10 @@
 	```
 
 	@within List
-	@function joinAsString
-	@param separator string?
-	@return string
 ]=]
 
-return function<Value>(list: { Value }, separator: string?): string
+local function joinAsString<Value>(list: { Value }, separator: string?): string
 	return table.concat(list, separator or ",")
 end
+
+return joinAsString

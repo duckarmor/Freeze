@@ -1,7 +1,7 @@
 --!strict
-local slice = require(script.Parent.Parent.utils.slice)
+local sliceImpl = require(script.Parent.Parent.utils.slice)
 --[=[
-	Returns a new list that includes the range `[from, to)`.
+	Returns a List that includes the range `[from, to)`.
 
 	If `from` is negative, it is offset from the end of the list.
 	`slice(-2)` returns a list of the last two entries.
@@ -23,12 +23,10 @@ local slice = require(script.Parent.Parent.utils.slice)
 	```
 
 	@within List
-	@function slice
-	@param from number?
-	@param to number?
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, from: number?, to: number?)
-	return table.freeze(slice(list, from, to))
+local function slice<Value>(list: { Value }, from: number?, to: number?): { Value }
+	return table.freeze(sliceImpl(list, from, to))
 end
+
+return slice

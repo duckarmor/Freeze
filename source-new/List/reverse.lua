@@ -1,6 +1,6 @@
 --!strict
 --[=[
-	Returns a new list in reverse order.
+	Returns a List in reverse order.
 
 	```lua
 	List.reverse({ "a", "b", "c" })
@@ -8,11 +8,9 @@
 	```
 
 	@within List
-	@function reverse
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value })
+local function reverse<Value>(list: { Value }): { Value }
 	local len = #list
 	local new = table.create(len)
 
@@ -24,3 +22,5 @@ return function<Value>(list: { Value })
 
 	return table.freeze(new)
 end
+
+return reverse

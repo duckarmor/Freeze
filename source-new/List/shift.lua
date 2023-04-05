@@ -1,9 +1,9 @@
 --!strict
 --[=[
-	Returns a new list excluding the first index in this `list`, shifting all other values to a lower index.
+	Returns a List excluding the first index in this `List`, shifting all other values to a lower index.
 
 	If `amount` is not provided, it will default to 1.
-	Passing an `amount` greater than the length of the given `list` will result in an empty collection.
+	Passing an `amount` greater than the length of the given `List` will result in an empty List.
 
 	```lua
 	List.shift({ "a", "b", "c" })
@@ -11,11 +11,9 @@
 	```
 
 	@within List
-	@function shift
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, amount: number?)
+local function shift<Value>(list: { Value }, amount: number?): { Value }
 	local len = #list
 
 	local numPlaces = math.min(len, amount or 1)
@@ -28,3 +26,5 @@ return function<Value>(list: { Value }, amount: number?)
 
 	return table.freeze(new)
 end
+
+return shift

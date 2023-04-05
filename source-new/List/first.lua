@@ -10,11 +10,10 @@ local get = require(script.Parent.get)
 	```
 
 	@within List
-	@function first
-	@param notSetValue Value?
-	@return Value?
 ]=]
 
-return function<Value>(list: { Value }, notSetValue: Value?)
+local function first<Value>(list: { Value }, notSetValue: Value?)
 	return get(list, 1, notSetValue)
 end
+
+return first

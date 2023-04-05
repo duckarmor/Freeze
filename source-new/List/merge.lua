@@ -1,13 +1,10 @@
 --!strict
-local merge = require(script.Parent.Parent.utils.merge)
+local mergeImpl = require(script.Parent.Parent.utils.merge)
 
 --[=[
-	Returns a merged result of all given lists.
+	Returns a merged result of all given Lists.
 
-	If `Freeze.None` is a value assigned to a key, it will delete that key from the resulting list.
-
-	##### Alias
-	`join`
+	If `Freeze.None` is a value assigned to an index, it will delete that index from the resulting List.
 
 	```lua
 	List.merge({ 10, nil, 30 }, { nil, 20, nil })
@@ -18,11 +15,10 @@ local merge = require(script.Parent.Parent.utils.merge)
 	```
 
 	@within List
-	@function merge
-	@param lists ...{ any }
-	@return { any }
 ]=]
 
-return function(...: { any }): { any }
-	return table.freeze(merge(...))
+local function merge(...: { any }): { any }
+	return table.freeze(mergeImpl(...))
 end
+
+return merge

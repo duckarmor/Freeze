@@ -2,7 +2,7 @@
 local updateIn = require(script.Parent.updateIn)
 
 --[=[
-	Returns a new list with the entry at `index` updated to the result of `updater`.
+	Returns a List with the entry at `index` updated to the result of `updater`.
 
 	If the entry does not exist, `updater` will be given `notSetValue` or nil.
 
@@ -19,9 +19,10 @@ local updateIn = require(script.Parent.updateIn)
 	```
 
 	@within List
-	@function update
 ]=]
 
-return function<Value>(list: { Value }, index: number, updater: (Value?) -> Value, notSetValue: Value?): { Value }
+local function update<Value>(list: { Value }, index: number, updater: (Value?) -> Value, notSetValue: Value?): { Value }
 	return updateIn(list, { index }, updater, notSetValue)
 end
+
+return update

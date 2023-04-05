@@ -1,7 +1,7 @@
 --!strict
 --[=[
-	Returns a new list with all lists given "zipped" together.
-	The length of the new list is the length of the shortest provided list.
+	Returns a List with all lists given "zipped" together.
+	The length of the List is the length of the shortest provided `list`.
 
 	```lua
 	List.zip({ "a", "b", "c" }, { "x", "y", "z" })
@@ -13,12 +13,9 @@
 	```
 
 	@within List
-	@function zip
-	@param lists ...{ Value }
-	@return { { Value } }
 ]=]
 
-return function<Value>(...: { Value }): { { Value } }
+local function zip<Value>(...: { Value }): { { Value } }
 	local firstList = select(1, ...)
 
 	local new = {}
@@ -52,3 +49,5 @@ return function<Value>(...: { Value }): { { Value } }
 
 	return table.freeze(new)
 end
+
+return zip

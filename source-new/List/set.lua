@@ -1,7 +1,9 @@
 --!strict
 --[=[
-	Returns a new list which includes `value` at `index`.
+	Returns a List which includes `value` at `index`.
 	If `index` already exists, it will be replaced.
+
+	Returns the original List if no changes were made.
 
 	```lua
 	List.set({"a", "b", "c"}, 1, "A")
@@ -9,10 +11,9 @@
 	```
 
 	@within List
-	@function set
 ]=]
 
-return function<Value>(list: { Value }, index: number, value: Value): { Value }
+local function set<Value>(list: { Value }, index: number, value: Value): { Value }
 	if list[index] == value then
 		return list
 	end
@@ -21,3 +22,5 @@ return function<Value>(list: { Value }, index: number, value: Value): { Value }
 	newList[index] = value
 	return table.freeze(newList)
 end
+
+return set

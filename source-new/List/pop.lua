@@ -1,6 +1,8 @@
 --!strict
 --[=[
-	Returns a new list excluding the last index of this list.
+	Returns a List excluding the last `index` of this List.
+
+	This will repeat multiple times if given the optional `amount` argument and will always pop at least once.
 
 
 	```lua
@@ -12,12 +14,9 @@
 	```
 
 	@within List
-	@function pop
-	@param amount number?
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, amount: number?)
+local function pop<Value>(list: { Value }, amount: number?): { Value }
 	local useAmount = math.max(1, amount or 1)
 
 	local len = #list
@@ -30,3 +29,5 @@ return function<Value>(list: { Value }, amount: number?)
 
 	return table.freeze(new)
 end
+
+return pop

@@ -1,6 +1,8 @@
 --!strict
 --[=[
-	Returns a new list having removed the first entry with the given `value`.
+	Returns a List having removed the first entry with the given `value`.
+
+	If no values are present, it will return the original List with no changes.
 
 	```lua
 	List.removeValue({ "a", "b", "c" }, "a")
@@ -8,12 +10,9 @@
 	```
 
 	@within List
-	@function removeValue
-	@param value Value
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, value: Value)
+local function removeValue<Value>(list: { Value }, value: Value): { Value }
 	local new = table.create(#list)
 
 	local didRemove = false
@@ -27,3 +26,5 @@ return function<Value>(list: { Value }, value: Value)
 
 	return if didRemove then table.freeze(new) else list
 end
+
+return removeValue

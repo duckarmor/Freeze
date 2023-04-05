@@ -1,5 +1,5 @@
 --!strict
-local every = require(script.Parent.Parent.utils.every)
+local everyImpl = require(script.Parent.Parent.utils.every)
 --[=[
 	Returns true if `predicate` returns true for all entries in the list.
 
@@ -11,10 +11,9 @@ local every = require(script.Parent.Parent.utils.every)
 	```
 
 	@within List
-	@function every
-	@param predicate (Value, Key) -> (boolean)
-	@return boolean
 ]=]
-return function<Value>(list: { Value }, predicate: (Value, number) -> boolean): boolean
-	return every(list, predicate)
+local function every<Value>(list: { Value }, predicate: (Value, number) -> boolean): boolean
+	return everyImpl(list, predicate)
 end
+
+return every

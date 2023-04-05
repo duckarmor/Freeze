@@ -3,7 +3,9 @@
 local slice = require(script.Parent.slice)
 
 --[=[
-	Returns a new list containing all entries except the first.
+	Returns a List containing all entries except the first.
+
+	Equivalent to `slice(2)`. See [List.slice] for more information.
 
 	```lua
 	List.rest({ "a", "b", "c" })
@@ -11,9 +13,10 @@ local slice = require(script.Parent.slice)
 	```
 
 	@within List
-	@function rest
 ]=]
 
-return function<Value>(list: { Value }): { Value }
+local function rest<Value>(list: { Value }): { Value }
 	return slice(list, 2)
 end
+
+return rest

@@ -1,7 +1,7 @@
 --!strict
 local slice = require(script.Parent.slice)
 --[=[
-	Returns a new list which includes the last `amount` of entires.
+	Returns a List which includes the last `amount` of entires.
 
 	```lua
 	List.takeLast({ "a", "b", "c" }, 2)
@@ -9,9 +9,10 @@ local slice = require(script.Parent.slice)
 	```
 
 	@within List
-	@function takeLast
 ]=]
 
-return function<Value>(list: { Value }, amount: number): { Value }
+local function takeLast<Value>(list: { Value }, amount: number): { Value }
 	return slice(list, -math.max(1, amount))
 end
+
+return takeLast

@@ -1,12 +1,11 @@
 --!strict
 --[=[
-	Returns a new list which excludes this `index`. Values at indices above `index` are shifted down by 1 to fill the position.
+	Returns a List which excludes this `index`. Values at indices above `index` are shifted down by 1 to fill the position.
 
 	`index` may be a negative number, which indexes back from the end of the list.
 	`list.remove(-1)` removes the last item in the list.
 
-	##### Alias
-	`removeIndex`
+	If the given `given` results in an index that is out of bounds, it will return the original list with no changes.
 
 	```lua
 	List.remove({ "a", "b", "c", "d" }, 3)
@@ -14,12 +13,9 @@
 	```
 
 	@within List
-	@function remove
-	@param index number
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, index: number)
+local function remove<Value>(list: { Value }, index: number): { Value }
 	local len = #list
 
 	if index < 1 then
@@ -43,3 +39,5 @@ return function<Value>(list: { Value }, index: number)
 
 	return table.freeze(new)
 end
+
+return remove

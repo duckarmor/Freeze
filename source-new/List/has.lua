@@ -1,6 +1,6 @@
 --!strict
 --[=[
-	Returns true if the index exists within the List.
+	Returns true if the `index` exists within the List.
 
 	```lua
 	List.has({ "a", "b", "c" }, 2)
@@ -8,11 +8,10 @@
 	```
 
 	@within List
-	@function has
-	@param index number
-	@return boolean
 ]=]
 
-return function<Value>(list: { Value }, index: number): boolean
+local function has<Value>(list: { Value }, index: number): boolean
 	return list[index] ~= nil
 end
+
+return has

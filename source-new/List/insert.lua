@@ -1,7 +1,8 @@
 --!strict
 --[=[
-	Inserts values given starting from the given index, pushing existing values towards the end.
-	The inserted value will be clamped to the beginning or end of the list if the given index is out of bounds.
+	Inserts `values` given starting from the given `index`, pushing existing values towards the end.
+
+	The inserted `value` will be clamped to the beginning or end of the List if the given `index` is out of bounds.
 
 	```lua
 	List.insert({ "a", "b", "c" }, 2, "X", "Y", "Z")
@@ -9,13 +10,9 @@
 	```
 
 	@within List
-	@function insert
-	@param index number
-	@param values ...Value
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, index: number, ...: Value)
+local function insert<Value>(list: { Value }, index: number, ...: Value): { Value }
 	local len = #list
 
 	if index < 1 then
@@ -41,3 +38,5 @@ return function<Value>(list: { Value }, index: number, ...: Value)
 
 	return table.freeze(new)
 end
+
+return insert

@@ -1,6 +1,6 @@
 --!strict
 --[=[
-	Returns a new list with the provided `values` prepended, shifting other values ahead to higher indices.
+	Returns a List with the provided `values` prepended, shifting other values ahead to higher indices.
 
 	```lua
 	List.unshift({ "b", "c" }, "a")
@@ -8,12 +8,9 @@
 	```
 
 	@within List
-	@function unshift
-	@param values ...Value
-	@return { Value }
 ]=]
 
-return function<Value>(list: { Value }, ...: Value)
+local function unshift<Value>(list: { Value }, ...: Value): { Value }
 	local argCount = select("#", ...)
 
 	local new = table.clone(list)
@@ -25,3 +22,5 @@ return function<Value>(list: { Value }, ...: Value)
 
 	return table.freeze(new)
 end
+
+return unshift

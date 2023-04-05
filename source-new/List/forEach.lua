@@ -1,8 +1,9 @@
 --!strict
-local forEach = require(script.Parent.Parent.utils.forEach)
+local forEachImpl = require(script.Parent.Parent.utils.forEach)
 --[=[
 	While the List is iterated, the `sideEffect` is executed for every entry.
 	If any call of the `sideEffect` returns `false`, the iteration will stop.
+
 	Returns the number of entries iterated (including the last iteration which returned false).
 
 	```lua
@@ -13,11 +14,10 @@ local forEach = require(script.Parent.Parent.utils.forEach)
 	```
 
 	@within List
-	@function forEach
-	@param sideEffect (Value, number) -> (boolean)
-	@return number
 ]=]
 
-return function<Value>(list: { Value }, sideEffect: (Value, number) -> boolean)
-	return forEach(list, sideEffect)
+local function forEach<Value>(list: { Value }, sideEffect: (Value, number) -> boolean): number
+	return forEachImpl(list, sideEffect)
 end
+
+return forEach

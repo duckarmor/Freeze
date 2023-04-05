@@ -1,4 +1,7 @@
 --!strict
+
+type ListOf<Value> = Value | { ListOf<Value> }
+
 --[=[
 	Returns a flattened list in the same index-order as each Value would appear.
 
@@ -19,13 +22,8 @@
 	```
 
 	@within List
-	@function flatten
-	@param depth number?
-	@return List
 ]=]
-
-type Values<Value> = Value | { Values<Value> }
-local function flatten<Value>(list: { Values<Value> }, depth: number?): { Values<Value> }
+local function flatten<Value>(list: { ListOf<Value> }, depth: number?): { ListOf<Value> }
 	local new = {}
 	local index = 1
 

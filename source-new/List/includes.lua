@@ -1,7 +1,7 @@
 --!strict
-local includes = require(script.Parent.Parent.utils.includes)
+local includesImpl = require(script.Parent.Parent.utils.includes)
 --[=[
-	Returns true if the value is found within the List.
+	Returns true if the `value` is found within the List.
 
 	```lua
 	List.includes({ "a", "b", "c" }, "b")
@@ -9,11 +9,10 @@ local includes = require(script.Parent.Parent.utils.includes)
 	```
 
 	@within List
-	@function includes
-	@param query Value
-	@return boolean
 ]=]
 
-return function<Value>(list: { Value }, query: Value)
-	return includes(list, query)
+local function includes<Value>(list: { Value }, query: Value): boolean
+	return includesImpl(list, query)
 end
+
+return includes

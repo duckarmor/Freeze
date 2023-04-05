@@ -12,12 +12,11 @@ local findPair = require(script.Parent.Parent.utils.findPair)
 	```
 
 	@within List
-	@function find
-	@param predicate (Value, Key) -> (boolean)
-	@return Value?
 ]=]
 
-return function<Value>(list: { Value }, predicate, notSetValue)
+local function find<Value>(list: { Value }, predicate: (Value, number) -> boolean, notSetValue: Value?): Value?
 	local _, value = findPair(list, predicate)
 	return if value == nil then notSetValue else value
 end
+
+return find

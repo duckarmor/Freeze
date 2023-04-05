@@ -12,12 +12,11 @@ local findPair = require(script.Parent.Parent.utils.findPair)
 	```
 
 	@within List
-	@function findKey
-	@param predicate (Value, number) -> (boolean)
-	@return number?
 ]=]
 
-return function<Value>(list: { Value }, predicate)
+local function findIndex<Value>(list: { Value }, predicate: (Value, number) -> boolean): number?
 	local index, _ = findPair(list, predicate)
 	return index
 end
+
+return findIndex
