@@ -4,23 +4,19 @@ sidebar_position: 4
 
 # Migrating From Llama
 
-Unfortunately Freeze is not a true drag-and-drop replacement for projects that currently use [Llama](https://github.com/freddylist/llama).
-You'll need to be aware of breaking changes.
+Unfortunately Freeze is not a drag-and-drop replacement for projects that currently use [Llama](https://github.com/freddylist/llama).
+You'll need to be aware of incompatible changes.
 
 Feel free to file an issue if you'd like to start a discussion on any items from this list.
 
 # Deviations
 
-The following is a list of breaking deviations between Freeze and Llama:
+The following is a list of deviations between Freeze and Llama:
 
 ## Llama
 
 ### .equalObjects
 - Not implemented. See Freeze's `equals` instead.
-
-### .isEmpty
-- Not implemented.
-- Use `Freeze.Dictionary.isEmpty` or `Freeze.List.isEmpty` instead.
 
 ## .Dictionary
 
@@ -40,14 +36,13 @@ The following is a list of breaking deviations between Freeze and Llama:
 
 ### .fromLists
 - Not implemented.
-- Consider `Freeze.Dictionary.of` instead.
 
 ### .mergeDeep
 - Not implemented.
 
 ### .removeKeys
 - Not implemented.
-- Consider `Freeze.Dictionary.filter` instead.
+- Use [Dictionary.remove] instead. It can accept multiple values.
 
 ### .removeValues
 - Not implemented.
@@ -122,11 +117,9 @@ Llama.List.findLast(list, "foo")
 ```
 
 ### .findWhere
-- Not implemented.
 - Equivalent to `Freeze.List.find`.
 
 ### .findWhereLast
-- Not implemented.
 - Equivalent to `Freeze.List.findLast`.
 
 ### .insert
@@ -134,7 +127,7 @@ Llama.List.findLast(list, "foo")
 
 ### .join
 - Is no longer an alias for `List.concat`. Replace `Llama.List.join` with `Freeze.List.concat`.
-- Is an alias of `Freeze.List.merge` instead.
+
 ### .removeIndices
 - Not implemented.
 - Consider `Freeze.List.filter` instead.
