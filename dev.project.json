@@ -10,10 +10,10 @@
                     "$path": "Packages"
                 },
                 "Freeze": {
-                    "$path": "source-new"
+                    "$path": "source"
                 },
                 "Llama": {
-                    "$path": "source-new"
+                    "$path": "source"
                 }
             }
         },
