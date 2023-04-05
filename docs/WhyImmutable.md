@@ -1,14 +1,13 @@
 ---
 sidebar_position: 2
 ---
+# How does immutability help?
 
 <div align="center">
 🏗️ <b>Under construction</b>
 </div>
 
 ----
-
-# How does immutability help?
 
 Immutable data structures cannot be changed once they have been created. This allows these data structures to forever hold their current state forever, __frozen in time__, as long as you have a reference to them.
 

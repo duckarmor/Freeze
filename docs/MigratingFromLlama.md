@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Migrating From Llama
@@ -27,8 +27,8 @@ The following is a list of deviations between Freeze and Llama:
 - Not implemented. Reconsider if you really need this.
 
 ### .equals
-- Freeze.[Dictionary.equals] will perform **value-equality** instead of **reference-equality**.
-- Freeze.[Dictionary.equals] only accepts two objects to compare between instead of varags arguments
+- [Freeze.Dictionary.equals] will perform **value-equality** instead of **reference-equality**.
+- [Freeze.Dictionary.equals] only accepts two objects to compare between instead of varags arguments
 
 ### .equalsDeep
 - Not implemented.

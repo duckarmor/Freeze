@@ -4,7 +4,7 @@ local deprecationWarning = require(script.Parent.Parent.Parent.utils.deprecation
 
 --[=[
 	@within List
-    @deprecated v0.0.4 -- Use [List.push] instead.
+	@deprecated v0.0.4 -- Use [List.push] instead.
 ]=]
 
 local function append<Value>(list: { Value }, ...: Value): { Value }

@@ -5,7 +5,7 @@ local deprecationWarning = require(script.Parent.Parent.Parent.utils.deprecation
 
 --[=[
 	@within List
-    @deprecated v0.0.4 -- Use [List.reverse] and then [List.find] instead.
+	@deprecated v0.0.4 -- Use [List.reverse] and then [List.find] instead.
 ]=]
 
 local function findWhereLast<Value>(list: { Value }, predicate: (Value, number) -> boolean, from: never?): Value?

@@ -4,7 +4,7 @@ local deprecationWarning = require(script.Parent.Parent.Parent.utils.deprecation
 
 --[=[
 	@within List
-    @deprecated v0.0.4 -- Use [List.removeValue] instead.
+	@deprecated v0.0.4 -- Use [List.removeValue] instead.
 ]=]
 
 local function removeValues<Value>(list: { Value }, ...: Value): { Value }

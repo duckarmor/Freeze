@@ -4,7 +4,8 @@
 	Returns a Set from the given List.
 
 	@within List
-    @hidden
+	@function toSet
+	@ignore
 ]=]
 return function<Value>(list: { Value }): { [Value]: boolean }
 	local set = {}

@@ -4,7 +4,7 @@ local deprecationWarning = require(script.Parent.Parent.Parent.utils.deprecation
 
 --[=[
 	@within List
-    @deprecated v0.0.4 -- Use [List.find] instead.
+	@deprecated v0.0.4 -- Use [List.find] instead.
 ]=]
 
 local function findWhere<Value>(list: { Value }, predicate: (Value, number) -> boolean, from: never): Value?

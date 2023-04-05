@@ -27,7 +27,7 @@
                 "instanceLimit": 1,
             },
             "windows": {
-                "command": "npx moonwave dev --code source-new --fresh",
+                "command": "npx moonwave dev --code source --fresh",
             },
             "presentation": {
                 "reveal": "silent"

@@ -3,7 +3,7 @@ local deprecationWarning = require(script.Parent.Parent.Parent.utils.deprecation
 
 --[=[
 	@within List
-    @deprecated v0.0.4 -- Use [table.create] instead.
+	@deprecated v0.0.4 -- Use [table.create] instead.
 ]=]
 
 local function create<Value>(count: number, value: Value?): { Value }

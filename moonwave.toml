@@ -1,5 +1,18 @@
 gitSourceBranch = "master"
+classOrder = [
+    "Freeze",
+    "Dictionary",
+    "List",
+]
 
 [home]
-enabled = true
-includeReadme = true
+enabled = false
+includeReadme = false
+
+[docusaurus]
+onBrokenLinks = "throw"
+onBrokenMarkdownLinks = "warn"
+
+[docusaurus.themeConfig.colorMode]
+respectPrefersColorScheme = true
+defaultMode = "dark"

@@ -4,7 +4,7 @@ local deprecationWarning = require(script.Parent.Parent.Parent.utils.deprecation
 
 --[=[
 	@within Dictionary
-    @deprecated v0.0.4 -- Use [Dictionary.remove] instead.
+	@deprecated v0.0.4 -- Use [Dictionary.remove] instead.
 ]=]
 
 local function removeKeys<Key, Value>(dictionary: { [Key]: Value }, ...: Key): { [Key]: Value }

@@ -4,7 +4,7 @@ local deprecationWarning = require(script.Parent.Parent.Parent.utils.deprecation
 
 --[=[
 	@within Dictionary
-    @deprecated v0.0.4 -- Use [Dictionary.merge] instead.
+	@deprecated v0.0.4 -- Use [Dictionary.merge] instead.
 ]=]
 
 local function join<Key, Value>(...: { [Key]: Value }): { [any]: any }
