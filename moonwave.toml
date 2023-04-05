@@ -1,9 +1,4 @@
 gitSourceBranch = "master"
-classOrder = [
-    "Freeze",
-    "Dictionary",
-    "List",
-]
 
 [home]
 enabled = false
