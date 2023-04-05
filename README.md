@@ -11,7 +11,7 @@ Freeze = "duckarmor/freeze@0.0.4"
 
 Freeze is an immutable data structure library for Roblox Luau.
 
-Immutable data structures are imperative for use with popular libraries such as React and Rodux. To learn more about why immutability is important, check out our [How does immutability help?](./docs/WhyImmutable.md) page.
+Immutable data structures are imperative for use with popular libraries such as React and Rodux. To learn more about why immutability is important, check out our **How does immutability help?** page.
 
 Freeze is typed and currently used in several duckarmor projects.
 
