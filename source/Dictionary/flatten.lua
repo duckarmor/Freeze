@@ -1,4 +1,5 @@
 --!nonstrict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
 local function flattenImpl(dictionary: { [any]: any }, depth: number?)
 	local new = {}
@@ -42,7 +43,7 @@ end
 ]=]
 
 local function flatten(dictionary: { [any]: any }, depth: number?): { [any]: any }
-	return table.freeze(flattenImpl(dictionary, depth))
+	return maybeFreeze(flattenImpl(dictionary, depth))
 end
 
 return flatten

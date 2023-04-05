@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List in reverse order.
 
@@ -20,7 +21,7 @@ local function reverse<Value>(list: { Value }): { Value }
 		new[i] = list[back - i]
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return reverse

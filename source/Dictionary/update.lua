@@ -1,5 +1,6 @@
 --!strict
 local updateImpl = require(script.Parent.Parent.utils.update)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a dictionary with the entry at `key` updated to the result of `updater`.
 
@@ -26,7 +27,7 @@ local function update<Key, Value>(
 	updater: (Value?) -> Value,
 	notSetValue: Value?
 ): { [Key]: Value }
-	return table.freeze(updateImpl(dictionary, key, updater, notSetValue))
+	return maybeFreeze(updateImpl(dictionary, key, updater, notSetValue))
 end
 
 return update

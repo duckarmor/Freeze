@@ -1,5 +1,6 @@
 --!strict
 local mapImpl = require(script.Parent.Parent.utils.map)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a new Dictionary with keys and values passed through a `mapper` function.
 
@@ -18,7 +19,7 @@ local mapImpl = require(script.Parent.Parent.utils.map)
 ]=]
 
 local function map<Key, Value, NewValue>(dictionary: { [Key]: Value }, mapper: (Value, Key) -> (NewValue?, Key?)): { [Key]: NewValue? }
-	return table.freeze(mapImpl(dictionary, mapper))
+	return maybeFreeze(mapImpl(dictionary, mapper))
 end
 
 return map

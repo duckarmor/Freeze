@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List with the provided `values` appended at the end of the List.
 
@@ -20,7 +21,7 @@ local function push<Value>(list: { Value }, ...: Value): { Value }
 		table.insert(newCollection, value)
 	end
 
-	return table.freeze(newCollection)
+	return maybeFreeze(newCollection)
 end
 
 return push

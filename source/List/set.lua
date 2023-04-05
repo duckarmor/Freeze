@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List which includes `value` at `index`.
 	If `index` already exists, it will be replaced.
@@ -20,7 +21,7 @@ local function set<Value>(list: { Value }, index: number, value: Value): { Value
 
 	local newList = table.clone(list)
 	newList[index] = value
-	return table.freeze(newList)
+	return maybeFreeze(newList)
 end
 
 return set

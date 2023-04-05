@@ -1,5 +1,6 @@
 --!strict
 local mapImpl = require(script.Parent.Parent.utils.map)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
 --[=[
 	Returns a List with values passed through a `mapper` function.
@@ -19,7 +20,7 @@ local mapImpl = require(script.Parent.Parent.utils.map)
 ]=]
 
 local function map<Value, NewValue>(list: { Value }, mapper: (Value, number) -> (NewValue, number?)): { NewValue }
-	return table.freeze(mapImpl(list, mapper))
+	return maybeFreeze(mapImpl(list, mapper))
 end
 
 return map

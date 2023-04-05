@@ -1,6 +1,7 @@
 --!strict
 local utils = script.Parent.Parent.utils
 local updateIn = require(utils.updateIn)
+local maybeFreeze = require(utils.maybeFreeze)
 
 --[=[
 	Returns a new list with the entry at `keyPath` updated to the result of `updater`.
@@ -31,5 +32,5 @@ return function<Value>(
 	updater: (Value?, number?) -> Value,
 	notSetValue: Value?
 ): { Value }
-	return table.freeze(updateIn(list, keyPath, updater, notSetValue))
+	return maybeFreeze(updateIn(list, keyPath, updater, notSetValue))
 end

@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List with all lists given "zipped" together.
 	The length of the List is the length of the shortest provided `list`.
@@ -47,7 +48,7 @@ local function zip<Value>(...: { Value }): { { Value } }
 		end
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return zip

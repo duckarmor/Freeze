@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a new map having removed the all pairs with the given `value`.
 
@@ -22,7 +23,7 @@ local function removeValue<Key, Value>(dictionary: { [Key]: Value }, value: Valu
 		end
 	end
 
-	return if mutated then table.freeze(new) else dictionary
+	return if mutated then maybeFreeze(new) else dictionary
 end
 
 return removeValue

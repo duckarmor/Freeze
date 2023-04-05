@@ -1,5 +1,6 @@
 --!strict
 local mergeImpl = require(script.Parent.Parent.utils.merge)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
 --[=[
 	Returns a merged result of all given Lists.
@@ -18,7 +19,7 @@ local mergeImpl = require(script.Parent.Parent.utils.merge)
 ]=]
 
 local function merge(...: { any }): { any }
-	return table.freeze(mergeImpl(...))
+	return maybeFreeze(mergeImpl(...))
 end
 
 return merge

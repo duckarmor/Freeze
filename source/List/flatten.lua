@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
 type ListOf<Value> = Value | { ListOf<Value> }
 
@@ -41,7 +42,7 @@ local function flatten<Value>(list: { ListOf<Value> }, depth: number?): { ListOf
 		end
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return flatten

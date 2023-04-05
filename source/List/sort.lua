@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List which includes the same entries, sorted by using a `comparator`.
 
@@ -16,7 +17,7 @@ local function sort<Value>(list: { Value }, comparator: ((Value, Value) -> boole
 	local new = table.clone(list)
 	table.sort(new, comparator)
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return sort

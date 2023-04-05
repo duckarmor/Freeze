@@ -1,5 +1,6 @@
 --!strict
 local setImpl = require(script.Parent.Parent.utils.set)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a Dictionary which includes `value` at `key`.
 	If `key` already exists, it will be replaced.
@@ -17,7 +18,7 @@ local function set<Key, Value>(dictionary: { [Key]: Value }, key: Key, value: Va
 		return dictionary
 	end
 
-	return table.freeze(setImpl(dictionary, key, value))
+	return maybeFreeze(setImpl(dictionary, key, value))
 end
 
 return set

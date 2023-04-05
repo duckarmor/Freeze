@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a list of values. Order is undefined.
 
@@ -17,7 +18,7 @@ local function values<Key, Value>(dictionary: { [Key]: Value }): { Value }
 		table.insert(new, value)
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return values

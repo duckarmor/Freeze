@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a new map where keys and values are flipped.
 
@@ -17,7 +18,7 @@ local function flip<Key, Value>(dictionary: { [Key]: Value }): { [Value]: Key }
 		new[value] = key
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return flip

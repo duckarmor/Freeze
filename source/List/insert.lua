@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Inserts `values` given starting from the given `index`, pushing existing values towards the end.
 
@@ -36,7 +37,7 @@ local function insert<Value>(list: { Value }, index: number, ...: Value): { Valu
 		resultIndex = resultIndex + 1
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return insert

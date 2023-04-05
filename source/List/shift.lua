@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List excluding the first index in this `List`, shifting all other values to a lower index.
 
@@ -24,7 +25,7 @@ local function shift<Value>(list: { Value }, amount: number?): { Value }
 		new[i - numPlaces] = list[i]
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return shift

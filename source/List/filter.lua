@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a new List of only entries for which the `predicate` function returns true.
 
@@ -21,7 +22,7 @@ local function filter<Value>(list: { Value }, predicate: (Value, number) -> bool
 		end
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return filter

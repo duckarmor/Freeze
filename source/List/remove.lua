@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List which excludes this `index`. Values at indices above `index` are shifted down by 1 to fill the position.
 
@@ -37,7 +38,7 @@ local function remove<Value>(list: { Value }, index: number): { Value }
 		end
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return remove

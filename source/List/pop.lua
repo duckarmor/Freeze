@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List excluding the last `index` of this List.
 
@@ -27,7 +28,7 @@ local function pop<Value>(list: { Value }, amount: number?): { Value }
 		new[i] = list[i]
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return pop

@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List having removed the first entry with the given `value`.
 
@@ -24,7 +25,7 @@ local function removeValue<Value>(list: { Value }, value: Value): { Value }
 		end
 	end
 
-	return if didRemove then table.freeze(new) else list
+	return if didRemove then maybeFreeze(new) else list
 end
 
 return removeValue

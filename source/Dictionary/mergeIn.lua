@@ -1,5 +1,6 @@
 --!strict
 local mergeInImpl = require(script.Parent.Parent.utils.mergeIn)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
 --[=[
 	A combination of `updateIn` and `merge`, returning a new dictionary,
@@ -22,7 +23,7 @@ local mergeInImpl = require(script.Parent.Parent.utils.mergeIn)
 ]=]
 
 local function mergeIn(dictionary: { [any]: any }, keyPath: { any }, ...: any): { [any]: any }
-	return table.freeze(mergeInImpl(dictionary, keyPath, ...))
+	return maybeFreeze(mergeInImpl(dictionary, keyPath, ...))
 end
 
 return mergeIn

@@ -1,5 +1,6 @@
 --!strict
 local None = require(script.Parent.Parent.None)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
 --[=[
 	Returns a List of the same type concatenated to given arguments.
@@ -35,7 +36,7 @@ local function concat<Value>(...: { Value }): { Value }
 		end
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return concat

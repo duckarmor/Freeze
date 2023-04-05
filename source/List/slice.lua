@@ -1,5 +1,6 @@
 --!strict
 local sliceImpl = require(script.Parent.Parent.utils.slice)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List that includes the range `[from, to)`.
 
@@ -26,7 +27,7 @@ local sliceImpl = require(script.Parent.Parent.utils.slice)
 ]=]
 
 local function slice<Value>(list: { Value }, from: number?, to: number?): { Value }
-	return table.freeze(sliceImpl(list, from, to))
+	return maybeFreeze(sliceImpl(list, from, to))
 end
 
 return slice

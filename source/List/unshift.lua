@@ -1,4 +1,5 @@
 --!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a List with the provided `values` prepended, shifting other values ahead to higher indices.
 
@@ -20,7 +21,7 @@ local function unshift<Value>(list: { Value }, ...: Value): { Value }
 		table.insert(new, 1, v)
 	end
 
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return unshift

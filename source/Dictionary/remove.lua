@@ -1,5 +1,6 @@
 --!strict
 local set = require(script.Parent.Parent.utils.set)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a Dictionary which excludes the given `keys`.
 
@@ -19,7 +20,7 @@ local function remove<Key, Value>(dictionary: { [Key]: Value }, ...: Key): { [Ke
 	for _, key in { ... } do
 		new = set(new, key, nil)
 	end
-	return table.freeze(new)
+	return maybeFreeze(new)
 end
 
 return remove
