@@ -2,10 +2,10 @@
 name = "duckarmor/freeze"
 authors = ["benbrimeyer"]
 description = "Immutable data structures for Roblox Luau ❄️"
-version = "0.0.2"
+version = "0.0.3"
 registry = "https://github.com/upliftgames/wally-index"
 realm = "shared"
-exclude = ["bin", "docs", ".moonwave", "build", "tests"]
+exclude = ["bin", "docs", ".moonwave", "build", "tests", "*spec.lua"]
 
 [dependencies]
 TestEZ = "roblox/testez@0.4.1"
