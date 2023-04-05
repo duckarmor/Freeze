@@ -1,18 +1,22 @@
+--!strict
+local equalsImpl = require(script.Parent.Parent.utils.equals)
+
 --[=[
-	Returns true if both collections have value equality.
+	Returns true if both Lists have value equality.
 
 	```lua
-	local list1 = List.new({ "a", "b", "c" })
-	local list2 = List.new({ "a", "b", "c" })
+	local list1 = { "a", "b", "c" }
+	local list2 = { "a", "b", "c" }
 
-	list1.equals(list2)
+	List.equals(list1, list2)
 	-- true
 	```
 
 	@within List
-	@function equals
-	@param other any
-	@return List
 ]=]
 
-return require(script.Parent.Parent.Collection.equals)
+local function equals<Value>(listA: { Value }, listB: any): boolean
+	return equalsImpl(listA, listB)
+end
+
+return equals

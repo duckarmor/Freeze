@@ -4,3 +4,4 @@ roblox.toml
 *.rbxl
 *.rbxl.lock
 build
+sourcemap.json

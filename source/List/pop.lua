@@ -1,33 +1,34 @@
+--!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
-	Returns a new list excluding the last index of this list.
+	Returns a List excluding the last `index` of this List.
+
+	This will repeat multiple times if given the optional `amount` argument and will always pop at least once.
 
 
 	```lua
-	List.new({ 10, 20, 30 }).pop()
-	-- List( 10, 20 )
+	List.pop({ 10, 20, 30 })
+	-- { 10, 20 }
+
+	List.pop({ 10, 20, 30 }, 2)
+	-- { 10 }
 	```
 
 	@within List
-	@function pop
-	@param amount number?
-	@return List
 ]=]
 
-return function(List, isCollection)
-	return function(self, amount: number?)
-		local wasCollection = isCollection(self)
-		self = if wasCollection then self.collection else self
-		amount = math.max(1, amount or 1)
+local function pop<Value>(list: { Value }, amount: number?): { Value }
+	local useAmount = math.max(1, amount or 1)
 
-		local list = self
-		local len = #list
+	local len = #list
 
-		local new = {}
+	local new = table.create(len)
 
-		for i = 1, len - amount do
-			new[i] = list[i]
-		end
-
-		return if wasCollection then List(new) else new
+	for i = 1, len - useAmount do
+		new[i] = list[i]
 	end
+
+	return maybeFreeze(new)
 end
+
+return pop

@@ -1,26 +1,27 @@
+--!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
-	Returns a new list which includes `value` at `index`.
+	Returns a List which includes `value` at `index`.
 	If `index` already exists, it will be replaced.
 
+	Returns the original List if no changes were made.
+
 	```lua
-	List.new({ "a", "b", "c", "d" }).set(1, "A")
-	-- List( "A", "b", "c", "d" )
+	List.set({"a", "b", "c"}, 1, "A")
+	-- { "A", "b", "c" }
 	```
 
 	@within List
-	@function set
-	@param index number
-	@param value Value
-	@return List
 ]=]
 
-return function(List, isCollection)
-	return function<Key, Value>(self, index: number, value: Value)
-		local wasCollection = isCollection(self)
-		self = if wasCollection then self.collection else self
-
-		local newCollection = table.clone(self)
-		newCollection[index] = value
-		return if wasCollection then List.new(newCollection) else newCollection
+local function set<Value>(list: { Value }, index: number, value: Value): { Value }
+	if list[index] == value then
+		return list
 	end
+
+	local newList = table.clone(list)
+	newList[index] = value
+	return maybeFreeze(newList)
 end
+
+return set

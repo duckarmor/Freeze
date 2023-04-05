@@ -1,22 +1,20 @@
+--!strict
+local keyOf = require(script.Parent.Parent.utils.keyOf)
+
 --[=[
-	Returns the index of the value if found within the List, otherwise returns nil.
+	Returns the index of the `value` if found within the List, otherwise returns nil.
 
 	```lua
-	List.new({ "a", "b", "c" }).indexOf("b")
+	List.indexOf({ "a", "b", "c" }, "b")
 	-- 2
 	```
 
 	@within List
-	@function indexOf
-	@param value any
-	@return Key?
 ]=]
 
-local keyOf = require(script.Parent.Parent.Collection.keyOf)
-
-return function(List, isCollection)
-	return function(self, searchValue)
-		local key = keyOf(List, isCollection)(self, searchValue)
-		return if key == nil then nil else key
-	end
+local function indexOf<Value>(list: { Value }, searchValue: Value): number?
+	local key = keyOf(list, searchValue)
+	return if key == nil then nil else key
 end
+
+return indexOf

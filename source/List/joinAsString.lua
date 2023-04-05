@@ -1,16 +1,19 @@
+--!strict
 --[=[
 	Joins values together as a string, inserting a separator between each.
 
 	The default separator is `","`.
 
 	```lua
-	List.new({ "a", "b", "c" }).joinAsString(", ")
+	List.joinAsString({ "a", "b", "c" }, ", ")
 	-- "a, b, c"
 	```
 
 	@within List
-	@function joinAsString
-	@return string
 ]=]
 
-return require(script.Parent.Parent.Collection.joinAsString)
+local function joinAsString<Value>(list: { Value }, separator: string?): string
+	return table.concat(list, separator or ",")
+end
+
+return joinAsString

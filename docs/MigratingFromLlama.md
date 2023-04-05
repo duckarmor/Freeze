@@ -1,66 +1,58 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # Migrating From Llama
 
-Unfortunately Freeze is not a true drag-and-drop replacement for projects that currently use [Llama](https://github.com/freddylist/llama).
-You'll need to be aware of breaking changes.
+Freeze is close to a drag-and-drop replacement for projects that currently use [Llama](https://github.com/freddylist/llama), however
+you'll need to be aware of incompatible changes.
 
 Feel free to file an issue if you'd like to start a discussion on any items from this list.
 
 # Deviations
 
-The following is a list of breaking deviations between Freeze and Llama:
+The following is a list of deviations between Freeze and Llama:
 
 ## Llama
 
 ### .equalObjects
-- Not implemented. See Freeze's `equals` instead.
-
-### .isEmpty
 - Not implemented.
-- Use `Freeze.Map.isEmpty` or `Freeze.List.isEmpty` instead.
 
 ## .Dictionary
 
 ### .copy
-- Not implemented. Use `table.clone` instead.
+- A temporary, deprecated compatibility layer exists. Use `table.clone` instead.
 
 ### .copyDeep
 - Not implemented. Reconsider if you really need this.
 
 ### .equals
-- `Freeze.Map.equals` will perform value-equality instead of reference-equality
-- `Freeze.Map.equals` only accepts two objects to compare between instead of varags arguments
-- `Freeze.Map.equals` will treat nil and void as values, where `Freeze.Map.equals` would ignore these arguments
+- [Freeze.Dictionary.equals] will perform **value-equality** instead of **reference-equality**.
+- [Freeze.Dictionary.equals] only accepts two objects to compare between instead of varags arguments
 
 ### .equalsDeep
 - Not implemented.
 
 ### .fromLists
 - Not implemented.
-- Consider `Freeze.Map.of` instead.
 
 ### .mergeDeep
 - Not implemented.
 
 ### .removeKeys
-- Not implemented.
-- Consider `Freeze.Map.filter` instead.
+- A temporary, deprecated compatibility layer exists. Use [Dictionary.remove] instead.
 
 ### .removeValues
-- Not implemented.
-- Consider `Freeze.Map.filter` instead.
+- A temporary, deprecated compatibility layer exists. Use [Dictionary.removeValue] instead.
 
 ### .update
-- `Freeze.Map.update` requires an updater function while Llama's was optional.
-- `Freeze.Map.update`'s updater signature is `(Value) -> (Value)` instead of Llama's `(Value, Key) -> (Value)`.
-- `Freeze.Map.update` final argument is `notSetValue` instead of a `callback` function.
+- Freeze.[Dictionary.update] requires an updater function while Llama's was optional.
+- Freeze.[Dictionary.update]'s updater signature is `(Value) -> (Value)` instead of Llama's `(Value, Key) -> (Value)`.
+- [Dictionary.update] final argument is `notSetValue` instead of a `callback` function.
 
 ```lua
 -- Freeze
-Freeze.Map.update(dictionary, key, function(value)
+Freeze.Dictionary.update(dictionary, key, function(value)
 	return string.upper(value)
 end, "default value")
 
@@ -84,18 +76,17 @@ end)
 - Not implemented. Reconsider if you really need this.
 
 ### .create
-- Not implemented. Consider `table.create` instead.
+- A temporary, deprecated compatibility layer exists. Consider `table.create` instead.
 
 ### .equals
-- `Freeze.List.equals` will perform value-equality instead of reference-equality
-- `Freeze.List.equals` only accepts two objects to compare between instead of varags arguments
-- `Freeze.List.equals` will treat nil and void as values, where `Freeze.List.equals` would ignore these arguments
+- Freeze.[List.equals] will perform **value-equality** instead of **reference-equality**.
+- Freeze.[List.equals] only accepts two objects to compare between instead of varags arguments.
 
 ### .equalsDeep
 - Not implemented.
 
 ### .find
-- `Freeze.List.find` accepts a predicate instead of a value.
+- Freeze.[List.find] accepts a predicate instead of a value.
 - Consider `table.find` if you want to use a static value.
 
 ```lua
@@ -109,7 +100,7 @@ Llama.List.find(list, "foo")
 ```
 
 ### .findLast
-- `Freeze.List.findLast` accepts a predicate instead of a value.
+- Freeze.[List.findLast] accepts a predicate instead of a value.
 
 ```lua
 -- Freeze
@@ -122,44 +113,43 @@ Llama.List.findLast(list, "foo")
 ```
 
 ### .findWhere
-- Not implemented.
-- Equivalent to `Freeze.List.find`.
+- A temporary, deprecated compatibility layer exists. Please use Freeze.[List.find].
+- The `from` argument is not supported.
 
 ### .findWhereLast
-- Not implemented.
-- Equivalent to `Freeze.List.findLast`.
+- A temporary, deprecated compatibility layer exists. Please use Freeze.[List.findLast].
+- The `from` argument is not supported.
 
 ### .insert
-- Allows index to be out of bounds. Will not throw.
+- Freeze.[List.insert] allows the provided `index` argument to be out of bounds. Llama would throw in this case whereas Freeze will clamp the value to either the beginning or the end of the list.
 
 ### .join
-- Is no longer an alias for `List.concat`. Replace `Llama.List.join` with `Freeze.List.concat`.
-- Is an alias of `Freeze.List.merge` instead.
+- A temporary, deprecated compatibility layer exists. Please use Freeze.[List.concat].
+
 ### .removeIndices
-- Not implemented.
-- Consider `Freeze.List.filter` instead.
+- A temporary, deprecated compatibility layer exists. Please use Freeze.[List.remove] instead.
 
 ### .removeValues
-- Not implemented.
-- Consider `Freeze.List.filter` instead.
+- A temporary, deprecated compatibility layer exists. Please use Freeze.[List.removeValue] instead.
 
 ### .set
-- Allows index to be out of bounds. Will not throw.
+- Freeze.[List.set] allows the `index` argument to be out of bounds whereas Llama would throw.
+- If no changes are made, Freeze.[List.set] will return the original List.
 
 ### .slice
-- Allows index to be out of bounds. Will not throw.
+- Freeze.[List.slice] allows the `index` argument to be out of bounds. Will not throw.
 - Using a negative number will slice from the end of the list.
 
 ### .splice
 - Not implemented.
 
 ### .toSet
-- Not implemented.
+- Not exposed yet.
 
 ### .update
-- `Freeze.List.update` requires an updater function while Llama's was optional.
-- `Freeze.List.update`'s updater signature is `(Value) -> (Value)` instead of Llama's `(Value, Key) -> (Value)`.
-- `Freeze.List.update` final argument is `notSetValue` instead of a `callback` function.
+- Freeze.[List.update] requires an updater function while Llama's was optional.
+- Freeze[List.update]'s updater signature is `(Value) -> (Value)` instead of Llama's `(Value, Key) -> (Value)`.
+- Freeze.[List.update] final argument is `notSetValue` instead of a `callback` function.
 
 ```lua
 -- Freeze
@@ -179,4 +169,4 @@ end)
 - Not implemented.
 
 ## Set
-- Not implemented.
+- Not implemented yet.

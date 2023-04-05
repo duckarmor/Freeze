@@ -1,8 +1,9 @@
-local isImmutable = require(script.Parent.Parent.predicates.isImmutable)
+--!strict
+local isImmutable = require(script.Parent.isImmutable)
 
 return function(from)
 	if isImmutable(from) then
-		return from.clone()
+		return from:clone()
 	else
 		return table.clone(from)
 	end

@@ -1,30 +1,27 @@
+--!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
-	Returns a new list with the provided `values` appended at the end of the list.
-
-	##### Alias
-	`append`
+	Returns a List with the provided `values` appended at the end of the List.
 
 	```lua
-	List.new({ 10, 20, 30 }).push(40, 50, 60)
-	-- List( 10, 20, 30, 40, 50, 60 )
+	List.push({ 10, 20, 30 }, 40, 50, 60)
+	-- { 10, 20, 30, 40, 50, 60 }
 	```
 
 	@within List
-	@function push
-	@param values ...Value
-	@return List
 ]=]
 
-return function(List, isCollection)
-	return function<Key, Value>(self, ...: Value)
-		local wasCollection = isCollection(self)
-		self = if wasCollection then self.collection else self
-
-		local newCollection = table.clone(self)
-		for _, value in ipairs({ ... }) do
-			table.insert(newCollection, value)
-		end
-
-		return if wasCollection then List(newCollection) else newCollection
+local function push<Value>(list: { Value }, ...: Value): { Value }
+	if #{ ... } == 0 then
+		return list
 	end
+
+	local newCollection = table.clone(list)
+	for _, value in { ... } do
+		table.insert(newCollection, value)
+	end
+
+	return maybeFreeze(newCollection)
 end
+
+return push

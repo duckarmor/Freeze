@@ -1,3 +1,8 @@
+--!strict
+local utils = script.Parent.Parent.utils
+local updateIn = require(utils.updateIn)
+local maybeFreeze = require(utils.maybeFreeze)
+
 --[=[
 	Returns a new list with the entry at `keyPath` updated to the result of `updater`.
 
@@ -5,23 +10,27 @@
 	If the final entry does not exist, `updater` will be given `notSetValue` or nil.
 
 	```lua
-	List.new({ "a", "b", "c", { "d", "e" } }).updateIn({ 4, 1 }, function(value)
+	List.updateIn({ "a", "b", { "c", "d" } }, { 4, 1 }, function(value)
 		return string.rep(value, 5)
 	end)
-	-- List( "a", "b", "c" { "ddddd", "e" } )
+	-- { "a", "b", { "ccccc", "e" } }
 
-	List.new({ "a", "b", "c", { "d", "e" } }).updateIn({ 4, 3, 1 }, function(value)
+	List.updateIn({ "a", "b", { "c", "d" } }, { 4, 3, 1 }, function(value)
 		return string.rep(value, 5)
-	end, "g")
-	-- List( "a", "b", "c", { "d", "e", { "ggggg" } } )
+	end, "e")
+	-- { "a", "b", { "c", "d", { "eeeee" } } }
 	```
 
 	@within List
 	@function updateIn
-	@param keyPath { any }
-	@param updater (Value?, Key?) -> (Value)
-	@param notSetValue Value?
-	@return List
+	@ignore
 ]=]
 
-return require(script.Parent.Parent.Collection.updateIn)
+return function<Value>(
+	list: { Value },
+	keyPath: { number },
+	updater: (Value?, number?) -> Value,
+	notSetValue: Value?
+): { Value }
+	return maybeFreeze(updateIn(list, keyPath, updater, notSetValue))
+end

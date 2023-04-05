@@ -1,21 +1,19 @@
+--!strict
+local slice = require(script.Parent.slice)
+
 --[=[
-	Returns a new list which excludes the first `amount` of entries.
+	Returns a List which excludes the first `amount` of entries.
 
 	```lua
-	List.new({ "a", "b", "c", "d", "e", "f", "g" }).skip(3)
-	-- List( "d", "e", "f", "g" )
+	List.skip({ "a", "b", "c", "d" }, 2)
+	-- { "c", "d" }
 	```
 
 	@within List
-	@function skip
-	@param amount number
-	@return List
 ]=]
 
-local slice = require(script.Parent.slice)
-
-return function(List, isCollection)
-	return function(self, amount: number)
-		return slice(List, isCollection)(self, math.max(1, amount + 1))
-	end
+local function skip<Value>(list: { Value }, amount: number): { Value }
+	return slice(list, math.max(1, amount + 1))
 end
+
+return skip

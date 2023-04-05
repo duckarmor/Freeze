@@ -1,21 +1,19 @@
+--!strict
+local slice = require(script.Parent.slice)
+
 --[=[
-	Returns a new list which includes the first `amount` of entires.
+	Returns a List which includes the first `amount` of entires.
 
 	```lua
-	List.new({ "a", "b", "c", "d" }).take(2)
-	-- List( "a", "b" )
+	List.take({ "a", "b", "c", "d" }, 2)
+	-- { "a", "b" }
 	```
 
 	@within List
-	@function take
-	@param amount number
-	@return List
 ]=]
 
-local slice = require(script.Parent.slice)
-
-return function(List, isCollection)
-	return function(self, amount: number)
-		return slice(List, isCollection)(self, 1, math.max(1, amount))
-	end
+local function take<Value>(list: { Value }, amount: number): { Value }
+	return slice(list, 1, math.max(1, amount))
 end
+
+return take

@@ -1,4 +1,4 @@
-local equalsDeep = require(script.Parent.functional.equalsDeep)
+local equalsDeep = require(script.Parent.utils.equalsDeep)
 
 local function toString(t)
 	if type(t) == "table" then

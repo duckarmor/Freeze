@@ -1,36 +1,31 @@
+--!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
-	Returns a new list excluding the first index in this list, shifting all other values to a lower index.
+	Returns a List excluding the first index in this `List`, shifting all other values to a lower index.
+
+	If `amount` is not provided, it will default to 1.
+	Passing an `amount` greater than the length of the given `List` will result in an empty List.
 
 	```lua
-	List.new({ "a", "b", "c", "d" }).shift()
-	-- List( "b", "c", "d" )
+	List.shift({ "a", "b", "c" })
+	-- { "b", "c" }
 	```
 
 	@within List
-	@function shift
-	@return List
 ]=]
 
-return function(List, isCollection)
-	return function(self, numPlaces)
-		local wasCollection = isCollection(self)
-		self = if wasCollection then self.collection else self
+local function shift<Value>(list: { Value }, amount: number?): { Value }
+	local len = #list
 
-		local len = #self
+	local numPlaces = math.min(len, amount or 1)
 
-		numPlaces = numPlaces or 1
+	local new = table.create(len - numPlaces)
 
-		assert(
-			numPlaces > 0 and numPlaces <= len + 1,
-			string.format("index %d out of bounds of list of length %d", numPlaces, len)
-		)
-
-		local new = {}
-
-		for i = 1 + numPlaces, len do
-			new[i - numPlaces] = self[i]
-		end
-
-		return if wasCollection then List(new) else new
+	for i = 1 + numPlaces, len do
+		new[i - numPlaces] = list[i]
 	end
+
+	return maybeFreeze(new)
 end
+
+return shift

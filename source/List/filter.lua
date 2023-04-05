@@ -1,33 +1,28 @@
+--!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
 	Returns a new List of only entries for which the `predicate` function returns true.
 
 	```lua
-	List.new({ 1, 2, 3, 4 }).filter(function(value, key)
+	List.filter({ 1, 2, 3, 4 }, function(value, key)
 		return value % 2 == 0
 	end)
-	-- List( 2, 4 )
+	-- { 2, 4 }
 	```
 
 	@within List
-	@function filter
-	@param predicate (Value, Key) -> (boolean)
-	@return List
 ]=]
-return function(List, isCollection)
-	local function filter<Key, Value>(self, predicate: (Value, Key) -> (boolean))
-		local wasCollection = isCollection(self)
-		self = if wasCollection then self.collection else self
 
-		local new = table.create(#self)
+local function filter<Value>(list: { Value }, predicate: (Value, number) -> boolean): { Value }
+	local new = table.create(#list)
 
-		for i, v in ipairs(self) do
-			if predicate(v, i) then
-				table.insert(new, v)
-			end
+	for i, v in list do
+		if predicate(v, i) then
+			table.insert(new, v)
 		end
-
-		return if wasCollection then List(new) else new
 	end
 
-	return filter
+	return maybeFreeze(new)
 end
+
+return filter

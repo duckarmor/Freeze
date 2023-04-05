@@ -1,21 +1,26 @@
---[=[
-	Returns a new List with values passed through a `mapper` function.
+--!strict
+local mapImpl = require(script.Parent.Parent.utils.map)
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
-	Returning a second value in the mapper function will reassign the index.
+--[=[
+	Returns a List with values passed through a `mapper` function.
+
+	Returning a second `value` in the mapper function will reassign the index.
 
 	If `mapper` returns nil, the entry will be filtered.
 
 	```lua
-	List.new({ 1, 2, 3 }).map(function(value, _key)
+	List.map({ 1, 2, 3 }, function(value, index)
 		return value * 10
 	end)
-	-- List( 10, 20, 30 )
+	-- { 10, 20, 30 }
 	```
 
 	@within List
-	@function map
-	@param mapper (Value, Key) -> (Value?, Key?)
-	@return List
 ]=]
 
-return require(script.Parent.Parent.Collection.map)
+local function map<Value, NewValue>(list: { Value }, mapper: (Value, number) -> (NewValue, number?)): { NewValue }
+	return maybeFreeze(mapImpl(list, mapper))
+end
+
+return map

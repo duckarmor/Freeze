@@ -1,31 +1,25 @@
+--!strict
+local countImpl = require(script.Parent.Parent.utils.count)
+
 --[=[
-	Returns the number of entries that match the predicate.
-	If the predicate is not given, all entries will be considered a match.
+	Returns the number of entries that match the `predicate`.
+	If the `predicate` is not given, all entries will be considered a match.
 
 	```lua
-	List.new({ "a", "b", "c" }).count()
+	List.count({ "a", "b", "c" })
 	-- 3
+
+	List.count({ "a", "b", "c" }, function(value)
+		return value == "b"
+	end)
+	-- 1
 	```
 
 	@within List
-	@function count
-	@param predicate ((Value, Key) -> (boolean))?
-	@return number
 ]=]
-return function(_List, isCollection)
-	local function count<Key, Value>(self, predicate: ((Value, Key) -> (boolean))?)
-		self = if isCollection(self) then self.collection else self
 
-		local sum = 0
-
-		for index, value in ipairs(self) do
-			if predicate == nil or predicate(value, index) then
-				sum += 1
-			end
-		end
-
-		return sum
-	end
-
-	return count
+local function count<Value>(list: { Value }, predicate: ((Value, number) -> boolean)?): number
+	return countImpl(list, predicate)
 end
+
+return count

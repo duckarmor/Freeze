@@ -1,21 +1,21 @@
+--!strict
+local slice = require(script.Parent.slice)
+
 --[=[
-	Returns a new List containing all entires except the last.
-	Equivalent to `slice(1, -1)`.
+	Returns a List containing all entires except the last.
+
+	Equivalent to `slice(1, -1)`. See [List.slice] for more information.
 
 	```lua
-	List.of( 1, 2, 3 ).butLast()
-	-- List( 1, 2 )
+	List.butLast({ 1, 2, 3 })
+	-- { 1, 2 }
 	```
 
 	@within List
-	@function butLast
-	@return List
 ]=]
 
-local slice = require(script.Parent.slice)
-
-return function(List, isCollection)
-	return function(self)
-		return slice(List, isCollection)(self, 1, -1)
-	end
+local function butLast<Value>(list: { Value }): { Value }
+	return slice(list, 1, -1)
 end
+
+return butLast

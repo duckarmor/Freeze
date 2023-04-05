@@ -1,0 +1,38 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build and serve",
+            "type": "shell",
+            "runOptions": {
+                "instanceLimit": 1,
+            },
+            "windows": {
+                "command": "(rojo build dev.project.json -o output.rbxl) -and (start output.rbxl); rojo serve dev.project.json",
+            },
+            "osx": {
+                "command": "rojo build dev.project.json -o output.rbxl && open output.rbxl; rojo serve dev.project.json",
+            },
+            "presentation": {
+                "reveal": "never"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "dev docs site",
+            "type": "shell",
+            "runOptions": {
+                "instanceLimit": 1,
+            },
+            "windows": {
+                "command": "npx moonwave dev --code source --fresh",
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": []
+        },
+    ]
+}

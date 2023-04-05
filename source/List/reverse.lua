@@ -1,29 +1,27 @@
+--!strict
+local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 --[=[
-	Returns a new list in reverse order.
+	Returns a List in reverse order.
 
 	```lua
-	List.new({ "a", "b", "c", "d" }).reverse()
-	-- List( "d", "c", "b", "a" )
+	List.reverse({ "a", "b", "c" })
+	-- { "c", "b", "a" }
 	```
 
 	@within List
-	@function reverse
-	@return List
 ]=]
 
-return function(List, isCollection)
-	return function(self)
-		local wasCollection = isCollection(self)
-		self = if wasCollection then self.collection else self
+local function reverse<Value>(list: { Value }): { Value }
+	local len = #list
+	local new = table.create(len)
 
-		local new = {}
+	local back = len + 1
 
-		local back = #self + 1
-
-		for i, _ in ipairs(self) do
-			new[i] = self[back - i]
-		end
-
-		return if wasCollection then List(new) else new
+	for i, _ in list do
+		new[i] = list[back - i]
 	end
+
+	return maybeFreeze(new)
 end
+
+return reverse
