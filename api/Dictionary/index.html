@@ -1,0 +1,1384 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v2.3.1">
+<title data-rh="true">Dictionary | Freeze</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://benbrimeyer.github.io/Freeze/api/Dictionary"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Dictionary | Freeze"><meta data-rh="true" name="description" content="Handles dictionary-like operations.
+
+[`Dictionaries`](../api/Dictionary) are unordered tables with key-value pairs."><meta data-rh="true" property="og:description" content="Handles dictionary-like operations.
+
+[`Dictionaries`](../api/Dictionary) are unordered tables with key-value pairs."><link data-rh="true" rel="canonical" href="https://benbrimeyer.github.io/Freeze/api/Dictionary"><link data-rh="true" rel="alternate" href="https://benbrimeyer.github.io/Freeze/api/Dictionary" hreflang="en"><link data-rh="true" rel="alternate" href="https://benbrimeyer.github.io/Freeze/api/Dictionary" hreflang="x-default"><link rel="stylesheet" href="/Freeze/assets/css/styles.6b33bbd6.css">
+<link rel="preload" href="/Freeze/assets/js/runtime~main.6b7f6525.js" as="script">
+<link rel="preload" href="/Freeze/assets/js/main.b297e574.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Freeze/"><b class="navbar__title text--truncate">Freeze</b></a><a class="navbar__item navbar__link" href="/Freeze/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Freeze/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/benbrimeyer/Freeze" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Freeze/api/Dictionary">​Dictionary</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Freeze/api/Freeze">​Freeze</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Freeze/api/List">​List</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">Dictionary</span></h1><div class="luaClassTags_EipM"></div><div>
+<p>Handles dictionary-like operations.</p>
+<p><a href="../api/Dictionary"><code>Dictionaries</code></a> are unordered tables with key-value pairs.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="count"><code style="text-decoration:none">count</code><a href="#count" class="hash-link" aria-label="Direct link to count" title="Direct link to count">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/count.lua#L20"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">count</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  Returns the number of pairs that match the <code>predicate</code>.
+  If the <code>predicate</code> is not given, all pairs will be considered a match.
+</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">-- 3</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 1</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="equals"><code style="text-decoration:none">equals</code><a href="#equals" class="hash-link" aria-label="Direct link to equals" title="Direct link to equals">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/equals.lua#L23"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">equals</code><code>(</code><div class="inset_uKQm"><div><code>dictionaryA<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>dictionaryB<!-- -->: </code><code class="blue_P4bS">any</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if both Dictionaries have <em>value</em> equality.</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>If you only require reference equal, use the <code>==</code> operator.</p>
+  </div>
+</div>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> dictionary1 <span class="token operator">=</span> <span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span>
+<span class="token keyword">local</span> dictionary2 <span class="token operator">=</span> <span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>dictionary1<span class="token punctuation">,</span> dictionary2<span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="every"><code style="text-decoration:none">every</code><a href="#every" class="hash-link" aria-label="Direct link to every" title="Direct link to every">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/every.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">every</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if <code>predicate</code> returns true for all entries in the Dictionary.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">&#x3C;</span> <span class="token number">10</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="filter"><code style="text-decoration:none">filter</code><a href="#filter" class="hash-link" aria-label="Direct link to filter" title="Direct link to filter">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/filter.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">filter</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a Dictionary of only entries for which the <code>predicate</code> function returns true.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { b = 2, d = 4 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="filterNot"><code style="text-decoration:none">filterNot</code><a href="#filterNot" class="hash-link" aria-label="Direct link to filterNot" title="Direct link to filterNot">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/filterNot.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">filterNot</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a Dictionary of only entries for which the <code>predicate</code> function returns false.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">filterNot</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 1, c = 3 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="find"><code style="text-decoration:none">find</code><a href="#find" class="hash-link" aria-label="Direct link to find" title="Direct link to find">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/find.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">find</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div>
+<p>Returns the first value for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 2</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="findKey"><code style="text-decoration:none">findKey</code><a href="#findKey" class="hash-link" aria-label="Direct link to findKey" title="Direct link to findKey">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/findKey.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">findKey</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Key?</code></div></div><code>) → </code><code class="blue_P4bS">Key?</code></div><div>
+<p>Returns the first key for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">findKey</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- "b"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="findPair"><code style="text-decoration:none">findPair</code><a href="#findPair" class="hash-link" aria-label="Direct link to findPair" title="Direct link to findPair">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/findPair.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">findPair</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">Key?</code><code>,</code></div><div><code class="blue_P4bS">Value?</code></div></div><code>)</code></div><div>
+<p>Returns the first (key, value) pair for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">findPair</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( "b", 2 )</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="flatten"><code style="text-decoration:none">flatten</code><a href="#flatten" class="hash-link" aria-label="Direct link to flatten" title="Direct link to flatten">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/flatten.lua#L44"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">flatten</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>depth<!-- -->: </code><code class="blue_P4bS">number?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a flattened dictionary by combining keys of the lowest depth.</p>
+<p>If provided <code>depth</code>, the flattening will early-out.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">flatten</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	foo <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	foobar <span class="token operator">=</span> <span class="token punctuation">{</span>
+		bar <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
+		baz <span class="token operator">=</span> <span class="token punctuation">{</span>
+			etc <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { foo = 1, bar = 2, etc = 3 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="flip"><code style="text-decoration:none">flip</code><a href="#flip" class="hash-link" aria-label="Direct link to flip" title="Direct link to flip">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/flip.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">flip</code><code>(</code><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Value</code><code>]</code></span><code>: </code><code class="blue_P4bS">Key</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a new map where keys and values are flipped.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token string">"x"</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token string">"y"</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token string">"z"</span> <span class="token punctuation">)</span>
+<span class="token comment">-- { x = "a", y = "b", z = "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="forEach"><code style="text-decoration:none">forEach</code><a href="#forEach" class="hash-link" aria-label="Direct link to forEach" title="Direct link to forEach">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/forEach.lua#L18"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">forEach</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>sideEffect<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  While the Dictionary is iterated, the <code>sideEffect</code> is executed for every entry.
+  If any call of the <code>sideEffect</code> returns <code>false</code>, the iteration will stop.
+</p>
+<p>Returns the number of entries iterated (including the last iteration which returned false).</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 3</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="get"><code style="text-decoration:none">get</code><a href="#get" class="hash-link" aria-label="Direct link to get" title="Direct link to get">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/get.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">get</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>key<!-- -->: </code><code class="blue_P4bS">Key</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div>
+<p>Returns the value at the given key, otherwise returns <code>notSetValue</code> if the given value is not found.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token comment">-- 1</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"foobar"</span><span class="token punctuation">,</span> <span class="token string">"default"</span><span class="token punctuation">)</span>
+<span class="token comment">-- "default"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getIn"><code style="text-decoration:none">getIn</code><a href="#getIn" class="hash-link" aria-label="Direct link to getIn" title="Direct link to getIn">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/getIn.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">getIn</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>keyPath<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div>
+<p>Returns the value if found by following a path of keys, otherwise returns <code>notSetValue</code> if the given value is nil.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> dictionary <span class="token operator">=</span> <span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> <span class="token string">"c"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+Dictionary<span class="token punctuation">.</span><span class="token function">getIn</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- "c"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="has"><code style="text-decoration:none">has</code><a href="#has" class="hash-link" aria-label="Direct link to has" title="Direct link to has">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/has.lua#L12"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">has</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>key<!-- -->: </code><code class="blue_P4bS">Key</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if the key exists within the Dictionary.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="hasIn"><code style="text-decoration:none">hasIn</code><a href="#hasIn" class="hash-link" aria-label="Direct link to hasIn" title="Direct link to hasIn">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/hasIn.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">hasIn</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>keyPath<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if the value is found by following a path of keys.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> dictionary <span class="token operator">=</span> <span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> <span class="token string">"c"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+Dictionary<span class="token punctuation">.</span><span class="token function">hasIn</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="includes"><code style="text-decoration:none">includes</code><a href="#includes" class="hash-link" aria-label="Direct link to includes" title="Direct link to includes">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/includes.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">includes</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if the value is found within the Dictionary.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="joinAsString"><code style="text-decoration:none">joinAsString</code><a href="#joinAsString" class="hash-link" aria-label="Direct link to joinAsString" title="Direct link to joinAsString">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/joinAsString.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">joinAsString</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>separator<!-- -->: </code><code class="blue_P4bS">string?</code></div></div><code>) → </code><code class="blue_P4bS">string</code></div><div>
+<p>Joins values together as a string, inserting a separator between each.</p>
+<p>The default separator is <code>","</code>.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">joinAsString</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">", "</span><span class="token punctuation">)</span>
+<span class="token comment">-- "a=1, b=2, c=3"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="keys"><code style="text-decoration:none">keys</code><a href="#keys" class="hash-link" aria-label="Direct link to keys" title="Direct link to keys">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/keys.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">keys</code><code>(</code><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Key</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a list of keys. Order is undefined.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="map"><code style="text-decoration:none">map</code><a href="#map" class="hash-link" aria-label="Direct link to map" title="Direct link to map">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/map.lua#L20"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">map</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>mapper<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">NewValue?</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key?</code></div><code class="purple_ieR2">)</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">NewValue?</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a new Dictionary with keys and values passed through a <code>mapper</code> function.</p>
+<p>Returning a second value in the mapper function will reassign the key.</p>
+<p>If <code>mapper</code> returns nil for value, the entry will be filtered.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> _key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">10</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 10, b = 20, c = 30 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="max"><code style="text-decoration:none">max</code><a href="#max" class="hash-link" aria-label="Direct link to max" title="Direct link to max">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/max.lua#L22"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">max</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>comparator<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Value</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">Value</code><code>,</code></div><div><code class="blue_P4bS">Key?</code></div></div><code>)</code></div><div>
+<p>
+  Returns the maximum value and key in this dictionary.
+  If any values are comparatively equivalent, the first one found will be returned. (Order is undefined.)
+</p>
+<p>The <code>comparator</code> is used in the same way as <code>table.sort</code>. If it is not provided, the default comparator is <code>></code>.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( 200, "c" )</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">{</span> alice <span class="token operator">=</span> child<span class="token punctuation">,</span> bertram <span class="token operator">=</span> teen<span class="token punctuation">,</span> charlie <span class="token operator">=</span> adult <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>personA<span class="token punctuation">,</span> personB<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> personA<span class="token punctuation">.</span>age <span class="token operator">></span> personB<span class="token punctuation">.</span>age
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( adult, "charlie" )</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="merge"><code style="text-decoration:none">merge</code><a href="#merge" class="hash-link" aria-label="Direct link to merge" title="Direct link to merge">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/merge.lua#L19"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">merge</code><code>(</code><code>...<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a merged result of all given dictionaries.</p>
+<p>If <code>Freeze.None</code> is a value assigned to a key, it will delete that key from the resulting dictionary.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 10, b = 20, c = 30 }</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> c <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">40</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> Freeze<span class="token punctuation">.</span>None <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 10, c = 30, d = 40 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mergeIn"><code style="text-decoration:none">mergeIn</code><a href="#mergeIn" class="hash-link" aria-label="Direct link to mergeIn" title="Direct link to mergeIn">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/mergeIn.lua#L24"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">mergeIn</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>keyPath<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">any</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  A combination of <code>updateIn</code> and <code>merge</code>, returning a new dictionary,
+  but performing a merge at the point arrived by following the key path.
+</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> dictionary <span class="token operator">=</span> <span class="token punctuation">{</span>
+	persons <span class="token operator">=</span> <span class="token punctuation">{</span>
+		alice <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">mergeIn</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"persons"</span><span class="token punctuation">,</span> <span class="token string">"alice"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> age <span class="token operator">=</span> <span class="token number">11</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { persons = { alice = { age = 11 } } }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="min"><code style="text-decoration:none">min</code><a href="#min" class="hash-link" aria-label="Direct link to min" title="Direct link to min">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/min.lua#L21"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">min</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>comparator<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Value</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">Value</code><code>,</code></div><div><code class="blue_P4bS">Key?</code></div></div><code>)</code></div><div>
+<p>
+  Returns the minium value and key in this dictionary.
+  If any values are comparatively equivalent, the first one found will be returned. (Order is undefined.)
+</p>
+<p>The <code>comparator</code> is used in the same way as <code>table.sort</code>. If it is not provided, the default comparator is <code>></code>.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( 10, "a" )</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">{</span> alice <span class="token operator">=</span> child<span class="token punctuation">,</span> bertram <span class="token operator">=</span> teen<span class="token punctuation">,</span> charlie <span class="token operator">=</span> adult <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>personA<span class="token punctuation">,</span> personB<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> personA<span class="token punctuation">.</span>age <span class="token operator">></span> personB<span class="token punctuation">.</span>age
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( child, "alice" )</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="remove"><code style="text-decoration:none">remove</code><a href="#remove" class="hash-link" aria-label="Direct link to remove" title="Direct link to remove">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/remove.lua#L17"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">remove</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Key</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a Dictionary which excludes the given <code>keys</code>.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 10, b = 20 }</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 10 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeIn"><code style="text-decoration:none">removeIn</code><a href="#removeIn" class="hash-link" aria-label="Direct link to removeIn" title="Direct link to removeIn">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/removeIn.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">removeIn</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>keyPath<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns a new map having removed the value at this <code>keyPath</code>.
+  Will create a new path if it does not exist.
+</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">removeIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> b <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"c"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = {} }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeValue"><code style="text-decoration:none">removeValue</code><a href="#removeValue" class="hash-link" aria-label="Direct link to removeValue" title="Direct link to removeValue">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/removeValue.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">removeValue</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a new map having removed the all pairs with the given <code>value</code>.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">removeValue</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token comment">-- { b = 20, c = 30 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="set"><code style="text-decoration:none">set</code><a href="#set" class="hash-link" aria-label="Direct link to set" title="Direct link to set">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/set.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">set</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>key<!-- -->: </code><code class="blue_P4bS">Key</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns a Dictionary which includes <code>value</code> at <code>key</code>.
+  If <code>key</code> already exists, it will be replaced.
+</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 100, b = 20, c = 30 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="setIn"><code style="text-decoration:none">setIn</code><a href="#setIn" class="hash-link" aria-label="Direct link to setIn" title="Direct link to setIn">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/setIn.lua#L23"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">setIn</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>keyPath<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_P4bS">any</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns a dictionary having set <code>value</code> at this <code>keyPath</code>.
+  If any keys in <code>keyPath</code> do not exist, a new dictionary will be created at that key.
+</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> dictionary <span class="token operator">=</span> <span class="token punctuation">{</span>
+	persons <span class="token operator">=</span> <span class="token punctuation">{</span>
+		alice <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">setIn</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"persons"</span><span class="token punctuation">,</span> <span class="token string">"alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span>
+<span class="token comment">-- { persons = { alice = { age = 11 } } }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="some"><code style="text-decoration:none">some</code><a href="#some" class="hash-link" aria-label="Direct link to some" title="Direct link to some">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/some.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">some</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Key</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if <code>predicate</code> returns true for any entry in the dictionary.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="update"><code style="text-decoration:none">update</code><a href="#update" class="hash-link" aria-label="Direct link to update" title="Direct link to update">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/update.lua#L23"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">update</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>key<!-- -->: </code><code class="blue_P4bS">Key</code><code>,</code></div><div><code>updater<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">Value?</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">Value</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a dictionary with the entry at <code>key</code> updated to the result of <code>updater</code>.</p>
+<p>If the entry does not exist, <code>updater</code> will be given <code>notSetValue</code> or nil.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">100</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 1000, b = 20, c = 30 }</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">100</span>
+<span class="token keyword">end</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">-- { a = 10, b = 20, c = 30, d = 100 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="updateIn"><code style="text-decoration:none">updateIn</code><a href="#updateIn" class="hash-link" aria-label="Direct link to updateIn" title="Direct link to updateIn">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/updateIn.lua#L30"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">updateIn</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>keyPath<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>updater<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">any</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">any</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">any?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a Dictionary with the entry at <code>keyPath</code> updated to the result of <code>updater</code>.</p>
+<p>If any entry does not exist along <code>keyPath</code>, an empty Dictionary will be created in its place.</p>
+<p>If the final entry does not exist, <code>updater</code> will be given <code>notSetValue</code> or nil.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> dictionary <span class="token operator">=</span> <span class="token punctuation">{</span>
+	persons <span class="token operator">=</span> <span class="token punctuation">{</span>
+		alice <span class="token operator">=</span> <span class="token punctuation">{</span>
+			age <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+Dictionary<span class="token punctuation">.</span><span class="token function">updateIn</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"persons"</span><span class="token punctuation">,</span> <span class="token string">"alice"</span><span class="token punctuation">,</span> <span class="token string">"age"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> number<span class="token punctuation">)</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token string">"will exist"</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { persons = { alice = { age = 11 } } }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="values"><code style="text-decoration:none">values</code><a href="#values" class="hash-link" aria-label="Direct link to values" title="Direct link to values">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/values.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">values</code><code>(</code><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a list of values. Order is undefined.</p>
+<pre class="language-lua"><code class="language-lua">Dictionary<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">{</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 1, 2, 3 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="join"><code style="text-decoration:line-through">join</code><a href="#join" class="hash-link" aria-label="Direct link to join" title="Direct link to join">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/compat/join.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [Dictionary.merge] instead.</p></div></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">join</code><code>(</code><code>...<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeKey"><code style="text-decoration:line-through">removeKey</code><a href="#removeKey" class="hash-link" aria-label="Direct link to removeKey" title="Direct link to removeKey">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/compat/removeKey.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [Dictionary.remove] instead.</p></div></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">removeKey</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>key<!-- -->: </code><code class="blue_P4bS">Key</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeKeys"><code style="text-decoration:line-through">removeKeys</code><a href="#removeKeys" class="hash-link" aria-label="Direct link to removeKeys" title="Direct link to removeKeys">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/compat/removeKeys.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [Dictionary.remove] instead.</p></div></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">removeKeys</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Key</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeValues"><code style="text-decoration:line-through">removeValues</code><a href="#removeValues" class="hash-link" aria-label="Direct link to removeValues" title="Direct link to removeValues">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/compat/removeValues.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [Dictionary.removeValue] instead.</p></div></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">removeValues</code><code>(</code><div class="inset_uKQm"><div><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="toArray"><code style="text-decoration:line-through">toArray</code><a href="#toArray" class="hash-link" aria-label="Direct link to toArray" title="Direct link to toArray">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/Dictionary/compat/toArray.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [Dictionary.values] instead.</p></div></div><div class="memberString_GwaU"><code>Dictionary<!-- -->.</code><code class="green_DgR4">toArray</code><code>(</code><code>dictionary<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">Key</code><code>]</code></span><code>: </code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;join&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [Dictionary.merge] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/Dictionary/compat/join.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeKey&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [Dictionary.remove] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/Dictionary/compat/removeKey.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeKeys&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [Dictionary.remove] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/Dictionary/compat/removeKeys.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeValues&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [Dictionary.removeValue] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/Dictionary/compat/removeValues.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;toArray&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [Dictionary.values] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/Dictionary/compat/toArray.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;count&quot;,
+            &quot;desc&quot;: &quot;Returns the number of pairs that match the `predicate`.\nIf the `predicate` is not given, all pairs will be considered a match.\n\n```lua\nDictionary.count({ a = 1, b = 2, c = 3 }).count()\n-- 3\n\nDictionary.count({ a = 1, b = 2, c = 3 }, function(value, key)\n\treturn value % 2 == 0\nend)\n-- 1\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Key) -&gt; boolean)?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/Dictionary/count.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;equals&quot;,
+            &quot;desc&quot;: &quot;Returns true if both Dictionaries have _value_ equality.\n\n:::info\n\nIf you only require reference equal, use the `==` operator.\n\n:::\n\n```lua\nlocal dictionary1 = { a = 1, b = 2, c = 3 }\nlocal dictionary2 = { a = 1, b = 2, c = 3 }\n\nDictionary.equals(dictionary1, dictionary2)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionaryA&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;dictionaryB&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;any&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 23,
+                &quot;path&quot;: &quot;source/Dictionary/equals.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;every&quot;,
+            &quot;desc&quot;: &quot;Returns true if `predicate` returns true for all entries in the Dictionary.\n\n```lua\nDictionary.every({ a = 1, b = 2, c = 3 }, function(value, key)\n\treturn value &lt; 10\nend)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Dictionary/every.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;filter&quot;,
+            &quot;desc&quot;: &quot;Returns a Dictionary of only entries for which the `predicate` function returns true.\n\n```lua\nDictionary.filter({ a = 1, b = 2, c = 3, d = 4 }, function(value, key)\n\treturn value % 2 == 0\nend)\n-- { b = 2, d = 4 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Key) -&gt; boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Dictionary/filter.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;filterNot&quot;,
+            &quot;desc&quot;: &quot;Returns a Dictionary of only entries for which the `predicate` function returns false.\n\n```lua\nDictionary.filterNot({ a = 1, b = 2, c = 3, d = 4 }, function(value, key)\n\treturn value % 2 == 0\nend)\n-- { a = 1, c = 3 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Dictionary/filterNot.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;find&quot;,
+            &quot;desc&quot;: &quot;Returns the first value for which the `predicate` returns true.\n\n```lua\nDictionary.find({ a = 1, b = 2, c = 3 }, function(value, key)\n\treturn value % 2 == 0\nend)\n-- 2\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; boolean&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Dictionary/find.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findKey&quot;,
+            &quot;desc&quot;: &quot;Returns the first key for which the `predicate` returns true.\n\n```lua\nDictionary.findKey({ a = 1, b = 2, c = 3 }, function(value, key)\n\treturn value % 2 == 0\nend)\n-- \&quot;b\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; boolean&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Dictionary/findKey.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findPair&quot;,
+            &quot;desc&quot;: &quot;Returns the first (key, value) pair for which the `predicate` returns true.\n\n```lua\nDictionary.findPair({ a = 1, b = 2 c = 3, d = 4 }, function(value, key)\n\treturn value % 2 == 0\nend)\n-- ( \&quot;b\&quot;, 2 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Key) -&gt; boolean)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key?&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/Dictionary/findPair.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;flatten&quot;,
+            &quot;desc&quot;: &quot;Returns a flattened dictionary by combining keys of the lowest depth.\n\nIf provided `depth`, the flattening will early-out.\n\n```lua\nDictionary.flatten({\n\tfoo = 1,\n\tfoobar = {\n\t\tbar = 2,\n\t\tbaz = {\n\t\t\tetc = 3,\n\t\t},\n\t},\n})\n-- { foo = 1, bar = 2, etc = 3 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;depth&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 44,
+                &quot;path&quot;: &quot;source/Dictionary/flatten.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;flip&quot;,
+            &quot;desc&quot;: &quot;Returns a new map where keys and values are flipped.\n\n```lua\nDictionary.flip({ a = \&quot;x\&quot;, b = \&quot;y\&quot;, c = \&quot;z\&quot; )\n-- { x = \&quot;a\&quot;, y = \&quot;b\&quot;, z = \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Value]: Key }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Dictionary/flip.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;forEach&quot;,
+            &quot;desc&quot;: &quot;While the Dictionary is iterated, the `sideEffect` is executed for every entry.\nIf any call of the `sideEffect` returns `false`, the iteration will stop.\n\nReturns the number of entries iterated (including the last iteration which returned false).\n\n```lua\nDictionary.forEach({ a = 10, b = 20, c = -10, d = 30 }, function(value, key)\n\treturn value &gt; 0\nend)\n-- 3\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;sideEffect&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 18,
+                &quot;path&quot;: &quot;source/Dictionary/forEach.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;get&quot;,
+            &quot;desc&quot;: &quot;Returns the value at the given key, otherwise returns `notSetValue` if the given value is not found.\n```lua\nDictionary.get({ a = 1, b = 2, c = 3 }, \&quot;a\&quot;)\n-- 1\n\nDictionary.get({ a = 1, b = 2, c = 3 }, \&quot;foobar\&quot;, \&quot;default\&quot;)\n-- \&quot;default\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Dictionary/get.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getIn&quot;,
+            &quot;desc&quot;: &quot;Returns the value if found by following a path of keys, otherwise returns `notSetValue` if the given value is nil.\n\n```lua\nlocal dictionary = { a = { b = \&quot;c\&quot; } }\nDictionary.getIn(dictionary), { \&quot;a\&quot;, \&quot;b\&quot; })\n-- \&quot;c\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Dictionary/getIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;has&quot;,
+            &quot;desc&quot;: &quot;Returns true if the key exists within the Dictionary.\n\n```lua\nDictionary.has({ a = 1, b = 2, c = 3 }, \&quot;b\&quot;)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 12,
+                &quot;path&quot;: &quot;source/Dictionary/has.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;hasIn&quot;,
+            &quot;desc&quot;: &quot;Returns true if the value is found by following a path of keys.\n\n```lua\nlocal dictionary = { a = { b = \&quot;c\&quot; } }\nDictionary.hasIn(dictionary, { \&quot;a\&quot;, \&quot;b\&quot; })\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Dictionary/hasIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;includes&quot;,
+            &quot;desc&quot;: &quot;Returns true if the value is found within the Dictionary.\n\n```lua\nDictionary.includes({ a = 1, b = 2, c = 3 }, 2)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Dictionary/includes.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;joinAsString&quot;,
+            &quot;desc&quot;: &quot;Joins values together as a string, inserting a separator between each.\n\nThe default separator is `\&quot;,\&quot;`.\n\n```lua\nDictionary.joinAsString({ a = 1, b = 2, c = 3 }, \&quot;, \&quot;)\n-- \&quot;a=1, b=2, c=3\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;separator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/Dictionary/joinAsString.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;keys&quot;,
+            &quot;desc&quot;: &quot;Returns a list of keys. Order is undefined.\n\n```lua\nDictionary.keys({ a = 1, b = 2, c = 3 })\n-- { \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Key }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Dictionary/keys.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;map&quot;,
+            &quot;desc&quot;: &quot;Returns a new Dictionary with keys and values passed through a `mapper` function.\n\nReturning a second value in the mapper function will reassign the key.\n\nIf `mapper` returns nil for value, the entry will be filtered.\n\n```lua\nDictionary.map({ a = 1, b = 2, c = 3 }, function(value, _key)\n\treturn value * 10\nend)\n-- { a = 10, b = 20, c = 30 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;mapper&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; (NewValue?, Key?)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: NewValue? }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/Dictionary/map.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;max&quot;,
+            &quot;desc&quot;: &quot;Returns the maximum value and key in this dictionary.\nIf any values are comparatively equivalent, the first one found will be returned. (Order is undefined.)\n\nThe `comparator` is used in the same way as `table.sort`. If it is not provided, the default comparator is `&gt;`.\n\n```lua\nDictionary.max({ a = 10, b = 200, c = 30 })\n-- ( 200, \&quot;c\&quot; )\n\nDictionary.max({ alice = child, bertram = teen, charlie = adult }, function(personA, personB)\n\treturn personA.age &gt; personB.age\nend)\n-- ( adult, \&quot;charlie\&quot; )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;comparator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Value) -&gt; boolean)?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 22,
+                &quot;path&quot;: &quot;source/Dictionary/max.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;merge&quot;,
+            &quot;desc&quot;: &quot;Returns a merged result of all given dictionaries.\n\nIf `Freeze.None` is a value assigned to a key, it will delete that key from the resulting dictionary.\n\n```lua\nDictionary.merge({ a = 10, b = 20 }, { c = 30 })\n-- { a = 10, b = 20, c = 30 }\n\nDictionary.merge({ a = 10, b = 20 }, { c = 30, d = 40 }, { b = Freeze.None })\n-- { a = 10, c = 30, d = 40 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 19,
+                &quot;path&quot;: &quot;source/Dictionary/merge.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mergeIn&quot;,
+            &quot;desc&quot;: &quot;A combination of `updateIn` and `merge`, returning a new dictionary,\nbut performing a merge at the point arrived by following the key path.\n\n```lua\nlocal dictionary = {\n\tpersons = {\n\t\talice = {\n\t\t\tage = 10,\n\t\t},\n\t},\n}\n\nDictionary.mergeIn(dictionary, { \&quot;persons\&quot;, \&quot;alice\&quot; }, { age = 11 })\n-- { persons = { alice = { age = 11 } } }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;any&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 24,
+                &quot;path&quot;: &quot;source/Dictionary/mergeIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;min&quot;,
+            &quot;desc&quot;: &quot;Returns the minium value and key in this dictionary.\nIf any values are comparatively equivalent, the first one found will be returned. (Order is undefined.)\n\nThe `comparator` is used in the same way as `table.sort`. If it is not provided, the default comparator is `&gt;`.\n\n```lua\nDictionary.min({ a = 10, b = 200, c = 30 })\n-- ( 10, \&quot;a\&quot; )\n\nDictionary.min({ alice = child, bertram = teen, charlie = adult }, function(personA, personB)\n\treturn personA.age &gt; personB.age\nend)\n-- ( child, \&quot;alice\&quot; )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;comparator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Value) -&gt; boolean)?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 21,
+                &quot;path&quot;: &quot;source/Dictionary/min.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;remove&quot;,
+            &quot;desc&quot;: &quot;Returns a Dictionary which excludes the given `keys`.\n\n```lua\nDictionary.remove({ a = 10, b = 20, c = 30 }).remove(\&quot;c\&quot;)\n-- { a = 10, b = 20 }\n\nDictionary.remove({ a = 10, b = 20, c = 30 }).remove(\&quot;b\&quot;, \&quot;c\&quot;)\n-- { a = 10 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/Dictionary/remove.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeIn&quot;,
+            &quot;desc&quot;: &quot;Returns a new map having removed the value at this `keyPath`.\nWill create a new path if it does not exist.\n\n```lua\nDictionary.removeIn({ a = { b = { \&quot;c\&quot; } } }, { \&quot;a\&quot;, \&quot;b\&quot; })\n-- { a = {} }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Dictionary/removeIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeValue&quot;,
+            &quot;desc&quot;: &quot;Returns a new map having removed the all pairs with the given `value`.\n\n```lua\nDictionary.removeValue({ a = 10, b = 20, c = 30 }, 10)\n-- { b = 20, c = 30 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Dictionary/removeValue.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;set&quot;,
+            &quot;desc&quot;: &quot;Returns a Dictionary which includes `value` at `key`.\nIf `key` already exists, it will be replaced.\n\n```lua\nDictionary.set({ a = 10, b = 20, c = 30 }, \&quot;a\&quot;, 100)\n-- { a = 100, b = 20, c = 30 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Dictionary/set.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;setIn&quot;,
+            &quot;desc&quot;: &quot;Returns a dictionary having set `value` at this `keyPath`.\nIf any keys in `keyPath` do not exist, a new dictionary will be created at that key.\n\n```lua\nlocal dictionary = {\n\tpersons = {\n\t\talice = {\n\t\t\tage = 10,\n\t\t}\n\t},\n}\n\nDictionary.setIn(dictionary, { \&quot;persons\&quot;, \&quot;alice\&quot;, \&quot;age\&quot; }, 11)\n-- { persons = { alice = { age = 11 } } }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;any&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 23,
+                &quot;path&quot;: &quot;source/Dictionary/setIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;some&quot;,
+            &quot;desc&quot;: &quot;Returns true if `predicate` returns true for any entry in the dictionary.\n\n```lua\nDictionary.some({ a = 1, b = 2, c = 3 }), function(value, key)\n\treturn value % 2 == 0\nend)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, Key) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/Dictionary/some.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;update&quot;,
+            &quot;desc&quot;: &quot;Returns a dictionary with the entry at `key` updated to the result of `updater`.\n\nIf the entry does not exist, `updater` will be given `notSetValue` or nil.\n\n```lua\nDictionary.update({ a = 10, b = 20, c = 30 }, \&quot;a\&quot;, function(value)\n\treturn value * 100\nend)\n-- { a = 1000, b = 20, c = 30 }\n\nDictionary.update({ a = 10, b = 20, c = 30 }, \&quot;d\&quot;, function(value)\n\treturn value * 100\nend, 1)\n-- { a = 10, b = 20, c = 30, d = 100 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Key&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;updater&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value?) -&gt; Value&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 23,
+                &quot;path&quot;: &quot;source/Dictionary/update.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;updateIn&quot;,
+            &quot;desc&quot;: &quot;Returns a Dictionary with the entry at `keyPath` updated to the result of `updater`.\n\nIf any entry does not exist along `keyPath`, an empty Dictionary will be created in its place.\n\nIf the final entry does not exist, `updater` will be given `notSetValue` or nil.\n\n```lua\nlocal dictionary = {\n\tpersons = {\n\t\talice = {\n\t\t\tage = 10,\n\t\t},\n\t},\n}\n\nDictionary.updateIn({ \&quot;persons\&quot;, \&quot;alice\&quot;, \&quot;age\&quot; }, function(value: number)\n\tassert(value, \&quot;will exist\&quot;)\n\treturn value + 1\nend)\n-- { persons = { alice = { age = 11 } } }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyPath&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;updater&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(any) -&gt; any&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;any?\n&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 30,
+                &quot;path&quot;: &quot;source/Dictionary/updateIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;values&quot;,
+            &quot;desc&quot;: &quot;Returns a list of values. Order is undefined.\n\n```lua\nDictionary.values({ a = 1, b = 2, c = 3 })\n-- { 1, 2, 3 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;dictionary&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [Key]: Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/Dictionary/values.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;Dictionary&quot;,
+    &quot;desc&quot;: &quot;Handles dictionary-like operations.\n\n[`Dictionaries`](../api/Dictionary) are unordered tables with key-value pairs.&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 9,
+        &quot;path&quot;: &quot;source/Dictionary/init.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#count" class="table-of-contents__link toc-highlight">.count</a></li><li><a href="#equals" class="table-of-contents__link toc-highlight">.equals</a></li><li><a href="#every" class="table-of-contents__link toc-highlight">.every</a></li><li><a href="#filter" class="table-of-contents__link toc-highlight">.filter</a></li><li><a href="#filterNot" class="table-of-contents__link toc-highlight">.filterNot</a></li><li><a href="#find" class="table-of-contents__link toc-highlight">.find</a></li><li><a href="#findKey" class="table-of-contents__link toc-highlight">.findKey</a></li><li><a href="#findPair" class="table-of-contents__link toc-highlight">.findPair</a></li><li><a href="#flatten" class="table-of-contents__link toc-highlight">.flatten</a></li><li><a href="#flip" class="table-of-contents__link toc-highlight">.flip</a></li><li><a href="#forEach" class="table-of-contents__link toc-highlight">.forEach</a></li><li><a href="#get" class="table-of-contents__link toc-highlight">.get</a></li><li><a href="#getIn" class="table-of-contents__link toc-highlight">.getIn</a></li><li><a href="#has" class="table-of-contents__link toc-highlight">.has</a></li><li><a href="#hasIn" class="table-of-contents__link toc-highlight">.hasIn</a></li><li><a href="#includes" class="table-of-contents__link toc-highlight">.includes</a></li><li><a href="#join" class="table-of-contents__link toc-highlight">.join</a></li><li><a href="#joinAsString" class="table-of-contents__link toc-highlight">.joinAsString</a></li><li><a href="#keys" class="table-of-contents__link toc-highlight">.keys</a></li><li><a href="#map" class="table-of-contents__link toc-highlight">.map</a></li><li><a href="#max" class="table-of-contents__link toc-highlight">.max</a></li><li><a href="#merge" class="table-of-contents__link toc-highlight">.merge</a></li><li><a href="#mergeIn" class="table-of-contents__link toc-highlight">.mergeIn</a></li><li><a href="#min" class="table-of-contents__link toc-highlight">.min</a></li><li><a href="#remove" class="table-of-contents__link toc-highlight">.remove</a></li><li><a href="#removeIn" class="table-of-contents__link toc-highlight">.removeIn</a></li><li><a href="#removeKey" class="table-of-contents__link toc-highlight">.removeKey</a></li><li><a href="#removeKeys" class="table-of-contents__link toc-highlight">.removeKeys</a></li><li><a href="#removeValue" class="table-of-contents__link toc-highlight">.removeValue</a></li><li><a href="#removeValues" class="table-of-contents__link toc-highlight">.removeValues</a></li><li><a href="#set" class="table-of-contents__link toc-highlight">.set</a></li><li><a href="#setIn" class="table-of-contents__link toc-highlight">.setIn</a></li><li><a href="#some" class="table-of-contents__link toc-highlight">.some</a></li><li><a href="#toArray" class="table-of-contents__link toc-highlight">.toArray</a></li><li><a href="#update" class="table-of-contents__link toc-highlight">.update</a></li><li><a href="#updateIn" class="table-of-contents__link toc-highlight">.updateIn</a></li><li><a href="#values" class="table-of-contents__link toc-highlight">.values</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 benbrimeyer. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/Freeze/assets/js/runtime~main.6b7f6525.js"></script>
+<script src="/Freeze/assets/js/main.b297e574.js"></script>
+</body>
+</html>

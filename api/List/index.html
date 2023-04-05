@@ -1,0 +1,1847 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v2.3.1">
+<title data-rh="true">List | Freeze</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://benbrimeyer.github.io/Freeze/api/List"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="List | Freeze"><meta data-rh="true" name="description" content="Handles list-like operations.
+
+[`Lists`](../api/List) are ordered tables with numeric indices."><meta data-rh="true" property="og:description" content="Handles list-like operations.
+
+[`Lists`](../api/List) are ordered tables with numeric indices."><link data-rh="true" rel="canonical" href="https://benbrimeyer.github.io/Freeze/api/List"><link data-rh="true" rel="alternate" href="https://benbrimeyer.github.io/Freeze/api/List" hreflang="en"><link data-rh="true" rel="alternate" href="https://benbrimeyer.github.io/Freeze/api/List" hreflang="x-default"><link rel="stylesheet" href="/Freeze/assets/css/styles.6b33bbd6.css">
+<link rel="preload" href="/Freeze/assets/js/runtime~main.6b7f6525.js" as="script">
+<link rel="preload" href="/Freeze/assets/js/main.b297e574.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Freeze/"><b class="navbar__title text--truncate">Freeze</b></a><a class="navbar__item navbar__link" href="/Freeze/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Freeze/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/benbrimeyer/Freeze" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Freeze/api/Dictionary">​Dictionary</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Freeze/api/Freeze">​Freeze</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Freeze/api/List">​List</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">List</span></h1><div class="luaClassTags_EipM"></div><div>
+<p>Handles list-like operations.</p>
+<p><a href="../api/List"><code>Lists</code></a> are ordered tables with numeric indices.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="butLast"><code style="text-decoration:none">butLast</code><a href="#butLast" class="hash-link" aria-label="Direct link to butLast" title="Direct link to butLast">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/butLast.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">butLast</code><code>(</code><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List containing all entires except the last.</p>
+<p>Equivalent to <code>slice(1, -1)</code>. See <a href="/Freeze/api/List#slice">List.slice</a> for more information.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">butLast</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 1, 2 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="concat"><code style="text-decoration:none">concat</code><a href="#concat" class="hash-link" aria-label="Direct link to concat" title="Direct link to concat">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/concat.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">concat</code><code>(</code><code>...<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List of the same type concatenated to given arguments.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"d"</span><span class="token punctuation">,</span> <span class="token string">"e"</span><span class="token punctuation">,</span> <span class="token string">"f"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "b", "c", "d", "e", "f" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="count"><code style="text-decoration:none">count</code><a href="#count" class="hash-link" aria-label="Direct link to count" title="Direct link to count">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/count.lua#L20"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">count</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  Returns the number of entries that match the <code>predicate</code>.
+  If the <code>predicate</code> is not given, all entries will be considered a match.
+</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- 3</span>
+
+List<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">==</span> <span class="token string">"b"</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 1</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="equals"><code style="text-decoration:none">equals</code><a href="#equals" class="hash-link" aria-label="Direct link to equals" title="Direct link to equals">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/equals.lua#L17"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">equals</code><code>(</code><div class="inset_uKQm"><div><code>listA<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>listB<!-- -->: </code><code class="blue_P4bS">any</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if both Lists have value equality.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> list1 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span>
+<span class="token keyword">local</span> list2 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span>
+
+List<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>list1<span class="token punctuation">,</span> list2<span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="every"><code style="text-decoration:none">every</code><a href="#every" class="hash-link" aria-label="Direct link to every" title="Direct link to every">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/every.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">every</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if <code>predicate</code> returns true for all entries in the list.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> string<span class="token punctuation">.</span><span class="token function">lower</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">==</span> value
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="filter"><code style="text-decoration:none">filter</code><a href="#filter" class="hash-link" aria-label="Direct link to filter" title="Direct link to filter">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/filter.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">filter</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a new List of only entries for which the <code>predicate</code> function returns true.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 2, 4 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="filterNot"><code style="text-decoration:none">filterNot</code><a href="#filterNot" class="hash-link" aria-label="Direct link to filterNot" title="Direct link to filterNot">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/filterNot.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">filterNot</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a new List of only entries for which the <code>predicate</code> function returns false.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">filterNot</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 1, 3 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="find"><code style="text-decoration:none">find</code><a href="#find" class="hash-link" aria-label="Direct link to find" title="Direct link to find">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/find.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">find</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div>
+<p>Returns the first value for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">==</span> string<span class="token punctuation">.</span><span class="token function">upper</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- "B"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="findIndex"><code style="text-decoration:none">findIndex</code><a href="#findIndex" class="hash-link" aria-label="Direct link to findIndex" title="Direct link to findIndex">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/findIndex.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">findIndex</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">number?</code></div><div>
+<p>Returns the first index for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">==</span> string<span class="token punctuation">.</span><span class="token function">upper</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 2</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="findPair"><code style="text-decoration:none">findPair</code><a href="#findPair" class="hash-link" aria-label="Direct link to findPair" title="Direct link to findPair">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/findPair.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">findPair</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number?</code><code>,</code></div><div><code class="blue_P4bS">Value?</code></div></div><code>)</code></div><div>
+<p>Returns the first [index, value] pair for which the <code>predicate</code> returns true.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">findPair</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">==</span> string<span class="token punctuation">.</span><span class="token function">upper</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( 2, "B" )</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="first"><code style="text-decoration:none">first</code><a href="#first" class="hash-link" aria-label="Direct link to first" title="Direct link to first">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/first.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">first</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Returns the first value in the list.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- "a"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="flatten"><code style="text-decoration:none">flatten</code><a href="#flatten" class="hash-link" aria-label="Direct link to flatten" title="Direct link to flatten">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/flatten.lua#L27"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">flatten</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">ListOf</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">Value</code><code class="op_lSLc">&gt;</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>depth<!-- -->: </code><code class="blue_P4bS">number?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">ListOf</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">Value</code><code class="op_lSLc">&gt;</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a flattened list in the same index-order as each Value would appear.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">flatten</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token string">"foo"</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+		<span class="token string">"bar"</span><span class="token punctuation">,</span>
+		<span class="token string">"baz"</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+		<span class="token string">"bar"</span><span class="token punctuation">,</span>
+		<span class="token string">"baz"</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token string">"quz"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "foo", "bar", "baz", "bar", "baz", "quz" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="forEach"><code style="text-decoration:none">forEach</code><a href="#forEach" class="hash-link" aria-label="Direct link to forEach" title="Direct link to forEach">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/forEach.lua#L18"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">forEach</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>sideEffect<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  While the List is iterated, the <code>sideEffect</code> is executed for every entry.
+  If any call of the <code>sideEffect</code> returns <code>false</code>, the iteration will stop.
+</p>
+<p>Returns the number of entries iterated (including the last iteration which returned false).</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- 3</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="get"><code style="text-decoration:none">get</code><a href="#get" class="hash-link" aria-label="Direct link to get" title="Direct link to get">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/get.lua#L20"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">get</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>index<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div>
+<p>Returns the value at the given index, otherwise returns <code>notSetValue</code> if the given value is not found.</p>
+<p>If <code>index</code> is negative, the index will start from the last value.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment">-- "c"</span>
+
+List<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">-- "c"</span>
+
+List<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token string">"default"</span><span class="token punctuation">)</span>
+<span class="token comment">-- "default"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="has"><code style="text-decoration:none">has</code><a href="#has" class="hash-link" aria-label="Direct link to has" title="Direct link to has">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/has.lua#L12"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">has</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>index<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if the <code>index</code> exists within the List.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="includes"><code style="text-decoration:none">includes</code><a href="#includes" class="hash-link" aria-label="Direct link to includes" title="Direct link to includes">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/includes.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">includes</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>query<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if the <code>value</code> is found within the List.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="indexOf"><code style="text-decoration:none">indexOf</code><a href="#indexOf" class="hash-link" aria-label="Direct link to indexOf" title="Direct link to indexOf">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/indexOf.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">indexOf</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>searchValue<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="blue_P4bS">number?</code></div><div>
+<p>Returns the index of the <code>value</code> if found within the List, otherwise returns nil.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">)</span>
+<span class="token comment">-- 2</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="insert"><code style="text-decoration:none">insert</code><a href="#insert" class="hash-link" aria-label="Direct link to insert" title="Direct link to insert">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/insert.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">insert</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>index<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Inserts <code>values</code> given starting from the given <code>index</code>, pushing existing values towards the end.</p>
+<p>The inserted <code>value</code> will be clamped to the beginning or end of the List if the given <code>index</code> is out of bounds.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"X"</span><span class="token punctuation">,</span> <span class="token string">"Y"</span><span class="token punctuation">,</span> <span class="token string">"Z"</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "X", "Y", "Z", "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="joinAsString"><code style="text-decoration:none">joinAsString</code><a href="#joinAsString" class="hash-link" aria-label="Direct link to joinAsString" title="Direct link to joinAsString">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/joinAsString.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">joinAsString</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>separator<!-- -->: </code><code class="blue_P4bS">string?</code></div></div><code>) → </code><code class="blue_P4bS">string</code></div><div>
+<p>Joins values together as a string, inserting a separator between each.</p>
+<p>The default separator is <code>","</code>.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">joinAsString</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">", "</span><span class="token punctuation">)</span>
+<span class="token comment">-- "a, b, c"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="last"><code style="text-decoration:none">last</code><a href="#last" class="hash-link" aria-label="Direct link to last" title="Direct link to last">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/last.lua#L19"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">last</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div>
+<p>Returns the last value in the List.</p>
+<p>Returns <code>notSetValue</code> if the List is empty.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">last</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- "c"</span>
+
+List<span class="token punctuation">.</span><span class="token function">last</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"default"</span><span class="token punctuation">)</span>
+<span class="token comment">-- "default"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="map"><code style="text-decoration:none">map</code><a href="#map" class="hash-link" aria-label="Direct link to map" title="Direct link to map">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/map.lua#L21"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">map</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>mapper<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">NewValue</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number?</code></div><code class="purple_ieR2">)</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">NewValue</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List with values passed through a <code>mapper</code> function.</p>
+<p>Returning a second <code>value</code> in the mapper function will reassign the index.</p>
+<p>If <code>mapper</code> returns nil, the entry will be filtered.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">10</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 10, 20, 30 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="max"><code style="text-decoration:none">max</code><a href="#max" class="hash-link" aria-label="Direct link to max" title="Direct link to max">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/max.lua#L22"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">max</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>comparator<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Value</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">Value</code><code>,</code></div><div><code class="blue_P4bS">number?</code></div></div><code>)</code></div><div>
+<p>
+  Returns the maximum value in this List.
+  If any values are comparatively equivalent, the first one found will be returned.
+</p>
+<p>The <code>comparator</code> is used in the same way as <code>table.sort</code>. If it is not provided, the default comparator is <code>></code>.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( 200, 2 )</span>
+
+List<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">{</span> child<span class="token punctuation">,</span> teen<span class="token punctuation">,</span> adult <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>personA<span class="token punctuation">,</span> personB<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> personA<span class="token punctuation">.</span>age <span class="token operator">></span> personB<span class="token punctuation">.</span>age
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- ( adult, 3 )</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="merge"><code style="text-decoration:none">merge</code><a href="#merge" class="hash-link" aria-label="Direct link to merge" title="Direct link to merge">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/merge.lua#L20"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">merge</code><code>(</code><code>...<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a merged result of all given Lists.</p>
+<p>If <code>Freeze.None</code> is a value assigned to an index, it will delete that index from the resulting List.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">nil</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token keyword">nil</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token keyword">nil</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 10, 20, 30 }</span>
+
+List<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"x"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token keyword">nil</span><span class="token punctuation">,</span> <span class="token string">"y"</span><span class="token punctuation">,</span> Freeze<span class="token punctuation">.</span>None <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "x", "y" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="min"><code style="text-decoration:none">min</code><a href="#min" class="hash-link" aria-label="Direct link to min" title="Direct link to min">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/min.lua#L21"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">min</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>comparator<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Value</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">Value</code><code>,</code></div><div><code class="blue_P4bS">number?</code></div></div><code>)</code></div><div>
+<p>
+  Returns the minimum value in this List.
+  If any values are comparatively equivalent, the first one found will be returned.
+</p>
+<p>The <code>comparator</code> is used in the same way as <code>table.sort</code>. If it is not provided, the default comparator is <code>></code>.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- 10</span>
+
+List<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">{</span> child<span class="token punctuation">,</span> teen<span class="token punctuation">,</span> adult <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>personA<span class="token punctuation">,</span> personB<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> personA<span class="token punctuation">.</span>age <span class="token operator">></span> personB<span class="token punctuation">.</span>age
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- child</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="pop"><code style="text-decoration:none">pop</code><a href="#pop" class="hash-link" aria-label="Direct link to pop" title="Direct link to pop">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/pop.lua#L19"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">pop</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List excluding the last <code>index</code> of this List.</p>
+<p>This will repeat multiple times if given the optional <code>amount</code> argument and will always pop at least once.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 10, 20 }</span>
+
+List<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 10 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="push"><code style="text-decoration:none">push</code><a href="#push" class="hash-link" aria-label="Direct link to push" title="Direct link to push">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/push.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">push</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List with the provided <code>values</code> appended at the end of the List.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 10, 20, 30, 40, 50, 60 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="reduce"><code style="text-decoration:none">reduce</code><a href="#reduce" class="hash-link" aria-label="Direct link to reduce" title="Direct link to reduce">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/reduce.lua#L17"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">reduce</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>reducer<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">T</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">T</code><code>,</code></div><div><code>initialReduction<!-- -->: </code><code class="blue_P4bS">T</code></div></div><code>) → </code><code class="blue_P4bS">T</code></div><div>
+<p>
+  Returns the final reduced result by iterating the List and calling the <code>reducer</code> for every entry
+  and passing along the reduced value.
+</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>reduction<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> reduction <span class="token operator">+</span> value
+<span class="token keyword">end</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment">-- 60</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="reduceRight"><code style="text-decoration:none">reduceRight</code><a href="#reduceRight" class="hash-link" aria-label="Direct link to reduceRight" title="Direct link to reduceRight">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/reduceRight.lua#L17"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">reduceRight</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>reducer<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">T</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">T</code><code>,</code></div><div><code>initialReduction<!-- -->: </code><code class="blue_P4bS">T</code></div></div><code>) → </code><code class="blue_P4bS">T</code></div><div>
+<p>
+  Returns the final reduced result by iterating the list in reverse (from the right side) and calling the <code>reducer</code> for every entry
+  and passing along the reduced value.
+</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">reduceRight</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>reduction<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> reduction <span class="token operator">..</span> value
+<span class="token keyword">end</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token comment">-- "cba"</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="remove"><code style="text-decoration:none">remove</code><a href="#remove" class="hash-link" aria-label="Direct link to remove" title="Direct link to remove">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/remove.lua#L43"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">remove</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List which excludes this <code>index</code>. Values at indices above <code>index</code> are shifted down by 1 to fill the position.</p>
+<p>
+  <code>index</code> may be a negative number, which indexes back from the end of the list.
+  <code>list.remove(-1)</code> removes the last item in the list.
+</p>
+<p>If the given <code>given</code> results in an index that is out of bounds, it will return the original list with no changes.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "b", "d" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeValue"><code style="text-decoration:none">removeValue</code><a href="#removeValue" class="hash-link" aria-label="Direct link to removeValue" title="Direct link to removeValue">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/removeValue.lua#L34"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">removeValue</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List having removed all entries with the given <code>value</code>.</p>
+<p>If no values are present, it will return the original List with no changes.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">removeValue</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="rest"><code style="text-decoration:none">rest</code><a href="#rest" class="hash-link" aria-label="Direct link to rest" title="Direct link to rest">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/rest.lua#L17"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">rest</code><code>(</code><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List containing all entries except the first.</p>
+<p>Equivalent to <code>slice(2)</code>. See <a href="/Freeze/api/List#slice">List.slice</a> for more information.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="reverse"><code style="text-decoration:none">reverse</code><a href="#reverse" class="hash-link" aria-label="Direct link to reverse" title="Direct link to reverse">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/reverse.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">reverse</code><code>(</code><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List in reverse order.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "c", "b", "a" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="set"><code style="text-decoration:none">set</code><a href="#set" class="hash-link" aria-label="Direct link to set" title="Direct link to set">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/set.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">set</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>index<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns a List which includes <code>value</code> at <code>index</code>.
+  If <code>index</code> already exists, it will be replaced.
+</p>
+<p>Returns the original List if no changes were made.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "A", "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="shift"><code style="text-decoration:none">shift</code><a href="#shift" class="hash-link" aria-label="Direct link to shift" title="Direct link to shift">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/shift.lua#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">shift</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List excluding the first index in this <code>List</code>, shifting all other values to a lower index.</p>
+<p>
+  If <code>amount</code> is not provided, it will default to 1.
+  Passing an <code>amount</code> greater than the length of the given <code>List</code> will result in an empty List.
+</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="skip"><code style="text-decoration:none">skip</code><a href="#skip" class="hash-link" aria-label="Direct link to skip" title="Direct link to skip">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/skip.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">skip</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List which excludes the first <code>amount</code> of entries.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">skip</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "c", "d" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="slice"><code style="text-decoration:none">slice</code><a href="#slice" class="hash-link" aria-label="Direct link to slice" title="Direct link to slice">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/slice.lua#L28"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">slice</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>from<!-- -->: </code><code class="blue_P4bS">number?</code><code>,</code></div><div><code>to<!-- -->: </code><code class="blue_P4bS">number?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List that includes the range <code>[from, to)</code>.</p>
+<p>
+  If <code>from</code> is negative, it is offset from the end of the list.
+  <code>slice(-2)</code> returns a list of the last two entries.
+  If it is not provided, the new list will begin at the first entry.
+</p>
+<p>
+  If <code>to</code> is negative, it is offset from the end of the list.
+  <code>slice(1, -1)</code> returns a list of everything but the last entry.
+  If it is not provided, the new list will continue through the end of the list.
+</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "b", "c" }</span>
+
+List<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "c" }</span>
+
+List<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "b" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="some"><code style="text-decoration:none">some</code><a href="#some" class="hash-link" aria-label="Direct link to some" title="Direct link to some">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/some.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">some</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true if <code>predicate</code> returns true for any entry in the List.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> value <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- true</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="sort"><code style="text-decoration:none">sort</code><a href="#sort" class="hash-link" aria-label="Direct link to sort" title="Direct link to sort">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/sort.lua#L15"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">sort</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>comparator<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">Value</code></div><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Returns a List which includes the same entries, sorted by using a <code>comparator</code>.</p>
+<p>If a <code>comparator</code> is not provided, a default comparator uses <code>&#x3C;</code> and <code>></code>.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { 1, 2, 3, 4 }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="take"><code style="text-decoration:none">take</code><a href="#take" class="hash-link" aria-label="Direct link to take" title="Direct link to take">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/take.lua#L14"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">take</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List which includes the first <code>amount</code> of entires.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "b" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="takeLast"><code style="text-decoration:none">takeLast</code><a href="#takeLast" class="hash-link" aria-label="Direct link to takeLast" title="Direct link to takeLast">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/takeLast.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">takeLast</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List which includes the last <code>amount</code> of entires.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">takeLast</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="unshift"><code style="text-decoration:none">unshift</code><a href="#unshift" class="hash-link" aria-label="Direct link to unshift" title="Direct link to unshift">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/unshift.lua#L13"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">unshift</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List with the provided <code>values</code> prepended, shifting other values ahead to higher indices.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "b", "c" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="update"><code style="text-decoration:none">update</code><a href="#update" class="hash-link" aria-label="Direct link to update" title="Direct link to update">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/update.lua#L23"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">update</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>index<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>updater<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">Value?</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">Value</code><code>,</code></div><div><code>notSetValue<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div>
+<p>Returns a List with the entry at <code>index</code> updated to the result of <code>updater</code>.</p>
+<p>If the entry does not exist, <code>updater</code> will be given <code>notSetValue</code> or nil.</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> string<span class="token punctuation">.</span><span class="token function">rep</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "bbbbb", "c" }</span>
+
+List<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> string<span class="token punctuation">.</span><span class="token function">rep</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">)</span>
+<span class="token comment">-- { "a", "b", "c", "ddddd" }</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="zip"><code style="text-decoration:none">zip</code><a href="#zip" class="hash-link" aria-label="Direct link to zip" title="Direct link to zip">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/zip.lua#L18"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">zip</code><code>(</code><code>...<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="green_DgR4">{</code><code class="blue_P4bS">Value</code><code class="green_DgR4">}</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns a List with all lists given "zipped" together.
+  The length of the List is the length of the shortest provided <code>list</code>.
+</p>
+<pre class="language-lua"><code class="language-lua">List<span class="token punctuation">.</span><span class="token function">zip</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">"x"</span><span class="token punctuation">,</span> <span class="token string">"y"</span><span class="token punctuation">,</span> <span class="token string">"z"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { { "a", "x" }, { "b", "y" }, { "c", "z" } }</span>
+
+List<span class="token punctuation">.</span><span class="token function">zip</span><span class="token punctuation">(</span><span class="token punctuation">{</span> alice<span class="token punctuation">,</span> bertram<span class="token punctuation">,</span> charlie <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> alexander<span class="token punctuation">,</span> betty<span class="token punctuation">,</span> candice<span class="token punctuation">,</span> dennis <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">-- { { alice, alexander }, { bertram, betty }, { charlie, candice } }</span>
+<span class="token comment">-- Note: dennis is omitted and not paired.</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="append"><code style="text-decoration:line-through">append</code><a href="#append" class="hash-link" aria-label="Direct link to append" title="Direct link to append">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/append.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [List.push] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">append</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="create"><code style="text-decoration:line-through">create</code><a href="#create" class="hash-link" aria-label="Direct link to create" title="Direct link to create">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/create.lua#L8"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [table.create] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">create</code><code>(</code><div class="inset_uKQm"><div><code>count<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>value<!-- -->: </code><code class="blue_P4bS">Value?</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="findWhere"><code style="text-decoration:line-through">findWhere</code><a href="#findWhere" class="hash-link" aria-label="Direct link to findWhere" title="Direct link to findWhere">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/findWhere.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [List.find] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">findWhere</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>from<!-- -->: </code><code class="blue_P4bS">never</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="findWhereLast"><code style="text-decoration:line-through">findWhereLast</code><a href="#findWhereLast" class="hash-link" aria-label="Direct link to findWhereLast" title="Direct link to findWhereLast">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/findWhereLast.lua#L10"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [List.reverse] and then [List.find] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">findWhereLast</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>predicate<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">Value</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">number</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>from<!-- -->: </code><code class="blue_P4bS">never?</code></div></div><code>) → </code><code class="blue_P4bS">Value?</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="join"><code style="text-decoration:line-through">join</code><a href="#join" class="hash-link" aria-label="Direct link to join" title="Direct link to join">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/join.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [List.merge] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">join</code><code>(</code><code>...<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeIndex"><code style="text-decoration:line-through">removeIndex</code><a href="#removeIndex" class="hash-link" aria-label="Direct link to removeIndex" title="Direct link to removeIndex">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/removeIndex.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [List.remove] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">removeIndex</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>index<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeIndices"><code style="text-decoration:line-through">removeIndices</code><a href="#removeIndices" class="hash-link" aria-label="Direct link to removeIndices" title="Direct link to removeIndices">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/removeIndices.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [List.remove] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">removeIndices</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeValues"><code style="text-decoration:line-through">removeValues</code><a href="#removeValues" class="hash-link" aria-label="Direct link to removeValues" title="Direct link to removeValues">​</a></h3><div class="repositoryDetailsContainer_BPdw"><span class="releaseVersion_EonW">deprecated in <!-- -->v0.0.4</span><a class="sourceButton_sEho" href="https://github.com/benbrimeyer/Freeze/blob/master/source/List/compat/removeValues.lua#L9"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="admonition alert admonition-caution alert--warning"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>This was deprecated in v0.0.4</h5></div><div class="admonition-content"><p>Use [List.removeValue] instead.</p></div></div><div class="memberString_GwaU"><code>List<!-- -->.</code><code class="green_DgR4">removeValues</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>...<!-- -->: </code><code class="blue_P4bS">Value</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Value</code><code class="purple_ieR2">}</code></div><div></div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;butLast&quot;,
+            &quot;desc&quot;: &quot;Returns a List containing all entires except the last.\n\nEquivalent to `slice(1, -1)`. See [List.slice] for more information.\n\n```lua\nList.butLast({ 1, 2, 3 })\n-- { 1, 2 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/List/butLast.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;append&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [List.push] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/List/compat/append.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;create&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;count&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [table.create] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 8,
+                &quot;path&quot;: &quot;source/List/compat/create.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findWhere&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;from&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;never&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [List.find] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/List/compat/findWhere.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findWhereLast&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;from&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;never?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [List.reverse] and then [List.find] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 10,
+                &quot;path&quot;: &quot;source/List/compat/findWhereLast.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;join&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [List.merge] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/List/compat/join.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeIndex&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;index&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [List.remove] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/List/compat/removeIndex.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeIndices&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [List.remove] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/List/compat/removeIndices.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeValues&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;deprecated&quot;: {
+                &quot;version&quot;: &quot;v0.0.4&quot;,
+                &quot;desc&quot;: &quot;Use [List.removeValue] instead.&quot;
+            },
+            &quot;source&quot;: {
+                &quot;line&quot;: 9,
+                &quot;path&quot;: &quot;source/List/compat/removeValues.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;concat&quot;,
+            &quot;desc&quot;: &quot;Returns a List of the same type concatenated to given arguments.\n\n```lua\nList.concat({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, { \&quot;d\&quot;, \&quot;e\&quot;, \&quot;f\&quot; })\n-- { \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot;, \&quot;d\&quot;, \&quot;e\&quot;, \&quot;f\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/List/concat.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;count&quot;,
+            &quot;desc&quot;: &quot;Returns the number of entries that match the `predicate`.\nIf the `predicate` is not given, all entries will be considered a match.\n\n```lua\nList.count({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; })\n-- 3\n\nList.count({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, function(value)\n\treturn value == \&quot;b\&quot;\nend)\n-- 1\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, number) -&gt; boolean)?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/List/count.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;equals&quot;,
+            &quot;desc&quot;: &quot;Returns true if both Lists have value equality.\n\n```lua\nlocal list1 = { \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }\nlocal list2 = { \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }\n\nList.equals(list1, list2)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;listA&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;listB&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;any&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/List/equals.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;every&quot;,
+            &quot;desc&quot;: &quot;Returns true if `predicate` returns true for all entries in the list.\n\n```lua\nList.every({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, function(value, key)\n\treturn string.lower(value) == value\nend)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/List/every.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;filter&quot;,
+            &quot;desc&quot;: &quot;Returns a new List of only entries for which the `predicate` function returns true.\n\n```lua\nList.filter({ 1, 2, 3, 4 }, function(value, key)\n\treturn value % 2 == 0\nend)\n-- { 2, 4 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/List/filter.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;filterNot&quot;,
+            &quot;desc&quot;: &quot;Returns a new List of only entries for which the `predicate` function returns false.\n\n```lua\nList.filterNot({ 1, 2, 3, 4 }, function(value, index)\n\treturn value % 2 == 0\nend)\n-- { 1, 3 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/List/filterNot.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;find&quot;,
+            &quot;desc&quot;: &quot;Returns the first value for which the `predicate` returns true.\n\n```lua\nList.find({ \&quot;a\&quot;, \&quot;B\&quot;, \&quot;c\&quot; }, function(value, key)\n\treturn value == string.upper(v)\nend)\n-- \&quot;B\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/List/find.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findIndex&quot;,
+            &quot;desc&quot;: &quot;Returns the first index for which the `predicate` returns true.\n\n```lua\nList.findIndex({ \&quot;a\&quot;, \&quot;B\&quot;, \&quot;c\&quot; }, function(value, index)\n\treturn value == string.upper(v)\nend)\n-- 2\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/List/findIndex.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;findPair&quot;,
+            &quot;desc&quot;: &quot;Returns the first [index, value] pair for which the `predicate` returns true.\n\n```lua\nList.findPair({ \&quot;a\&quot;, \&quot;B\&quot;, \&quot;c\&quot; }, function(value, index)\n\treturn value == string.upper(v)\nend)\n-- ( 2, \&quot;B\&quot; )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/List/findPair.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;first&quot;,
+            &quot;desc&quot;: &quot;Returns the first value in the list.\n\n```lua\nList.first({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; })\n-- \&quot;a\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/List/first.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;flatten&quot;,
+            &quot;desc&quot;: &quot;Returns a flattened list in the same index-order as each Value would appear.\n\n```lua\nList.flatten({\n\t\&quot;foo\&quot;,\n\t{\n\t\t\&quot;bar\&quot;,\n\t\t\&quot;baz\&quot;,\n\t},\n\t{\n\t\t\&quot;bar\&quot;,\n\t\t\&quot;baz\&quot;,\n\t},\n\t\&quot;quz\&quot;,\n})\n-- { \&quot;foo\&quot;, \&quot;bar\&quot;, \&quot;baz\&quot;, \&quot;bar\&quot;, \&quot;baz\&quot;, \&quot;quz\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ ListOf&lt;Value&gt; }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;depth&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ ListOf&lt;Value&gt; }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 27,
+                &quot;path&quot;: &quot;source/List/flatten.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;forEach&quot;,
+            &quot;desc&quot;: &quot;While the List is iterated, the `sideEffect` is executed for every entry.\nIf any call of the `sideEffect` returns `false`, the iteration will stop.\n\nReturns the number of entries iterated (including the last iteration which returned false).\n\n```lua\nList.forEach({ 1, 10, -20, 30 }, function(value, index)\n\treturn value &gt; 0\nend)\n-- 3\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;sideEffect&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 18,
+                &quot;path&quot;: &quot;source/List/forEach.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;get&quot;,
+            &quot;desc&quot;: &quot;Returns the value at the given index, otherwise returns `notSetValue` if the given value is not found.\n\nIf `index` is negative, the index will start from the last value.\n\n```lua\nList.get({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 3)\n-- \&quot;c\&quot;\n\nList.get({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, -1)\n-- \&quot;c\&quot;\n\nList.get({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 100, \&quot;default\&quot;)\n-- \&quot;default\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;index&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/List/get.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;has&quot;,
+            &quot;desc&quot;: &quot;Returns true if the `index` exists within the List.\n\n```lua\nList.has({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 2)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;index&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 12,
+                &quot;path&quot;: &quot;source/List/has.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;includes&quot;,
+            &quot;desc&quot;: &quot;Returns true if the `value` is found within the List.\n\n```lua\nList.includes({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, \&quot;b\&quot;)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;query&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/List/includes.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;indexOf&quot;,
+            &quot;desc&quot;: &quot;Returns the index of the `value` if found within the List, otherwise returns nil.\n\n```lua\nList.indexOf({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, \&quot;b\&quot;)\n-- 2\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;searchValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/List/indexOf.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;insert&quot;,
+            &quot;desc&quot;: &quot;Inserts `values` given starting from the given `index`, pushing existing values towards the end.\n\nThe inserted `value` will be clamped to the beginning or end of the List if the given `index` is out of bounds.\n\n```lua\nList.insert({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 2, \&quot;X\&quot;, \&quot;Y\&quot;, \&quot;Z\&quot;)\n-- { \&quot;a\&quot;, \&quot;X\&quot;, \&quot;Y\&quot;, \&quot;Z\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;index&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/List/insert.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;joinAsString&quot;,
+            &quot;desc&quot;: &quot;Joins values together as a string, inserting a separator between each.\n\nThe default separator is `\&quot;,\&quot;`.\n\n```lua\nList.joinAsString({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, \&quot;, \&quot;)\n-- \&quot;a, b, c\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;separator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/List/joinAsString.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;last&quot;,
+            &quot;desc&quot;: &quot;Returns the last value in the List.\n\nReturns `notSetValue` if the List is empty.\n\n```lua\nList.last({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; })\n-- \&quot;c\&quot;\n\nList.last({ }, \&quot;default\&quot;)\n-- \&quot;default\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 19,
+                &quot;path&quot;: &quot;source/List/last.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;map&quot;,
+            &quot;desc&quot;: &quot;Returns a List with values passed through a `mapper` function.\n\nReturning a second `value` in the mapper function will reassign the index.\n\nIf `mapper` returns nil, the entry will be filtered.\n\n```lua\nList.map({ 1, 2, 3 }, function(value, index)\n\treturn value * 10\nend)\n-- { 10, 20, 30 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;mapper&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; (NewValue, number?)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ NewValue }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 21,
+                &quot;path&quot;: &quot;source/List/map.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;max&quot;,
+            &quot;desc&quot;: &quot;Returns the maximum value in this List.\nIf any values are comparatively equivalent, the first one found will be returned.\n\nThe `comparator` is used in the same way as `table.sort`. If it is not provided, the default comparator is `&gt;`.\n\n```lua\nList.max({ 10, 200, 30 })\n-- ( 200, 2 )\n\nList.max({ child, teen, adult }, function(personA, personB)\n\treturn personA.age &gt; personB.age\nend)\n-- ( adult, 3 )\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;comparator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Value) -&gt; boolean)?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 22,
+                &quot;path&quot;: &quot;source/List/max.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;merge&quot;,
+            &quot;desc&quot;: &quot;Returns a merged result of all given Lists.\n\nIf `Freeze.None` is a value assigned to an index, it will delete that index from the resulting List.\n\n```lua\nList.merge({ 10, nil, 30 }, { nil, 20, nil })\n-- { 10, 20, 30 }\n\nList.merge({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, { \&quot;x\&quot; }, { nil, \&quot;y\&quot;, Freeze.None })\n-- { \&quot;x\&quot;, \&quot;y\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ any }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 20,
+                &quot;path&quot;: &quot;source/List/merge.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;min&quot;,
+            &quot;desc&quot;: &quot;Returns the minimum value in this List.\nIf any values are comparatively equivalent, the first one found will be returned.\n\nThe `comparator` is used in the same way as `table.sort`. If it is not provided, the default comparator is `&gt;`.\n\n```lua\nList.min({ 10, 200, 30 })\n-- 10\n\nList.min({ child, teen, adult }, function(personA, personB)\n\treturn personA.age &gt; personB.age\nend)\n-- child\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;comparator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Value) -&gt; boolean)?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 21,
+                &quot;path&quot;: &quot;source/List/min.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;pop&quot;,
+            &quot;desc&quot;: &quot;Returns a List excluding the last `index` of this List.\n\nThis will repeat multiple times if given the optional `amount` argument and will always pop at least once.\n\n\n```lua\nList.pop({ 10, 20, 30 })\n-- { 10, 20 }\n\nList.pop({ 10, 20, 30 }, 2)\n-- { 10 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;amount&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 19,
+                &quot;path&quot;: &quot;source/List/pop.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;push&quot;,
+            &quot;desc&quot;: &quot;Returns a List with the provided `values` appended at the end of the List.\n\n```lua\nList.push({ 10, 20, 30 }, 40, 50, 60)\n-- { 10, 20, 30, 40, 50, 60 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/List/push.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;reduce&quot;,
+            &quot;desc&quot;: &quot;Returns the final reduced result by iterating the List and calling the `reducer` for every entry\nand passing along the reduced value.\n\n```lua\nList.reduce({ 10, 20, 30 }, function(reduction, value)\n\treturn reduction + value\nend, 0)\n-- 60\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;reducer&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(T, Value, number) -&gt; T&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;initialReduction&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;T&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;T\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/List/reduce.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;reduceRight&quot;,
+            &quot;desc&quot;: &quot;Returns the final reduced result by iterating the list in reverse (from the right side) and calling the `reducer` for every entry\nand passing along the reduced value.\n\n```lua\nList.reduceRight({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, function(reduction, value)\n\treturn reduction .. value\nend, \&quot;\&quot;)\n-- \&quot;cba\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;reducer&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(T, Value, number) -&gt; T&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;initialReduction&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;T&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;T\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/List/reduceRight.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;remove&quot;,
+            &quot;desc&quot;: &quot;Returns a List which excludes this `index`. Values at indices above `index` are shifted down by 1 to fill the position.\n\n`index` may be a negative number, which indexes back from the end of the list.\n`list.remove(-1)` removes the last item in the list.\n\nIf the given `given` results in an index that is out of bounds, it will return the original list with no changes.\n\n```lua\nList.remove({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot;, \&quot;d\&quot; }, 3)\n-- { \&quot;a\&quot;, \&quot;b\&quot;, \&quot;d\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 43,
+                &quot;path&quot;: &quot;source/List/remove.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;removeValue&quot;,
+            &quot;desc&quot;: &quot;Returns a List having removed all entries with the given `value`.\n\nIf no values are present, it will return the original List with no changes.\n\n```lua\nList.removeValue({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, \&quot;a\&quot;)\n-- { \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 34,
+                &quot;path&quot;: &quot;source/List/removeValue.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;rest&quot;,
+            &quot;desc&quot;: &quot;Returns a List containing all entries except the first.\n\nEquivalent to `slice(2)`. See [List.slice] for more information.\n\n```lua\nList.rest({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; })\n-- { \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 17,
+                &quot;path&quot;: &quot;source/List/rest.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;reverse&quot;,
+            &quot;desc&quot;: &quot;Returns a List in reverse order.\n\n```lua\nList.reverse({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; })\n-- { \&quot;c\&quot;, \&quot;b\&quot;, \&quot;a\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/List/reverse.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;set&quot;,
+            &quot;desc&quot;: &quot;Returns a List which includes `value` at `index`.\nIf `index` already exists, it will be replaced.\n\nReturns the original List if no changes were made.\n\n```lua\nList.set({\&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot;}, 1, \&quot;A\&quot;)\n-- { \&quot;A\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;index&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;value&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/List/set.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;shift&quot;,
+            &quot;desc&quot;: &quot;Returns a List excluding the first index in this `List`, shifting all other values to a lower index.\n\nIf `amount` is not provided, it will default to 1.\nPassing an `amount` greater than the length of the given `List` will result in an empty List.\n\n```lua\nList.shift({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; })\n-- { \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;amount&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;source/List/shift.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;skip&quot;,
+            &quot;desc&quot;: &quot;Returns a List which excludes the first `amount` of entries.\n\n```lua\nList.skip({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot;, \&quot;d\&quot; }, 2)\n-- { \&quot;c\&quot;, \&quot;d\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;amount&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/List/skip.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;slice&quot;,
+            &quot;desc&quot;: &quot;Returns a List that includes the range `[from, to)`.\n\nIf `from` is negative, it is offset from the end of the list.\n`slice(-2)` returns a list of the last two entries.\nIf it is not provided, the new list will begin at the first entry.\n\nIf `to` is negative, it is offset from the end of the list.\n`slice(1, -1)` returns a list of everything but the last entry.\nIf it is not provided, the new list will continue through the end of the list.\n\n```lua\nList.slice({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 2)\n-- { \&quot;b\&quot;, \&quot;c\&quot; }\n\nList.slice({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, -1)\n-- { \&quot;c\&quot; }\n\nList.slice({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 1, -1)\n-- { \&quot;a\&quot;, \&quot;b\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;from&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;to&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 28,
+                &quot;path&quot;: &quot;source/List/slice.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;some&quot;,
+            &quot;desc&quot;: &quot;Returns true if `predicate` returns true for any entry in the List.\n\n```lua\nList.some({ 1, 2, 3 }, function(value, index)\n\treturn value % 2 == 0\nend)\n-- true\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;predicate&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value, number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/List/some.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;sort&quot;,
+            &quot;desc&quot;: &quot;Returns a List which includes the same entries, sorted by using a `comparator`.\n\nIf a `comparator` is not provided, a default comparator uses `&lt;` and `&gt;`.\n\n```lua\nList.sort({ 4, 2, 1, 3 })\n-- { 1, 2, 3, 4 }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;comparator&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;((Value, Value) -&gt; boolean)?&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 15,
+                &quot;path&quot;: &quot;source/List/sort.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;take&quot;,
+            &quot;desc&quot;: &quot;Returns a List which includes the first `amount` of entires.\n\n```lua\nList.take({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot;, \&quot;d\&quot; }, 2)\n-- { \&quot;a\&quot;, \&quot;b\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;amount&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 14,
+                &quot;path&quot;: &quot;source/List/take.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;takeLast&quot;,
+            &quot;desc&quot;: &quot;Returns a List which includes the last `amount` of entires.\n\n```lua\nList.takeLast({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 2)\n-- { \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;amount&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/List/takeLast.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;toSet&quot;,
+            &quot;desc&quot;: &quot;Returns a Set from the given List.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;ignore&quot;: true,
+            &quot;source&quot;: {
+                &quot;line&quot;: 10,
+                &quot;path&quot;: &quot;source/List/toSet.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;unshift&quot;,
+            &quot;desc&quot;: &quot;Returns a List with the provided `values` prepended, shifting other values ahead to higher indices.\n\n```lua\nList.unshift({ \&quot;b\&quot;, \&quot;c\&quot; }, \&quot;a\&quot;)\n-- { \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 13,
+                &quot;path&quot;: &quot;source/List/unshift.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;update&quot;,
+            &quot;desc&quot;: &quot;Returns a List with the entry at `index` updated to the result of `updater`.\n\nIf the entry does not exist, `updater` will be given `notSetValue` or nil.\n\n```lua\nList.update({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 2, function(value)\n\treturn string.rep(value, 5)\nend)\n-- { \&quot;a\&quot;, \&quot;bbbbb\&quot;, \&quot;c\&quot; }\n\nList.update({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, 4, function(value)\n\treturn string.rep(value, 5)\nend, \&quot;d\&quot;)\n-- { \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot;, \&quot;ddddd\&quot; }\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;list&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;index&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;updater&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(Value?) -&gt; Value&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;notSetValue&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Value?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 23,
+                &quot;path&quot;: &quot;source/List/update.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;updateIn&quot;,
+            &quot;desc&quot;: &quot;Returns a new list with the entry at `keyPath` updated to the result of `updater`.\n\nIf any entry does not exist along `keyPath`, an empty map will be created in its place.\nIf the final entry does not exist, `updater` will be given `notSetValue` or nil.\n\n```lua\nList.updateIn({ \&quot;a\&quot;, \&quot;b\&quot;, { \&quot;c\&quot;, \&quot;d\&quot; } }, { 4, 1 }, function(value)\n\treturn string.rep(value, 5)\nend)\n-- { \&quot;a\&quot;, \&quot;b\&quot;, { \&quot;ccccc\&quot;, \&quot;e\&quot; } }\n\nList.updateIn({ \&quot;a\&quot;, \&quot;b\&quot;, { \&quot;c\&quot;, \&quot;d\&quot; } }, { 4, 3, 1 }, function(value)\n\treturn string.rep(value, 5)\nend, \&quot;e\&quot;)\n-- { \&quot;a\&quot;, \&quot;b\&quot;, { \&quot;c\&quot;, \&quot;d\&quot;, { \&quot;eeeee\&quot; } } }\n```&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;ignore&quot;: true,
+            &quot;source&quot;: {
+                &quot;line&quot;: 28,
+                &quot;path&quot;: &quot;source/List/updateIn.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;zip&quot;,
+            &quot;desc&quot;: &quot;Returns a List with all lists given \&quot;zipped\&quot; together.\nThe length of the List is the length of the shortest provided `list`.\n\n```lua\nList.zip({ \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; }, { \&quot;x\&quot;, \&quot;y\&quot;, \&quot;z\&quot; })\n-- { { \&quot;a\&quot;, \&quot;x\&quot; }, { \&quot;b\&quot;, \&quot;y\&quot; }, { \&quot;c\&quot;, \&quot;z\&quot; } }\n\nList.zip({ alice, bertram, charlie }, { alexander, betty, candice, dennis })\n-- { { alice, alexander }, { bertram, betty }, { charlie, candice } }\n-- Note: dennis is omitted and not paired.\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ Value }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ { Value } }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 18,
+                &quot;path&quot;: &quot;source/List/zip.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;List&quot;,
+    &quot;desc&quot;: &quot;Handles list-like operations.\n\n[`Lists`](../api/List) are ordered tables with numeric indices.&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 9,
+        &quot;path&quot;: &quot;source/List/init.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#append" class="table-of-contents__link toc-highlight">.append</a></li><li><a href="#butLast" class="table-of-contents__link toc-highlight">.butLast</a></li><li><a href="#concat" class="table-of-contents__link toc-highlight">.concat</a></li><li><a href="#count" class="table-of-contents__link toc-highlight">.count</a></li><li><a href="#create" class="table-of-contents__link toc-highlight">.create</a></li><li><a href="#equals" class="table-of-contents__link toc-highlight">.equals</a></li><li><a href="#every" class="table-of-contents__link toc-highlight">.every</a></li><li><a href="#filter" class="table-of-contents__link toc-highlight">.filter</a></li><li><a href="#filterNot" class="table-of-contents__link toc-highlight">.filterNot</a></li><li><a href="#find" class="table-of-contents__link toc-highlight">.find</a></li><li><a href="#findIndex" class="table-of-contents__link toc-highlight">.findIndex</a></li><li><a href="#findPair" class="table-of-contents__link toc-highlight">.findPair</a></li><li><a href="#findWhere" class="table-of-contents__link toc-highlight">.findWhere</a></li><li><a href="#findWhereLast" class="table-of-contents__link toc-highlight">.findWhereLast</a></li><li><a href="#first" class="table-of-contents__link toc-highlight">.first</a></li><li><a href="#flatten" class="table-of-contents__link toc-highlight">.flatten</a></li><li><a href="#forEach" class="table-of-contents__link toc-highlight">.forEach</a></li><li><a href="#get" class="table-of-contents__link toc-highlight">.get</a></li><li><a href="#has" class="table-of-contents__link toc-highlight">.has</a></li><li><a href="#includes" class="table-of-contents__link toc-highlight">.includes</a></li><li><a href="#indexOf" class="table-of-contents__link toc-highlight">.indexOf</a></li><li><a href="#insert" class="table-of-contents__link toc-highlight">.insert</a></li><li><a href="#join" class="table-of-contents__link toc-highlight">.join</a></li><li><a href="#joinAsString" class="table-of-contents__link toc-highlight">.joinAsString</a></li><li><a href="#last" class="table-of-contents__link toc-highlight">.last</a></li><li><a href="#map" class="table-of-contents__link toc-highlight">.map</a></li><li><a href="#max" class="table-of-contents__link toc-highlight">.max</a></li><li><a href="#merge" class="table-of-contents__link toc-highlight">.merge</a></li><li><a href="#min" class="table-of-contents__link toc-highlight">.min</a></li><li><a href="#pop" class="table-of-contents__link toc-highlight">.pop</a></li><li><a href="#push" class="table-of-contents__link toc-highlight">.push</a></li><li><a href="#reduce" class="table-of-contents__link toc-highlight">.reduce</a></li><li><a href="#reduceRight" class="table-of-contents__link toc-highlight">.reduceRight</a></li><li><a href="#remove" class="table-of-contents__link toc-highlight">.remove</a></li><li><a href="#removeIndex" class="table-of-contents__link toc-highlight">.removeIndex</a></li><li><a href="#removeIndices" class="table-of-contents__link toc-highlight">.removeIndices</a></li><li><a href="#removeValue" class="table-of-contents__link toc-highlight">.removeValue</a></li><li><a href="#removeValues" class="table-of-contents__link toc-highlight">.removeValues</a></li><li><a href="#rest" class="table-of-contents__link toc-highlight">.rest</a></li><li><a href="#reverse" class="table-of-contents__link toc-highlight">.reverse</a></li><li><a href="#set" class="table-of-contents__link toc-highlight">.set</a></li><li><a href="#shift" class="table-of-contents__link toc-highlight">.shift</a></li><li><a href="#skip" class="table-of-contents__link toc-highlight">.skip</a></li><li><a href="#slice" class="table-of-contents__link toc-highlight">.slice</a></li><li><a href="#some" class="table-of-contents__link toc-highlight">.some</a></li><li><a href="#sort" class="table-of-contents__link toc-highlight">.sort</a></li><li><a href="#take" class="table-of-contents__link toc-highlight">.take</a></li><li><a href="#takeLast" class="table-of-contents__link toc-highlight">.takeLast</a></li><li><a href="#unshift" class="table-of-contents__link toc-highlight">.unshift</a></li><li><a href="#update" class="table-of-contents__link toc-highlight">.update</a></li><li><a href="#zip" class="table-of-contents__link toc-highlight">.zip</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 benbrimeyer. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/Freeze/assets/js/runtime~main.6b7f6525.js"></script>
+<script src="/Freeze/assets/js/main.b297e574.js"></script>
+</body>
+</html>
