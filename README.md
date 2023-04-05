@@ -51,7 +51,5 @@ Freeze takes inspiration from:
 - [Immutable.js](https://immutable-js.com/)
 
 
-
-
 ## Demos
 See [demonstrations](https://benbrimeyer.github.io/Freeze/docs/Demonstration) within our docs!
