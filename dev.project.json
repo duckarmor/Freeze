@@ -7,7 +7,7 @@
             "Packages": {
                 "$className": "Folder",
                 "Dev": {
-                    "$path": "Packages"
+                    "$path": "DevPackages"
                 },
                 "Freeze": {
                     "$path": "source"

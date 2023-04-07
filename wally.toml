@@ -5,7 +5,7 @@ description = "Immutable data structures for Roblox Luau ❄️"
 version = "0.1.0"
 registry = "https://github.com/upliftgames/wally-index"
 realm = "shared"
-exclude = ["bin", "docs", ".moonwave", "build", "tests", "*spec.lua"]
+exclude = ["bin", "docs", ".moonwave", "build", "tests", "*spec.lua", "*.project.json", "*d.luau", "*.toml"]
 
-[dependencies]
+[dev-dependencies]
 TestEZ = "roblox/testez@0.4.1"
