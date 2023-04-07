@@ -35,11 +35,11 @@ Try it out! Use `print` on `list1` and `list2` and you'll see they print two dif
 ```lua
 print(tostring(list1))
 -- table: 0x1111111111111111
-print(tostring(list1))
+print(tostring(list2))
 -- table: 0x2222222222222222
 ```
 
-If we wanted to compare the value equality between the two lists, that could become expensive depending on the size of the lists.
+If we wanted to compare the value equality between the two lists, that could become expensive depending on the size of the lists. It would require traversing each list (and sub data structures!!) and comparing the values and keys with each.
 
 If we treated `list1` as an **immutable** list, we can solve this class of problems:
 
@@ -76,10 +76,25 @@ end)
 ```
 Since newState and oldState are two unique snapshots of state, they can be referenced now or at a later date to determine what has changed.
 
-We didn't have to run an expensive value equality comparision function. Simply the basis of the reference equality (`==`) is all we need.
+We didn't have to run an expensive value equality comparison function. Simply the basis of the reference equality (`==`) is all we need.
 
 If newState and oldState were not immutable, we would have a much harder time determining something had changed.
 
+For more practical examples, check out our [Examples and Usecases](/docs/ExamplesAndUsecases) page.
+
+## Immutability and performance
+There are some readers who may be concerned that creating new tables instead of reusing old ones for operations may not be performant enough for their use cases.
+
+Rest assured that Luau is a _very_ performant language and immutability may be worth the benefits as it can reduce code complexity and open up new solutions that were not feasible without these structures (examples: state time travel, state debugging, creating an undo/redo stack).
+
+Consider immutable data structures as a tool like any other high level concepts you've learned. If you are using immutable data structures in one part of your project, it does not mean you **must** use them in all other systems where the benefits and tradeoffs don't make sense.
+
+
+## TLDR
+In summary, the following are core key points that immutable data structures can help with.
+1. Without immutable data structures, state mutations can turn into spaghetti really quickly. Immutability helps employ robust practices and encourage mindfulness when designing all the ways state can change.
+2. When detecting state changes, immutability helps by using a cheap `==` operation for reference equality instead of an expensive equality checking function by leaning on an inherit property of immutability in Luau; a new table will be produced every time its contents are changed.
+3. It's difficult to robustly keep track of how state changes over time. Immutability helps by inherently leaving a breadcrumb trail of previous states to easily store for debugging.
 
 ## I can't stop reading about immutability!
 

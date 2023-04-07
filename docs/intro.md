@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Freeze is an immutable data structure library for Roblox Luau.
 
-Immutable data structures are imperative for use with popular libraries such as React and Rodux. To learn more about why immutability is important, check out our **How does immutability help?** page.
+Immutable data structures are imperative for use with popular libraries such as React and Rodux. To learn more about why immutability is important, check out our [How does immutability help?](/docs/WhyImmutable) page.
 
 Freeze is fully[^1] typed and currently used in several duckarmor projects.
 
@@ -29,6 +29,9 @@ print(map1 == map2)
 -- true; because no changes were made
 ```
 True to it's name, Freeze will return calls of new values wrapped in `table.frozen`. Return values that are not changed will not be `table.frozen`'d to preserve the caller's frozen status.
+
+## Nested Data Structures
+Freeze also has a few power tools at your disposal to allow for reading and operating on nested data structures. These include [`getIn`](/api/Dictionary#getIn), [`setIn`](/api/Dictionary#setIn), [`mergeIn`](/api/Dictionary#mergeIn), and [`updateIn`](/api/Dictionary#updateIn), found on [`Dictionary`](/api/Dictionary).
 
 ## Freeze's General Philosophy
 
