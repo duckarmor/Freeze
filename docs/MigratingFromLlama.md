@@ -36,6 +36,9 @@ The following is a list of deviations between Freeze and Llama:
 ### .fromLists
 - Not implemented.
 
+### .map
+- [`Freeze.Dictionary.map`](/api/Dictionary#map) requires the `mapper` argument to return two arguments for `value` and `key`.
+
 ### .mergeDeep
 - Not implemented.
 

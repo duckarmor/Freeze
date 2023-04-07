@@ -6,11 +6,9 @@ local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 
 	Returning a second value in the mapper function will reassign the key.
 
-	If `mapper` returns nil for value, the entry will be filtered.
-
 	```lua
-	Dictionary.map({ a = 1, b = 2, c = 3 }, function(value, _key)
-		return value * 10
+	Dictionary.map({ a = 1, b = 2, c = 3 }, function(value, key)
+		return value * 10, key
 	end)
 	-- { a = 10, b = 20, c = 30 }
 	```
@@ -18,7 +16,7 @@ local maybeFreeze = require(script.Parent.Parent.utils.maybeFreeze)
 	@within Dictionary
 ]=]
 
-local function map<Key, Value, NewValue>(dictionary: { [Key]: Value }, mapper: (Value, Key) -> (NewValue?, Key?)): { [Key]: NewValue? }
+local function map<Key, Value, NewKey, NewValue>(dictionary: { [Key]: Value }, mapper: (Value, Key) -> (NewValue, NewKey)): { [NewKey]: NewValue? }
 	return maybeFreeze(mapImpl(dictionary, mapper))
 end
 

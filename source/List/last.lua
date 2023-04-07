@@ -17,7 +17,7 @@ local get = require(script.Parent.get)
 	@within List
 ]=]
 
-local function last<Value>(list: { Value }, notSetValue: Value): Value?
+local function last<Value>(list: { Value }, notSetValue: Value?): Value?
 	return get(list, -1, notSetValue)
 end
 

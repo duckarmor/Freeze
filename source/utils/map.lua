@@ -1,7 +1,7 @@
 --!strict
 
-return function<K, V, V2>(collection: { [K]: V }, mapper: (V, K) -> (V2, K?))
-	local new: { [K]: V2 } = {}
+return function<K, V, K2, V2>(collection: { [K]: V }, mapper: (V, K) -> (V2, K2)): { [K2]: V2 }
+	local new = {}
 
 	for key, value in collection do
 		local mappedValue, mappedKey = mapper(value, key)
@@ -12,5 +12,5 @@ return function<K, V, V2>(collection: { [K]: V }, mapper: (V, K) -> (V2, K?))
 		end
 	end
 
-	return new
+	return new :: { [K2]: V2 }
 end
