@@ -1,6 +1,6 @@
 [package]
 name = "duckarmor/freeze"
-authors = ["benbrimeyer"]
+authors = ["duckarmor"]
 description = "Immutable data structures for Roblox Luau ❄️"
 version = "0.1.0"
 registry = "https://github.com/upliftgames/wally-index"
