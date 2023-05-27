@@ -4,7 +4,7 @@
 
 ```toml
 [dependencies]
-Freeze = "duckarmor/freeze@0.1.3"
+Freeze = "duckarmor/freeze@0.1.4"
 ```
 
 <!--moonwave-hide-before-this-line-->

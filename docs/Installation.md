@@ -8,5 +8,5 @@ sidebar_position: 3
 
 ```toml
 [dependencies]
-Freeze = "duckarmor/freeze@0.1.3"
+Freeze = "duckarmor/freeze@0.1.4"
 ```
