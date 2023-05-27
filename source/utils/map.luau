@@ -7,7 +7,7 @@ return function<K, V, K2, V2>(collection: { [K]: V }, mapper: (V, K) -> (V2, K2)
 		local mappedValue, mappedKey = mapper(value, key)
 		local newKey = if mappedKey == nil then key else mappedKey
 
-		if mappedValue then
+		if mappedValue ~= nil then
 			new[newKey] = mappedValue
 		end
 	end
